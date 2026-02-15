@@ -74,6 +74,20 @@ const heroStyle = computed(() => {
   margin-bottom: var(--spacing-xl);
 }
 
+.hero-content :deep(.hero-tagline) {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--spacing-sm);
+  margin-top: calc(-1 * var(--spacing-lg));
+}
+
+.hero-content :deep(.hero-description) {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--spacing-xl);
+}
+
 .hero-content :deep(.hero-actions) {
   display: flex;
   gap: var(--spacing-md);
@@ -93,6 +107,14 @@ const heroStyle = computed(() => {
 
   .hero-content :deep(p) {
     font-size: var(--font-size-lg);
+  }
+
+  .hero-content :deep(.hero-tagline) {
+    font-size: var(--font-size-xl);
+  }
+
+  .hero-content :deep(.hero-description) {
+    font-size: var(--font-size-base);
   }
 }
 </style>

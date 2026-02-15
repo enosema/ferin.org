@@ -1,8 +1,9 @@
 <template>
   <div class="home-view">
     <HeroSection>
-      <h1>The FERIN Interpretation Companion</h1>
-      <p>Everything ISO 19135:2026 doesn't tell you about the Framework for Extensible Registration of Information</p>
+      <h1>FERIN</h1>
+      <p class="hero-tagline">The International Standard for Information Registration</p>
+      <p class="hero-description">Practical guidance for implementing ISO 19135:2026</p>
       <div class="hero-actions">
         <GradientButton to="/learn/core-concepts" size="lg">
           Start Learning
@@ -93,9 +94,9 @@
 
     <section class="section featured-section">
       <div class="container">
-        <h2 class="section-title">Featured Interpretation Topics</h2>
+        <h2 class="section-title">Key Implementation Topics</h2>
         <p class="section-subtitle">
-          The most common questions implementers have when working with FERIN.
+          Essential guidance for building FERIN-compliant registers.
         </p>
 
         <div class="featured-grid">
@@ -184,18 +185,22 @@
         <div class="trust-content">
           <div class="trust-badges">
             <div class="trust-badge">
-              <span class="badge-label">Companion to</span>
+              <span class="badge-label">Defined in</span>
               <span class="badge-value">ISO 19135:2026</span>
             </div>
             <div class="trust-badge">
               <span class="badge-label">Developed by</span>
+              <span class="badge-value">ISO/TC 211</span>
+            </div>
+            <div class="trust-badge">
+              <span class="badge-label">Guidance by</span>
               <span class="badge-value">Enosema Foundation</span>
             </div>
           </div>
           <p class="trust-notice">
-            The abbreviation FERIN is invented by Ronald Tse and Reese Plews.
-            This site is an interpretation companion to ISO 19135:2026. No content is copied
-            from the standard and does not infringe on ISO copyright.
+            FERIN is codified in ISO 19135:2026. This site provides interpretation
+            and practical guidance beyond the standard specification. FERIN is a
+            non-registered trademark of the Enosema Foundation.
           </p>
         </div>
       </div>
@@ -513,7 +518,7 @@ const latestNews = getLatestNews(1)
 .trust-badges {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-3xl);
   margin-bottom: var(--spacing-lg);
 }
 
