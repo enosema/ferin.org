@@ -46,14 +46,11 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="trademark-notice">
-          The abbreviation FERIN is invented by Ronald Tse and Reese Plews.
-        </p>
         <p class="copyright">
-          This site is an interpretation companion to ISO 19135:2026. No content is copied from the standard and does not infringe on ISO copyright. Developed by the Enosema Foundation.
+          Copyright &copy; Enosema Foundation. All rights reserved. Trademarks belong to their respective owners.
         </p>
         <p class="publisher">
-          Site owned and published by the Enosema Foundation.
+          This site is an interpretation companion to ISO 19135:2026. Site owned and published by the Enosema Foundation.
         </p>
       </div>
     </div>
@@ -195,15 +192,9 @@
   gap: var(--spacing-sm);
 }
 
-.trademark-notice {
-  font-size: var(--font-size-sm);
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-}
-
 .copyright {
-  font-size: var(--font-size-xs);
-  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8);
   margin: 0;
 }
 

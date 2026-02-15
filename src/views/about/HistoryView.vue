@@ -178,8 +178,7 @@
           <tr>
             <td><strong>Enosema Foundation</strong></td>
             <td>
-              Trademark holder for FERIN and contributor to concept relations
-              development.
+              Contributor to concept relations development and site publisher.
             </td>
           </tr>
         </tbody>
@@ -225,29 +224,40 @@
 
       <h3>Development Stages</h3>
       <div class="stages-table">
+        <div class="stage-row stage-header">
+          <span class="stage-code">Stage</span>
+          <span class="stage-name">Description</span>
+          <span class="stage-date">Date</span>
+        </div>
         <div class="stage-row">
           <span class="stage-code">10.99</span>
           <span class="stage-name">New work item proposal approved</span>
+          <span class="stage-date">2022-05</span>
         </div>
         <div class="stage-row">
           <span class="stage-code">20.00</span>
           <span class="stage-name">Working draft registered</span>
+          <span class="stage-date">2022-11</span>
         </div>
         <div class="stage-row">
           <span class="stage-code">30.00</span>
           <span class="stage-name">Committee draft registered</span>
+          <span class="stage-date">2023-05</span>
         </div>
         <div class="stage-row">
           <span class="stage-code">40.00</span>
           <span class="stage-name">DIS (Draft International Standard) registered</span>
+          <span class="stage-date">2024-06</span>
         </div>
         <div class="stage-row">
           <span class="stage-code">50.00</span>
           <span class="stage-name">FDIS (Final Draft International Standard) registered</span>
+          <span class="stage-date">2025-06</span>
         </div>
         <div class="stage-row">
           <span class="stage-code">60.60</span>
           <span class="stage-name">International Standard published</span>
+          <span class="stage-date">2026-02-05</span>
         </div>
       </div>
 
@@ -494,6 +504,15 @@
   border-bottom: none;
 }
 
+.stage-header {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-light);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--color-border);
+}
+
 .stage-code {
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
@@ -505,6 +524,15 @@
 .stage-name {
   font-size: var(--font-size-sm);
   color: var(--color-text);
+  flex: 1;
+}
+
+.stage-date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  min-width: 80px;
+  text-align: right;
+  font-family: var(--font-mono);
 }
 
 .leadership-list {
