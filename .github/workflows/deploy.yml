@@ -45,7 +45,7 @@ jobs:
         run: npm run build
 
       - name: Add CNAME for custom domain
-        run: echo 'ferin.org' > dist/CNAME
+        run: echo 'www.ferin.org' > dist/CNAME
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

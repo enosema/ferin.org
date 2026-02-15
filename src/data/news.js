@@ -58,7 +58,8 @@ export const newsItems = [
       'Michael Craymer (NRCAN)',
       'Marie Lambois (IGN)',
       'Ivana Ivanova (Curtin University)',
-      'Knut Jetlund (Kartverket)'
+      'Knut Jetlund (Kartverket)',
+      'Chikako Kurokawa (Asia Air Survey)'
     ],
     acknowledgments: {
       isoEditor: {
