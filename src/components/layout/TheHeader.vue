@@ -1,3 +1,7 @@
+<!--
+  Site Header Component
+  Main navigation for ferin.org
+-->
 <template>
   <header class="header glass" ref="headerRef">
     <div class="header-container">
