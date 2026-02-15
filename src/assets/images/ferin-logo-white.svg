@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <linearGradient id="ferinGradientWhite" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5eead4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#93c5fd;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logo mark - stylized F representing interconnected registry nodes -->
+  <g transform="translate(5, 8)">
+    <!-- Outer frame suggesting a register container -->
+    <rect x="2" y="2" width="36" height="40" rx="4" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+
+    <!-- Stylized F with registry nodes -->
+    <path d="M12 12 L30 12 M12 12 L12 38 M12 24 L26 24"
+          stroke="rgba(255,255,255,0.9)" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+    <!-- Node dots representing registered items -->
+    <circle cx="12" cy="12" r="3" fill="url(#ferinGradientWhite)"/>
+    <circle cx="12" cy="24" r="3" fill="url(#ferinGradientWhite)"/>
+    <circle cx="12" cy="36" r="3" fill="rgba(255,255,255,0.7)"/>
+    <circle cx="30" cy="12" r="2.5" fill="rgba(255,255,255,0.7)"/>
+    <circle cx="26" cy="24" r="2.5" fill="rgba(255,255,255,0.7)"/>
+  </g>
+
+  <!-- FERIN text -->
+  <text x="52" y="38" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#ffffff" letter-spacing="-0.5">
+    FERIN
+  </text>
+
+  <!-- Tagline -->
+  <text x="52" y="52" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="9" fill="rgba(255,255,255,0.7)" letter-spacing="0.5">
+    FRAMEWORK FOR EXTENSIBLE REGISTRATION
+  </text>
+</svg>

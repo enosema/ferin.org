@@ -1,0 +1,39 @@
+= ferin.org
+:toc: macro
+:toclevels: 2
+
+image:https://img.shields.io/github/license/enosema/ferin.org.svg[License]
+
+== Purpose
+
+This is the documentation site for the FERIN framework, codified in ISO 19135 (Procedures for item registration). The site is developed by ISO/TC 211 with project leaders from the Enosema Foundation.
+
+*FERIN is a non-registered trademark first used by the Enosema Foundation.*
+
+The site serves as an introductory and educational resource about FERIN, providing:
+
+* Introduction to the FERIN framework
+* Use cases and adoption guidance
+* Detailed usage documentation (including content beyond the ISO standard)
+* Links to purchase the ISO standard and to Enosema.org
+
+== Related Resources
+
+* ISO 19135 standard source: https://www.iso.org/standard/32573.html[ISO Store]
+* Enosema Foundation: https://enosema.org
+
+== Installation
+
+[TBD after project scaffolding]
+
+== Usage
+
+[TBD after project scaffolding]
+
+== Development
+
+[TBD after project scaffolding]
+
+== License
+
+This project is licensed under the MIT License.
