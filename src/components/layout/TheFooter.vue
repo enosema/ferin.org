@@ -8,6 +8,12 @@
             <strong>F</strong>ramework for <strong>E</strong>xtensible
             <strong>R</strong>egistration of <strong>I</strong>nformation
           </p>
+          <div class="footer-enosema">
+            <span class="enosema-label">A project of</span>
+            <a href="https://enosema.org" target="_blank" rel="noopener" class="enosema-full-link">
+              <img src="/enosema-logo.svg" alt="Enosema Foundation" class="enosema-full-logo" />
+            </a>
+          </div>
         </div>
 
         <div class="footer-links">
@@ -31,7 +37,7 @@
               ISO Store
             </a>
             <a href="https://enosema.org" target="_blank" rel="noopener" class="enosema-link">
-              <img src="/enosema-logo.svg" alt="" class="enosema-logo" />
+              <img src="/enosema-icon.svg" alt="" class="enosema-logo" />
               Enosema Foundation
             </a>
             <router-link to="/news">News</router-link>
@@ -105,6 +111,38 @@
   color: var(--color-accent-light);
 }
 
+.footer-enosema {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.enosema-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.enosema-full-link {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity var(--transition-fast);
+}
+
+.enosema-full-link:hover {
+  opacity: 0.85;
+}
+
+.enosema-full-logo {
+  height: 32px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
 .footer-links {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -140,14 +178,14 @@
 }
 
 .enosema-logo {
-  width: 16px;
-  height: 16px;
-  opacity: 0.8;
-  transition: opacity var(--transition-fast);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
 }
 
 .enosema-link:hover .enosema-logo {
-  opacity: 1;
+  transform: scale(1.1);
 }
 
 .footer-bottom {

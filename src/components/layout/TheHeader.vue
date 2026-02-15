@@ -27,6 +27,11 @@
         </router-link>
       </nav>
 
+      <a href="https://enosema.org" target="_blank" rel="noopener" class="enosema-badge">
+        <span class="enosema-text">by</span>
+        <img src="/enosema-icon.svg" alt="Enosema Foundation" class="enosema-icon" />
+      </a>
+
       <button
         class="mobile-menu-btn"
         @click="toggleMobileMenu"
@@ -152,6 +157,33 @@ onUnmounted(() => {
   transform: scaleX(1);
 }
 
+.enosema-badge {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-full);
+  background: rgba(52, 143, 65, 0.1);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  margin-left: var(--spacing-lg);
+}
+
+.enosema-badge:hover {
+  background: rgba(52, 143, 65, 0.15);
+}
+
+.enosema-text {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  font-weight: var(--font-weight-medium);
+}
+
+.enosema-icon {
+  width: 20px;
+  height: 20px;
+}
+
 .mobile-menu-btn {
   display: none;
   padding: var(--spacing-sm);
@@ -187,6 +219,15 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+  .enosema-badge {
+    padding: var(--spacing-xs);
+    margin-left: var(--spacing-sm);
+  }
+
+  .enosema-text {
+    display: none;
+  }
+
   .mobile-menu-btn {
     display: block;
   }

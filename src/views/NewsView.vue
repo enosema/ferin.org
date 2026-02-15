@@ -184,7 +184,7 @@
               <p class="enosema-attribution">
                 The site is owned and published by the
                 <a href="https://enosema.org" target="_blank" rel="noopener">
-                  <img src="/enosema-logo.svg" alt="" class="enosema-logo-inline" />
+                  <img src="/enosema-icon.svg" alt="" class="enosema-logo-inline" />
                   Enosema Foundation
                 </a>.
               </p>
@@ -346,9 +346,10 @@ import { newsItems, formatNewsDate } from '@/data/news.js'
 }
 
 .enosema-logo-inline {
-  width: 14px;
-  height: 14px;
-  opacity: 0.8;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-top: -2px;
 }
 
 .news-content ul {
