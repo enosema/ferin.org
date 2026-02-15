@@ -5,19 +5,23 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite-ssg build",
     "preview": "vite preview",
+    "ssg": "vite-ssg build",
     "deploy": "npm run build && gh-pages -d dist",
     "deploy:ci": "npm run build && echo 'ferin.org' > dist/CNAME"
   },
   "dependencies": {
+    "@unhead/vue": "^2.1.4",
+    "vite-ssg": "^28.3.0",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "yaml": "^2.8.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.1.0",
+    "gh-pages": "^6.1.0",
     "marked": "^15.0.6",
-    "gh-pages": "^6.1.0"
+    "vite": "^6.1.0"
   }
 }

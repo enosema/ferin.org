@@ -65,6 +65,91 @@
                 </div>
               </div>
 
+              <h3>Acknowledgments</h3>
+              <p>
+                The Project Team wishes to thank the following for their tireless editing
+                and validation of the document now being published:
+              </p>
+              <div class="acknowledgments-section">
+                <div class="acknowledgment-group">
+                  <h4>ISO Editor</h4>
+                  <p class="acknowledgment-person">
+                    <strong>{{ item.acknowledgments.isoEditor.name }}</strong>
+                    <a :href="`mailto:${item.acknowledgments.isoEditor.email}`">
+                      {{ item.acknowledgments.isoEditor.email }}
+                    </a>
+                  </p>
+                </div>
+                <div class="acknowledgment-group">
+                  <h4>ISO/TC 211 Secretariat</h4>
+                  <div
+                    v-for="secretary in item.acknowledgments.tc211Secretariat"
+                    :key="secretary.email"
+                    class="acknowledgment-person"
+                  >
+                    <strong>{{ secretary.name }}</strong>
+                    <a :href="`mailto:${secretary.email}`">{{ secretary.email }}</a>
+                  </div>
+                </div>
+              </div>
+
+              <h3>Publication Information</h3>
+              <p>
+                This standard was developed as a joint collaboration with CEN.
+              </p>
+              <div class="publication-info">
+                <div class="publication-grid">
+                  <div class="publication-item">
+                    <span class="publication-label">Lead Organization</span>
+                    <span class="publication-value">{{ item.publication.leadOrganization }}</span>
+                  </div>
+                  <div class="publication-item">
+                    <span class="publication-label">CEN Reference</span>
+                    <span class="publication-value">{{ item.publication.cenReference }}</span>
+                  </div>
+                  <div class="publication-item">
+                    <span class="publication-label">CEN Work Item (WI)</span>
+                    <span class="publication-value">{{ item.publication.cenWorkItem }}</span>
+                  </div>
+                  <div class="publication-item">
+                    <span class="publication-label">Stage</span>
+                    <span class="publication-value">{{ item.publication.stage }}</span>
+                  </div>
+                  <div class="publication-item">
+                    <span class="publication-label">CEN Committee</span>
+                    <span class="publication-value">{{ item.publication.cenCommittee }}</span>
+                  </div>
+                  <div class="publication-item">
+                    <span class="publication-label">CEN Secretary</span>
+                    <span class="publication-value">{{ item.publication.cenSecretary }}</span>
+                  </div>
+                  <div class="publication-item">
+                    <span class="publication-label">CEN Programme Manager</span>
+                    <span class="publication-value">{{ item.publication.cenProgrammeManager }}</span>
+                  </div>
+                </div>
+
+                <h4>Responsibilities</h4>
+                <div class="responsibilities-table">
+                  <div
+                    v-for="resp in item.publication.responsibilities"
+                    :key="resp.role"
+                    class="responsibility-row"
+                  >
+                    <span class="responsibility-role">{{ resp.role }}</span>
+                    <span class="responsibility-name">
+                      <template v-if="resp.names">
+                        {{ resp.names.join(', ') }}
+                      </template>
+                      <template v-else>
+                        {{ resp.name }}
+                        <span v-if="resp.secretariat" class="secretariat">(Secretariat: {{ resp.secretariat }})</span>
+                      </template>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
               <h3>Key Features of FERIN</h3>
               <ul>
                 <li>
@@ -96,9 +181,12 @@
                 implementation patterns that complement the standard without reproducing
                 its content.
               </p>
-              <p>
-                The site is owned and published by the <a href="https://enosema.org" target="_blank" rel="noopener">
-                Enosema Foundation</a>.
+              <p class="enosema-attribution">
+                The site is owned and published by the
+                <a href="https://enosema.org" target="_blank" rel="noopener">
+                  <img src="/enosema-logo.svg" alt="" class="enosema-logo-inline" />
+                  Enosema Foundation
+                </a>.
               </p>
             </template>
 
@@ -110,7 +198,7 @@
             <div class="news-actions">
               <a
                 v-if="item.id === 'iso-19135-2026-published'"
-                href="https://www.iso.org/standard/87934.html"
+                href="https://www.iso.org/standard/87753.html"
                 target="_blank"
                 rel="noopener"
                 class="btn-primary"
@@ -226,9 +314,41 @@ import { newsItems, formatNewsDate } from '@/data/news.js'
   color: var(--color-primary);
 }
 
+.news-content h4 {
+  font-size: var(--font-size-base);
+  margin: var(--spacing-lg) 0 var(--spacing-sm);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
 .news-content p {
   font-size: var(--font-size-base);
   line-height: var(--line-height-relaxed);
+}
+
+.enosema-attribution {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.enosema-attribution a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.enosema-attribution a:hover {
+  text-decoration: underline;
+}
+
+.enosema-logo-inline {
+  width: 14px;
+  height: 14px;
+  opacity: 0.8;
 }
 
 .news-content ul {
@@ -257,6 +377,118 @@ import { newsItems, formatNewsDate } from '@/data/news.js'
   padding: var(--spacing-sm) var(--spacing-md);
   background: var(--color-background);
   border-radius: var(--radius-md);
+}
+
+.acknowledgments-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin: var(--spacing-md) 0;
+}
+
+.acknowledgment-group {
+  background: var(--color-background);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+
+.acknowledgment-group h4 {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+}
+
+.acknowledgment-person {
+  font-size: var(--font-size-sm);
+  margin: var(--spacing-xs) 0;
+}
+
+.acknowledgment-person strong {
+  display: block;
+  color: var(--color-text);
+}
+
+.acknowledgment-person a {
+  color: var(--color-accent);
+  text-decoration: none;
+  font-size: var(--font-size-xs);
+}
+
+.acknowledgment-person a:hover {
+  text-decoration: underline;
+}
+
+.publication-info {
+  background: var(--color-background);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-md) 0;
+}
+
+.publication-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.publication-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.publication-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+}
+
+.publication-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.responsibilities-table {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.responsibility-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: var(--spacing-md);
+}
+
+.responsibility-row:last-child {
+  border-bottom: none;
+}
+
+.responsibility-role {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.responsibility-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  text-align: right;
+}
+
+.secretariat {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-lighter);
 }
 
 .news-actions {
@@ -315,6 +547,15 @@ import { newsItems, formatNewsDate } from '@/data/news.js'
 
   .news-date .day {
     font-size: var(--font-size-2xl);
+  }
+
+  .responsibility-row {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .responsibility-name {
+    text-align: left;
   }
 }
 </style>

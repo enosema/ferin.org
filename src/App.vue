@@ -11,6 +11,10 @@
 <script setup>
 import TheHeader from '@/components/layout/TheHeader.vue'
 import TheFooter from '@/components/layout/TheFooter.vue'
+import { useGlobalSeo } from '@/composables/useSeo.js'
+
+// Initialize global SEO
+useGlobalSeo()
 </script>
 
 <style scoped>

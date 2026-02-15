@@ -27,10 +27,11 @@
 
           <div class="footer-section">
             <h4>Resources</h4>
-            <a href="https://www.iso.org/standard/87934.html" target="_blank" rel="noopener">
+            <a href="https://www.iso.org/standard/87753.html" target="_blank" rel="noopener">
               ISO Store
             </a>
-            <a href="https://enosema.org" target="_blank" rel="noopener">
+            <a href="https://enosema.org" target="_blank" rel="noopener" class="enosema-link">
+              <img src="/enosema-logo.svg" alt="" class="enosema-logo" />
               Enosema Foundation
             </a>
             <router-link to="/news">News</router-link>
@@ -130,6 +131,23 @@
 
 .footer-section a:hover {
   color: var(--color-accent-light);
+}
+
+.enosema-link {
+  display: flex !important;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.enosema-logo {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.enosema-link:hover .enosema-logo {
+  opacity: 1;
 }
 
 .footer-bottom {

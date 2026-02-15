@@ -4,7 +4,7 @@
 export const newsItems = [
   {
     id: 'iso-19135-2026-published',
-    date: '2026-02-15',
+    date: '2026-02-05',
     tag: 'Milestone',
     title: 'ISO 19135:2026 Published - Introducing the FERIN Framework',
     summary: 'We are pleased to announce the publication of ISO 19135:2026, which introduces the FERIN framework for extensible registration of information.',
@@ -59,7 +59,40 @@ export const newsItems = [
       'Marie Lambois (IGN)',
       'Ivana Ivanova (Curtin University)',
       'Knut Jetlund (Kartverket)'
-    ]
+    ],
+    acknowledgments: {
+      isoEditor: {
+        name: 'Nicola Perou',
+        email: 'perou@iso.org'
+      },
+      tc211Secretariat: [
+        {
+          name: 'Mats Åhlin',
+          email: 'mats.ahlin@sis.se'
+        },
+        {
+          name: 'Christine Allansson',
+          email: 'christine.allansson@sis.se'
+        }
+      ]
+    },
+    publication: {
+      collaboration: 'CEN',
+      leadOrganization: 'ISO',
+      cenReference: 'EN ISO 19135:2026',
+      cenWorkItem: '00287144',
+      stage: '60.60',
+      cenCommittee: 'CEN/TC 287 Geographic Information',
+      cenSecretary: 'Christopher Starr',
+      cenProgrammeManager: 'Lucia Lanfri',
+      responsibilities: [
+        { role: 'Project Leader', names: ['Reese Plews', 'Ronald Tse'] },
+        { role: 'Committee Manager', name: 'Mats Åhlin', secretariat: 'SIS' },
+        { role: 'Convenor', name: 'Ryan Ryu' },
+        { role: 'ISO Technical Programme Manager (TPM)', name: 'Hakim Mkinsi' },
+        { role: 'ISO Editorial Programme Manager (EPM)', name: 'Alison Reid-Jamond' }
+      ]
+    }
   }
 ]
 

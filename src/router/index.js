@@ -1,6 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
+/**
+ * Vue Router Configuration
+ *
+ * Route definitions for SSG with vite-ssg
+ */
 
-const routes = [
+export const routes = [
   {
     path: '/',
     name: 'home',
@@ -173,19 +177,14 @@ const routes = [
     path: '/news',
     name: 'news',
     component: () => import('@/views/NewsView.vue')
+  },
+  // 404 - must be last
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('@/views/NotFoundView.vue')
   }
 ]
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition
-    } else {
-      return { top: 0 }
-    }
-  }
-})
-
-export default router
+// Default export for main.js
+export default routes

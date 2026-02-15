@@ -1,8 +1,31 @@
-import { createApp } from 'vue'
+/**
+ * Main entry point for ferin.org
+ *
+ * Configured for Static Site Generation (SSG) with vite-ssg
+ */
+
+import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
-import router from './router'
+import { routes } from './router'
 import './styles/main.css'
 
-const app = createApp(App)
-app.use(router)
-app.mount('#app')
+// Import composables for SSG preload
+import { preloadContent } from './composables/useContent.js'
+
+// ViteSSG setup - head is provided by vite-ssg
+export const createApp = ViteSSG(
+  App,
+  { routes, base: '/' },
+  ({ app, router, isClient, initialState }) => {
+    // Preload content during build
+    if (!isClient) {
+      // Server-side: preload all content
+      return preloadContent()
+    }
+
+    // Client-side: restore from initialState if available
+    if (initialState.content) {
+      // Content was preloaded during SSG build
+    }
+  }
+)

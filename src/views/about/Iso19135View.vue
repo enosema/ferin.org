@@ -153,7 +153,7 @@
           for full access to all clauses and annexes.
         </p>
         <GradientButton
-          href="https://www.iso.org/standard/87934.html"
+          href="https://www.iso.org/standard/87753.html"
           variant="primary"
         >
           Visit ISO Store

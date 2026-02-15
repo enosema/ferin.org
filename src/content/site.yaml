@@ -1,0 +1,91 @@
+# Site Configuration
+site:
+  name: ferin.org
+  title: FERIN - Framework for Extensible Registration of Information
+  description: >
+    The FERIN Interpretation Companion - Everything ISO 19135:2026 doesn't tell you
+    about the Framework for Extensible Registration of Information
+  url: https://ferin.org
+  language: en
+
+organization:
+  name: Enosema Foundation
+  url: https://enosema.org
+
+standard:
+  name: ISO 19135:2026
+  url: https://www.iso.org/standard/87753.html
+  edition: Third Edition
+  published: 2026-02-05
+
+trademark:
+  statement: The abbreviation FERIN is invented by Ronald Tse and Reese Plews.
+
+copyright:
+  statement: >
+    This site is an interpretation companion to ISO 19135:2026. No content is copied
+    from the standard and does not infringe on ISO copyright.
+
+navigation:
+  main:
+    - label: About
+      path: /about
+      children:
+        - label: What is FERIN?
+          path: /about/what-is-ferin
+        - label: History
+          path: /about/history
+        - label: ISO 19135
+          path: /about/iso-19135
+    - label: Learn
+      path: /learn
+      children:
+        - label: Core Concepts
+          path: /learn/core-concepts
+        - label: Principles
+          path: /learn/principles
+        - label: Framework
+          path: /learn/framework
+        - label: Register Types
+          path: /learn/register-types
+        - label: Governance
+          path: /learn/governance
+    - label: Build
+      path: /build
+      children:
+        - label: Getting Started
+          path: /build/getting-started
+        - label: Identifier Design
+          path: /build/identifier-design
+        - label: Versioning
+          path: /build/versioning
+        - label: Actions
+          path: /build/actions
+        - label: Register Specification
+          path: /build/register-specification
+        - label: Migration
+          path: /build/migration
+    - label: Reference
+      path: /reference
+      children:
+        - label: Glossary
+          path: /reference/glossary
+        - label: Conceptual Model
+          path: /reference/conceptual-model
+        - label: Commitments
+          path: /reference/commitments
+        - label: Statuses
+          path: /reference/statuses
+        - label: Relations
+          path: /reference/relations
+        - label: Anti-patterns
+          path: /reference/anti-patterns
+        - label: FAQ
+          path: /reference/faq
+        - label: Samples
+          path: /reference/samples
+
+social:
+  - name: GitHub
+    url: https://github.com/enosema/ferin.org
+    icon: github

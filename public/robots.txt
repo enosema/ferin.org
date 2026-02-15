@@ -1,0 +1,10 @@
+# Robots.txt for ferin.org
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ferin.org/sitemap.xml
+
+# Crawl delay for polite crawling
+Crawl-delay: 1
