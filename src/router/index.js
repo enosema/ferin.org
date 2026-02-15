@@ -35,6 +35,11 @@ export const routes = [
         path: 'iso-19135',
         name: 'iso-19135',
         component: () => import('@/views/about/Iso19135View.vue')
+      },
+      {
+        path: 'why-registers',
+        name: 'why-registers',
+        component: () => import('@/views/about/WhyRegistersView.vue')
       }
     ]
   },
@@ -73,6 +78,31 @@ export const routes = [
         path: 'governance',
         name: 'governance',
         component: () => import('@/views/learn/GovernanceView.vue')
+      },
+      {
+        path: 'risk-management',
+        name: 'risk-management',
+        component: () => import('@/views/learn/RiskManagementView.vue')
+      },
+      {
+        path: 'composite-registers',
+        name: 'composite-registers',
+        component: () => import('@/views/learn/CompositeRegistersView.vue')
+      },
+      {
+        path: 'schema-evolution',
+        name: 'schema-evolution',
+        component: () => import('@/views/learn/SchemaEvolutionView.vue')
+      },
+      {
+        path: 'temporal-data',
+        name: 'temporal-data',
+        component: () => import('@/views/learn/TemporalDataView.vue')
+      },
+      {
+        path: 'semantic-interoperability',
+        name: 'semantic-interoperability',
+        component: () => import('@/views/learn/SemanticInteroperabilityView.vue')
       }
     ]
   },
@@ -116,6 +146,16 @@ export const routes = [
         path: 'migration',
         name: 'migration',
         component: () => import('@/views/build/MigrationView.vue')
+      },
+      {
+        path: 'technology-choices',
+        name: 'technology-choices',
+        component: () => import('@/views/build/TechnologyChoicesView.vue')
+      },
+      {
+        path: 'integration-patterns',
+        name: 'integration-patterns',
+        component: () => import('@/views/build/IntegrationPatternsView.vue')
       }
     ]
   },

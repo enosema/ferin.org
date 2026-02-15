@@ -25,13 +25,13 @@
         <div class="faq-item">
           <h3>Can one person hold all roles in a small organization?</h3>
           <p>
-            Some role combinations are acceptable (Owner + Manager), but
-            <strong>Manager and Control Body must be separate</strong> to
-            maintain integrity. For small organizations, consider using an
-            external party for the Control Body role.
+            It depends on your register's <strong>risk level</strong>. For low-risk
+            informative registers, combining roles is acceptable with proper documentation.
+            For high-risk authoritative registers, role separation (especially between
+            Manager and Control Body) is important for governance integrity.
           </p>
-          <router-link to="/learn/governance#roles">
-            See role separation guidance →
+          <router-link to="/learn/risk-management">
+            See Risk Management for guidance →
           </router-link>
         </div>
 

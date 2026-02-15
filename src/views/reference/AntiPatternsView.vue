@@ -245,8 +245,9 @@
         <div class="problem">
           <h4>Problem</h4>
           <p>
-            One person holding both Manager and Control Body roles, able to
-            approve their own changes.
+            One person holding both Manager and Control Body roles in a
+            high-risk register, able to approve their own changes without
+            independent review.
           </p>
         </div>
         <div class="consequence">
@@ -260,8 +261,11 @@
         <div class="solution">
           <h4>Solution</h4>
           <p>
-            Ensure Control Body is independent of operational roles. Even in
-            small organizations, find someone external for approvals.
+            Match role separation to your register's risk level. For high-risk
+            registers, ensure Control Body independence. For low-risk registers,
+            combined roles are acceptable with documentation.
+            <router-link to="/learn/risk-management">See Risk Management</router-link>
+            for guidance on assessing your register's risk level.
           </p>
         </div>
       </div>

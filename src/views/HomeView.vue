@@ -111,10 +111,10 @@
             <p>Choosing and implementing identifier schemes that remain stable over time.</p>
           </router-link>
 
-          <router-link to="/learn/governance#roles" class="featured-item">
+          <router-link to="/learn/risk-management" class="featured-item">
             <span class="featured-label">Best Practices</span>
-            <h3>Role Separation in Governance</h3>
-            <p>Understanding which roles can be combined and which require separation.</p>
+            <h3>Risk-Based Governance</h3>
+            <p>Match your governance rigor to your register's risk level, from personal registers to public registries.</p>
           </router-link>
 
           <router-link to="/build/migration" class="featured-item">

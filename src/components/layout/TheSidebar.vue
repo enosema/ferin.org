@@ -41,6 +41,7 @@ const sidebarContent = {
     title: 'About',
     items: [
       { path: '/about/what-is-ferin', label: 'What is FERIN?' },
+      { path: '/about/why-registers', label: 'Why Registers?' },
       { path: '/about/history', label: 'History' },
       { path: '/about/iso-19135', label: 'Relationship to ISO 19135' }
     ]
@@ -52,7 +53,12 @@ const sidebarContent = {
       { path: '/learn/principles', label: 'Principles' },
       { path: '/learn/framework', label: 'Framework Overview' },
       { path: '/learn/register-types', label: 'Register Types' },
-      { path: '/learn/governance', label: 'Governance' }
+      { path: '/learn/composite-registers', label: 'Composite Registers' },
+      { path: '/learn/governance', label: 'Governance' },
+      { path: '/learn/risk-management', label: 'Risk Management' },
+      { path: '/learn/schema-evolution', label: 'Schema Evolution' },
+      { path: '/learn/temporal-data', label: 'Temporal Data' },
+      { path: '/learn/semantic-interoperability', label: 'Semantic Interoperability' }
     ]
   },
   build: {
@@ -63,7 +69,9 @@ const sidebarContent = {
       { path: '/build/versioning', label: 'Versioning' },
       { path: '/build/actions', label: 'Actions Reference' },
       { path: '/build/register-specification', label: 'Register Specification' },
-      { path: '/build/migration', label: 'Migration' }
+      { path: '/build/migration', label: 'Migration' },
+      { path: '/build/technology-choices', label: 'Technology Choices' },
+      { path: '/build/integration-patterns', label: 'Integration Patterns' }
     ]
   },
   reference: {

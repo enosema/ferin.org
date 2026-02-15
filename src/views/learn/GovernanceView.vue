@@ -172,65 +172,83 @@
         A common question: <strong>Can one person or organization hold multiple roles?</strong>
       </p>
 
-      <h3>Acceptable Combinations</h3>
-      <table class="combinations-table">
-        <thead>
-          <tr>
-            <th>Combination</th>
-            <th>Acceptable?</th>
-            <th>Conditions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="acceptable">
-            <td>Owner + Manager</td>
-            <td>Yes</td>
-            <td>Common in small organizations; document clearly</td>
-          </tr>
-          <tr class="acceptable">
-            <td>Manager + System Manager</td>
-            <td>Yes</td>
-            <td>Operational efficiency; ensure backup coverage</td>
-          </tr>
-          <tr class="acceptable">
-            <td>Proposer + User</td>
-            <td>Yes</td>
-            <td>Most users can submit proposals</td>
-          </tr>
-          <tr class="caution">
-            <td>Proposer + Control Body</td>
-            <td>Caution</td>
-            <td>Potential conflict of interest; recuse from own proposals</td>
-          </tr>
-          <tr class="unacceptable">
-            <td>Manager + Control Body</td>
-            <td>No</td>
-            <td>Separation of duties required for integrity</td>
-          </tr>
-          <tr class="unacceptable">
-            <td>Owner + Control Body</td>
-            <td>No</td>
-            <td>Undermines appeal process; creates concentration of power</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="risk-link-box">
+        <p>
+          The answer depends on your register's <strong>risk level</strong>.
+          A low-risk informative register has different requirements than a
+          high-risk authoritative registry.
+        </p>
+        <router-link to="/learn/risk-management" class="risk-link">
+          See Risk Management for guidance on assessing your register's risk level →
+        </router-link>
+      </div>
+
+      <h3>Role Combinations by Risk Level</h3>
+
+      <div class="risk-levels-grid">
+        <div class="risk-level-card">
+          <h4>Low Risk Registers</h4>
+          <p class="risk-context">Personal, informative, easily corrected</p>
+          <ul>
+            <li>Single person may hold multiple or all roles</li>
+            <li>Document who holds what roles</li>
+            <li>Maintain basic audit trail</li>
+            <li>Consider automation for governance steps</li>
+          </ul>
+        </div>
+
+        <div class="risk-level-card">
+          <h4>Medium Risk Registers</h4>
+          <p class="risk-context">Team reliance, some external users</p>
+          <ul>
+            <li>Separate proposer and approver roles</li>
+            <li>Owner and Manager may overlap</li>
+            <li>Defined change process required</li>
+            <li>Documented escalation path</li>
+          </ul>
+        </div>
+
+        <div class="risk-level-card">
+          <h4>High Risk Registers</h4>
+          <p class="risk-context">Authoritative, public reliance, costly errors</p>
+          <ul>
+            <li>Separate Manager and Control Body</li>
+            <li>Independent Control Body recommended</li>
+            <li>Formal appeal process with impartial Owner</li>
+            <li>Full audit trail with signatures</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>The Key Principle</h3>
+      <div class="key-principle">
+        <p>
+          <strong>Governance rigor should match risk level.</strong>
+        </p>
+        <p>
+          Over-governing a low-risk register wastes resources and creates
+          unnecessary bureaucracy. Under-governing a high-risk register
+          invites errors, disputes, and potential harm.
+        </p>
+      </div>
 
       <h3>Small Organization Guidance</h3>
       <p>
-        If your organization is too small to fill all roles with different people:
+        If your organization is too small to fill all roles with different people,
+        assess your risk level first:
       </p>
       <ul>
         <li>
-          <strong>Minimum viable split:</strong> Have at least one person who
-          proposes, one who approves (Control Body), and one who implements
+          <strong>Low risk:</strong> One person can hold multiple roles with
+          proper documentation
         </li>
         <li>
-          <strong>Document the overlap:</strong> Acknowledge where roles combine
-          and what mitigations exist
+          <strong>Medium risk:</strong> Aim for at least separation between
+          proposers and approvers; consider external help for appeals
         </li>
         <li>
-          <strong>Consider external Control Body:</strong> For critical registers,
-          use an external committee for approvals
+          <strong>High risk:</strong> Find external parties for Control Body
+          role; the governance integrity is worth the coordination cost
         </li>
       </ul>
     </section>
@@ -407,6 +425,10 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
+          <router-link to="/learn/risk-management">Risk Management</router-link>
+          - Match governance rigor to your register's risk level
+        </li>
+        <li>
           <router-link to="/learn/framework">Framework Overview</router-link>
           - Data, Governance, and Compliance pillars
         </li>
@@ -554,6 +576,84 @@
   color: var(--color-error);
 }
 
+.risk-link-box {
+  background: rgba(13, 148, 136, 0.05);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.risk-link-box p {
+  margin: 0 0 var(--spacing-sm);
+}
+
+.risk-link {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.risk-link:hover {
+  text-decoration: underline;
+}
+
+.risk-levels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.risk-level-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.risk-level-card h4 {
+  font-size: var(--font-size-base);
+  margin: 0 0 var(--spacing-xs);
+  color: var(--color-accent);
+}
+
+.risk-context {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: var(--spacing-md);
+}
+
+.risk-level-card ul {
+  font-size: var(--font-size-sm);
+  margin: 0;
+  padding-left: var(--spacing-lg);
+}
+
+.risk-level-card li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.key-principle {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(30, 58, 95, 0.1) 100%);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.key-principle p {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-base);
+}
+
+.key-principle p:last-child {
+  margin-bottom: 0;
+}
+
 .process-flow {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -695,6 +795,10 @@
   }
 
   .documentation-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-levels-grid {
     grid-template-columns: 1fr;
   }
 }

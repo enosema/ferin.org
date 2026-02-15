@@ -184,33 +184,37 @@
               <li>Unauthorized modifications are prevented</li>
             </ul>
 
-            <h3>Role Separation Requirements</h3>
+            <h3>Role Separation Guidance</h3>
+            <p>
+              The appropriate level of role separation depends on your register's
+              <strong>risk level</strong>—not the size of your organization.
+            </p>
             <table class="guidance-table">
               <thead>
                 <tr>
-                  <th>Role</th>
-                  <th>Can They Overlap?</th>
-                  <th>Notes</th>
+                  <th>Risk Level</th>
+                  <th>Role Separation</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Owner + Manager</td>
-                  <td>Yes, in small organizations</td>
-                  <td>But document the combination</td>
+                  <td>Low Risk</td>
+                  <td>Single person may hold multiple roles; document clearly</td>
                 </tr>
                 <tr>
-                  <td>Manager + Control Body</td>
-                  <td>No</td>
-                  <td>Separation of duties required</td>
+                  <td>Medium Risk</td>
+                  <td>Separate proposers and approvers; defined change process</td>
                 </tr>
                 <tr>
-                  <td>Proposer + Control Body</td>
-                  <td>Caution</td>
-                  <td>May create conflict of interest</td>
+                  <td>High Risk</td>
+                  <td>Full separation; independent Control Body; formal appeal process</td>
                 </tr>
               </tbody>
             </table>
+            <p>
+              See <router-link to="/learn/risk-management">Risk Management</router-link>
+              for detailed guidance on assessing your register's risk level.
+            </p>
           </div>
         </div>
 

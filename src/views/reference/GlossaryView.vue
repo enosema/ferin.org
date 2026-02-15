@@ -84,7 +84,7 @@ const terms = [
   {
     term: 'Control Body',
     definition: 'The entity responsible for reviewing and deciding on proposals.',
-    interpretation: 'Should be separate from the Manager role for integrity.'
+    interpretation: 'Should be separate from the Manager role in high-risk registers. For low-risk registers, combining roles may be acceptable. See Risk Management for guidance.'
   },
   {
     term: 'Correctional Change',
