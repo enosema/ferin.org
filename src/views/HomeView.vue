@@ -138,6 +138,47 @@
       </div>
     </section>
 
+    <section class="section news-section">
+      <div class="container">
+        <h2 class="section-title">Latest News</h2>
+        <p class="section-subtitle">
+          Stay updated with the latest from the FERIN community.
+        </p>
+
+        <div class="news-preview">
+          <router-link
+            v-for="item in latestNews"
+            :key="item.id"
+            to="/news"
+            class="news-card"
+            :class="{ featured: item.featured }"
+          >
+            <div class="news-date">
+              <span class="day">{{ formatNewsDate(item.date).day }}</span>
+              <span class="month">{{ formatNewsDate(item.date).month }}</span>
+              <span class="year">{{ formatNewsDate(item.date).year }}</span>
+            </div>
+            <div class="news-content">
+              <span class="news-tag">{{ item.tag }}</span>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.summary }}</p>
+              <span class="read-more">Read full announcement →</span>
+            </div>
+          </router-link>
+        </div>
+
+        <div class="news-cta">
+          <router-link to="/news" class="news-link">
+            View all announcements
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </router-link>
+        </div>
+      </div>
+    </section>
+
     <section class="section trust-section">
       <div class="container">
         <div class="trust-content">
@@ -149,10 +190,6 @@
             <div class="trust-badge">
               <span class="badge-label">Developed by</span>
               <span class="badge-value">Enosema Foundation</span>
-            </div>
-            <div class="trust-badge">
-              <span class="badge-label">Latest News</span>
-              <router-link to="/news" class="badge-value badge-link">Announcements</router-link>
             </div>
           </div>
           <p class="trust-notice">
@@ -170,6 +207,9 @@
 import HeroSection from '@/components/content/HeroSection.vue'
 import GradientButton from '@/components/ui/GradientButton.vue'
 import FeatureCard from '@/components/content/FeatureCard.vue'
+import { getLatestNews, formatNewsDate } from '@/data/news.js'
+
+const latestNews = getLatestNews(1)
 </script>
 
 <style scoped>
@@ -326,9 +366,143 @@ import FeatureCard from '@/components/content/FeatureCard.vue'
   }
 }
 
+/* News Section */
+.news-section {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.news-preview {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.news-card {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--spacing-xl);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.news-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.news-card.featured {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.03) 0%, var(--color-background) 100%);
+}
+
+.news-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: var(--spacing-sm);
+}
+
+.news-date .day {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.news-date .month {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+.news-date .year {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.news-tag {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.news-content h3 {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.news-content p {
+  font-size: var(--font-size-base);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
+  line-height: var(--line-height-relaxed);
+}
+
+.read-more {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+}
+
+.news-cta {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: transparent;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-fast);
+}
+
+.news-link:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+@media (max-width: 768px) {
+  .news-card {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .news-date {
+    flex-direction: row;
+    gap: var(--spacing-sm);
+    align-items: baseline;
+  }
+
+  .news-date .day {
+    font-size: var(--font-size-2xl);
+  }
+}
+
 /* Trust Section */
 .trust-section {
-  background: var(--color-surface);
+  background: var(--color-background);
   border-top: 1px solid var(--color-border);
 }
 

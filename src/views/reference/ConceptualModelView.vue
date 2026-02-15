@@ -88,6 +88,214 @@
 └─────────────────────────────────────────────────────────────────┘
         </pre>
       </div>
+
+      <h3>LutaML Class Definitions</h3>
+      <p>
+        The FERIN conceptual model can be expressed using LutaML (LML) syntax,
+        which provides a human-readable format for defining information models
+        that can be directly serialized to multiple formats.
+      </p>
+
+      <div class="lml-definition">
+        <h4>Core Classes</h4>
+        <pre class="lml-code"><code>package FERIN {
+
+  class Register {
+    attribute title, String {
+      definition "The official title of the register"
+    }
+    attribute description, String {
+      definition "A description of the register's purpose and scope"
+      cardinality 0..1
+    }
+    attribute specification, RegisterSpecification
+    attribute owner, RegisterOwner
+    attribute manager, RegisterManager
+    attribute controlBody, ControlBody { cardinality 0..1 }
+    attribute operationalStatus, OperationalStatus
+
+    xml {
+      root "register"
+      map_element "title" { attribute title }
+      map_element "description" { attribute description }
+    }
+  }
+
+  class Concept {
+    attribute identifier, ObjectIdentifier
+    attribute currentDefinition, ConceptDefinition
+    attribute versions, ConceptVersion { cardinality 0..n }
+    attribute status, Status
+    attribute dateAdded, DateTime
+    attribute dateModified, DateTime
+
+    xml {
+      root "concept"
+      map_attribute "id" { attribute identifier }
+      map_element "definition" { attribute currentDefinition }
+    }
+  }
+
+  class ConceptVersion {
+    attribute identifier, ObjectIdentifier
+    attribute definition, ConceptDefinition
+    attribute validFrom, DateTime
+    attribute validUntil, DateTime { cardinality 0..1 }
+    attribute status, Status
+    attribute changeReason, String { cardinality 0..1 }
+  }
+
+  class RegisterItem {
+    attribute identifier, ObjectIdentifier
+    attribute functionalId, FunctionalIdentifier { cardinality 0..1 }
+    attribute concept, Concept { cardinality 0..1 }
+    attribute status, Status
+    attribute content, Content
+    attribute dateAdded, DateTime
+    attribute dateModified, DateTime
+
+    xml {
+      root "item"
+      map_attribute "id" { attribute identifier }
+      map_attribute "functionalId" { attribute functionalId }
+      map_element "content" { attribute content }
+    }
+  }
+
+  class Status {
+    attribute valid, Boolean { default: true }
+    attribute published, Boolean { default: true }
+    attribute superseded, Boolean { default: false }
+    attribute supersededBy, RegisterItem { cardinality 0..1 }
+    attribute redacted, Boolean { default: false }
+    attribute deleted, Boolean { default: false }
+  }
+}</code></pre>
+      </div>
+
+      <div class="lml-definition">
+        <h4>Identifier Classes</h4>
+        <pre class="lml-code"><code>package FERIN::Identifiers {
+
+  class Identifier {
+    attribute value, String
+    attribute assignedDate, DateTime
+
+    definition {
+      Base class for all identifier types in FERIN.
+    }
+  }
+
+  class ObjectIdentifier {
+    attribute value, String
+    attribute persistent, Boolean { default: true }
+    attribute opaque, Boolean { default: false }
+    attribute scheme, String
+
+    definition {
+      A unique, persistent identifier that never changes
+      once assigned. Object identifiers are typically
+      UUIDs or other opaque identifiers.
+    }
+  }
+
+  class FunctionalIdentifier {
+    attribute value, String
+    attribute semantic, Boolean { default: true }
+    attribute resolvable, Boolean { default: false }
+    attribute validFrom, DateTime
+    attribute validUntil, DateTime { cardinality 0..1 }
+
+    definition {
+      A human-meaningful identifier that may be reassigned
+      through governance processes. Examples include
+      country codes, currency codes, etc.
+    }
+  }
+}</code></pre>
+      </div>
+
+      <div class="lml-definition">
+        <h4>Governance Classes</h4>
+        <pre class="lml-code"><code>package FERIN::Governance {
+
+  enum OperationalStatus {
+    value "establishment" {
+      definition "Register is being set up"
+    }
+    value "operational" {
+      definition "Register is actively maintained"
+    }
+    value "dormant" {
+      definition "Register exists but not actively updated"
+    }
+    value "decommissioned" {
+      definition "Register has been retired"
+    }
+  }
+
+  class RegisterOwner {
+    attribute name, String
+    attribute contactInfo, String { cardinality 0..1 }
+    attribute responsibilities, String
+
+    definition {
+      The entity accountable for the register's existence
+      and strategic direction.
+    }
+  }
+
+  class RegisterManager {
+    attribute name, String
+    attribute contactInfo, String { cardinality 0..1 }
+    attribute responsibilities, String
+
+    definition {
+      The entity responsible for day-to-day register operations.
+    }
+  }
+
+  class ControlBody {
+    attribute name, String
+    attribute members, String { cardinality 0..n }
+    attribute meetingSchedule, String { cardinality 0..1 }
+
+    definition {
+      The entity responsible for reviewing and deciding
+      on proposals to change register content.
+    }
+  }
+
+  class Proposal {
+    attribute identifier, ObjectIdentifier
+    attribute proposer, String
+    attribute actionType, ActionType
+    attribute justification, String
+    attribute status, ProposalStatus
+    attribute dateSubmitted, DateTime
+    attribute dateDecided, DateTime { cardinality 0..1 }
+    attribute decision, Decision { cardinality 0..1 }
+  }
+
+  enum ActionType {
+    value "add"
+    value "change"
+    value "invalidate"
+    value "supersede"
+    value "unpublish"
+    value "redact"
+    value "delete"
+  }
+
+  enum ProposalStatus {
+    value "submitted"
+    value "under_review"
+    value "approved"
+    value "rejected"
+    value "withdrawn"
+  }
+}</code></pre>
+      </div>
     </section>
 
     <section class="content-section">
@@ -450,6 +658,35 @@ CREATE TABLE relations (
 .mapping-example code {
   font-size: var(--font-size-xs);
   color: var(--color-text-inverse);
+}
+
+.lml-definition {
+  margin: var(--spacing-xl) 0;
+}
+
+.lml-definition h4 {
+  font-size: var(--font-size-base);
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lml-code {
+  background: var(--color-primary-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  overflow-x: auto;
+  margin: 0;
+  display: block;
+}
+
+.lml-code code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-inverse);
+  line-height: 1.5;
+  white-space: pre;
 }
 
 .next-steps {

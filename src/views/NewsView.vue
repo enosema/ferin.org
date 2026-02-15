@@ -9,108 +9,112 @@
 
     <section class="content-section">
       <div class="news-list">
-        <article class="news-item featured">
+        <article
+          v-for="item in newsItems"
+          :key="item.id"
+          class="news-item"
+          :class="{ featured: item.featured }"
+        >
           <div class="news-date">
-            <span class="day">15</span>
-            <span class="month">Feb</span>
-            <span class="year">2026</span>
+            <span class="day">{{ formatNewsDate(item.date).day }}</span>
+            <span class="month">{{ formatNewsDate(item.date).month }}</span>
+            <span class="year">{{ formatNewsDate(item.date).year }}</span>
           </div>
           <div class="news-content">
-            <span class="news-tag">Milestone</span>
-            <h2>ISO 19135:2026 Published - Introducing the FERIN Framework</h2>
-            <p>
-              We are pleased to announce the publication of ISO 19135:2026, which
-              introduces the FERIN (Framework for Extensible Registration of Information)
-              framework. This represents a significant evolution from previous editions,
-              generalizing the standard beyond geographic information to serve all domains.
-            </p>
-            <p>
-              The FERIN framework provides a comprehensive approach to managing information
-              in registers that serves both human and machine consumers, with persistent
-              identification, controlled evolution, and complete change history.
-            </p>
+            <span class="news-tag">{{ item.tag }}</span>
+            <h2>{{ item.title }}</h2>
 
-            <h3>Project Leadership</h3>
-            <p>
-              This standard was developed under the leadership of:
-            </p>
-            <ul class="leadership-list">
-              <li>
-                <strong>Ronald Tse</strong> (CalConnect / Ribose) - Project Leader
-              </li>
-              <li>
-                <strong>Reese Plews</strong> (JISC Japan / Plews Consulting) - Project Leader
-              </li>
-            </ul>
+            <!-- ISO 19135:2026 announcement content -->
+            <template v-if="item.id === 'iso-19135-2026-published'">
+              <p>
+                We are pleased to announce the publication of ISO 19135:2026, which
+                introduces the FERIN (Framework for Extensible Registration of Information)
+                framework. This represents a significant evolution from previous editions,
+                generalizing the standard beyond geographic information to serve all domains.
+              </p>
+              <p>
+                The FERIN framework provides a comprehensive approach to managing information
+                in registers that serves both human and machine consumers, with persistent
+                identification, controlled evolution, and complete change history.
+              </p>
 
-            <h3>Project Team</h3>
-            <p>
-              With contributions from the ISO 19135 Project Team:
-            </p>
-            <div class="team-grid">
-              <div class="team-member">Paul Janssen (Geonovum)</div>
-              <div class="team-member">Torsten Svärd (Lantmäteriet)</div>
-              <div class="team-member">Anton Strogonoff (Ribose)</div>
-              <div class="team-member">Mats Åhlin (SIS)</div>
-              <div class="team-member">Stefan Strobel (Strobel Geoinformatics)</div>
-              <div class="team-member">Larry D. Hothem</div>
-              <div class="team-member">Peter Parslow (Ordnance Survey)</div>
-              <div class="team-member">Patrick Vorster (DALRRD)</div>
-              <div class="team-member">Jeffrey Lau (Ribose)</div>
-              <div class="team-member">Scott Simmons (OGC)</div>
-              <div class="team-member">Yong Baek (IHO)</div>
-              <div class="team-member">Ryu Ryan (ETRI)</div>
-              <div class="team-member">Jan Hjelmager (SDFE)</div>
-              <div class="team-member">Jean Brodeur</div>
-              <div class="team-member">Heidi Vanparys (SDFI)</div>
-              <div class="team-member">Jiantao Bi (RADI)</div>
-              <div class="team-member">Roger Lott (IOGP)</div>
-              <div class="team-member">Liz Kolster (NZTA)</div>
-              <div class="team-member">Gobe Hobona (OGC)</div>
-              <div class="team-member">Michael Craymer (NRCAN)</div>
-              <div class="team-member">Marie Lambois (IGN)</div>
-              <div class="team-member">Ivana Ivanova (Curtin University)</div>
-              <div class="team-member">Knut Jetlund (Kartverket)</div>
-            </div>
+              <h3>Project Leadership</h3>
+              <p>
+                This standard was developed under the leadership of:
+              </p>
+              <ul class="leadership-list">
+                <li>
+                  <strong>Ronald Tse</strong> (CalConnect / Ribose) - Project Leader
+                </li>
+                <li>
+                  <strong>Reese Plews</strong> (JISC Japan / Plews Consulting) - Project Leader
+                </li>
+              </ul>
 
-            <h3>Key Features of FERIN</h3>
-            <ul>
-              <li>
-                <strong>Domain-agnostic:</strong> No longer limited to geographic information—applicable
-                to any domain requiring managed reference data
-              </li>
-              <li>
-                <strong>Concept and content planes:</strong> Formal separation of meaning from data,
-                enabling concepts to evolve while preserving content integrity
-              </li>
-              <li>
-                <strong>Capability-based conformance:</strong> Five register types based on capabilities,
-                not hierarchy—choose what fits your needs
-              </li>
-              <li>
-                <strong>Technology-neutral:</strong> No implementation-specific requirements—implement
-                using any technology stack
-              </li>
-              <li>
-                <strong>Explicit commitments:</strong> Clear requirements for access, persistence,
-                and transparency
-              </li>
-            </ul>
+              <h3>Project Team</h3>
+              <p>
+                With contributions from the ISO 19135 Project Team:
+              </p>
+              <div class="team-grid">
+                <div
+                  v-for="member in item.team"
+                  :key="member"
+                  class="team-member"
+                >
+                  {{ member }}
+                </div>
+              </div>
 
-            <h3>About This Site</h3>
-            <p>
-              This site (ferin.org) serves as an <strong>interpretation companion</strong> to
-              ISO 19135:2026. It provides practical guidance, decision frameworks, and
-              implementation patterns that complement the standard without reproducing
-              its content.
-            </p>
-            <p>
-              The site is owned and published by the <a href="https://enosema.org" target="_blank" rel="noopener">
-              Enosema Foundation</a>.
-            </p>
+              <h3>Key Features of FERIN</h3>
+              <ul>
+                <li>
+                  <strong>Domain-agnostic:</strong> No longer limited to geographic information—applicable
+                  to any domain requiring managed reference data
+                </li>
+                <li>
+                  <strong>Concept and content planes:</strong> Formal separation of meaning from data,
+                  enabling concepts to evolve while preserving content integrity
+                </li>
+                <li>
+                  <strong>Capability-based conformance:</strong> Five register types based on capabilities,
+                  not hierarchy—choose what fits your needs
+                </li>
+                <li>
+                  <strong>Technology-neutral:</strong> No implementation-specific requirements—implement
+                  using any technology stack
+                </li>
+                <li>
+                  <strong>Explicit commitments:</strong> Clear requirements for access, persistence,
+                  and transparency
+                </li>
+              </ul>
+
+              <h3>About This Site</h3>
+              <p>
+                This site (ferin.org) serves as an <strong>interpretation companion</strong> to
+                ISO 19135:2026. It provides practical guidance, decision frameworks, and
+                implementation patterns that complement the standard without reproducing
+                its content.
+              </p>
+              <p>
+                The site is owned and published by the <a href="https://enosema.org" target="_blank" rel="noopener">
+                Enosema Foundation</a>.
+              </p>
+            </template>
+
+            <!-- Generic content fallback for other news items -->
+            <template v-else>
+              <div v-html="item.content"></div>
+            </template>
 
             <div class="news-actions">
-              <a href="https://www.iso.org/standard/87934.html" target="_blank" rel="noopener" class="btn-primary">
+              <a
+                v-if="item.id === 'iso-19135-2026-published'"
+                href="https://www.iso.org/standard/87934.html"
+                target="_blank"
+                rel="noopener"
+                class="btn-primary"
+              >
                 Purchase ISO 19135:2026
               </a>
               <router-link to="/learn/core-concepts" class="btn-secondary">
@@ -125,6 +129,7 @@
 </template>
 
 <script setup>
+import { newsItems, formatNewsDate } from '@/data/news.js'
 </script>
 
 <style scoped>

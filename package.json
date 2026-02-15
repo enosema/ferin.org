@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist",
+    "deploy:ci": "npm run build && echo 'ferin.org' > dist/CNAME"
   },
   "dependencies": {
     "vue": "^3.5.13",
@@ -15,6 +17,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
     "vite": "^6.1.0",
-    "marked": "^15.0.6"
+    "marked": "^15.0.6",
+    "gh-pages": "^6.1.0"
   }
 }
