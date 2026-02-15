@@ -27,23 +27,25 @@
         </router-link>
       </nav>
 
-      <a href="https://enosema.org" target="_blank" rel="noopener" class="enosema-badge">
-        <span class="enosema-text">by</span>
-        <img src="/enosema-icon.svg" alt="Enosema Foundation" class="enosema-icon" />
-      </a>
+      <div class="header-actions">
+        <a href="https://enosema.org" target="_blank" rel="noopener" class="enosema-badge">
+          <span class="enosema-text">by</span>
+          <img src="/enosema-icon.svg" alt="Enosema Foundation" class="enosema-icon" />
+        </a>
 
-      <button
-        class="mobile-menu-btn"
-        @click="toggleMobileMenu"
-        :aria-expanded="mobileMenuOpen"
-        aria-label="Toggle navigation menu"
-      >
-        <span class="hamburger" :class="{ 'hamburger-open': mobileMenuOpen }">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
-      </button>
+        <button
+          class="mobile-menu-btn"
+          @click="toggleMobileMenu"
+          :aria-expanded="mobileMenuOpen"
+          aria-label="Toggle navigation menu"
+        >
+          <span class="hamburger" :class="{ 'hamburger-open': mobileMenuOpen }">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -115,6 +117,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .logo-image {
@@ -125,6 +128,15 @@ onUnmounted(() => {
 .nav {
   display: flex;
   gap: var(--spacing-xl);
+  flex: 1;
+  justify-content: center;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
 }
 
 .nav-link {
@@ -166,7 +178,6 @@ onUnmounted(() => {
   background: rgba(52, 143, 65, 0.1);
   text-decoration: none;
   transition: all var(--transition-fast);
-  margin-left: var(--spacing-lg);
 }
 
 .enosema-badge:hover {
@@ -221,7 +232,6 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .enosema-badge {
     padding: var(--spacing-xs);
-    margin-left: var(--spacing-sm);
   }
 
   .enosema-text {
@@ -237,6 +247,7 @@ onUnmounted(() => {
     top: 100%;
     left: 0;
     right: 0;
+    flex: none;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.98);
     padding: var(--spacing-lg);
