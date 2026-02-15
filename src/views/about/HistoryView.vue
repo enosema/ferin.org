@@ -216,6 +216,112 @@
     </section>
 
     <section class="content-section">
+      <h2>Development of ISO 19135:2026</h2>
+      <p>
+        ISO 19135:2026 was developed as a joint collaboration between ISO and CEN
+        under the Vienna Agreement. The development process followed ISO's rigorous
+        standards development stages.
+      </p>
+
+      <h3>Development Stages</h3>
+      <div class="stages-table">
+        <div class="stage-row">
+          <span class="stage-code">10.99</span>
+          <span class="stage-name">New work item proposal approved</span>
+        </div>
+        <div class="stage-row">
+          <span class="stage-code">20.00</span>
+          <span class="stage-name">Working draft registered</span>
+        </div>
+        <div class="stage-row">
+          <span class="stage-code">30.00</span>
+          <span class="stage-name">Committee draft registered</span>
+        </div>
+        <div class="stage-row">
+          <span class="stage-code">40.00</span>
+          <span class="stage-name">DIS (Draft International Standard) registered</span>
+        </div>
+        <div class="stage-row">
+          <span class="stage-code">50.00</span>
+          <span class="stage-name">FDIS (Final Draft International Standard) registered</span>
+        </div>
+        <div class="stage-row">
+          <span class="stage-code">60.60</span>
+          <span class="stage-name">International Standard published</span>
+        </div>
+      </div>
+
+      <h3>Project Leadership</h3>
+      <p>The standard was developed under the leadership of:</p>
+      <ul class="leadership-list">
+        <li><strong>Ronald Tse</strong> (CalConnect / Ribose) - Project Leader</li>
+        <li><strong>Reese Plews</strong> (JISC Japan / Plews Consulting) - Project Leader</li>
+      </ul>
+
+      <h3>Project Team</h3>
+      <p>
+        The ISO 19135 Project Team comprised experts from national standards bodies,
+        liaison organizations, and industry:
+      </p>
+      <div class="team-grid">
+        <div class="team-member">Jean Brodeur</div>
+        <div class="team-member">Jiantao Bi (RADI)</div>
+        <div class="team-member">Michael Craymer (NRCAN)</div>
+        <div class="team-member">Gobe Hobona (OGC)</div>
+        <div class="team-member">Jan Hjelmager (SDFE)</div>
+        <div class="team-member">Knut Jetlund (Kartverket)</div>
+        <div class="team-member">Paul Janssen (Geonovum)</div>
+        <div class="team-member">Liz Kolster (NZTA)</div>
+        <div class="team-member">Chikako Kurokawa (Asia Air Survey)</div>
+        <div class="team-member">Jeffrey Lau (Ribose)</div>
+        <div class="team-member">Marie Lambois (IGN)</div>
+        <div class="team-member">Roger Lott (IOGP)</div>
+        <div class="team-member">Peter Parslow (Ordnance Survey)</div>
+        <div class="team-member">Ivana Ivanova (Curtin University)</div>
+        <div class="team-member">Scott Simmons (OGC)</div>
+        <div class="team-member">Stefan Strobel (Strobel Geoinformatics)</div>
+        <div class="team-member">Anton Strogonoff (Ribose)</div>
+        <div class="team-member">Torsten Svärd (Lantmäteriet)</div>
+        <div class="team-member">Larry D. Hothem</div>
+        <div class="team-member">Yong Baek (IHO)</div>
+        <div class="team-member">Mats Åhlin (SIS)</div>
+        <div class="team-member">Patrick Vorster (DALRRD)</div>
+        <div class="team-member">Ryu Ryan (ETRI)</div>
+        <div class="team-member">Heidi Vanparys (SDFI)</div>
+      </div>
+
+      <h3>Acknowledgments</h3>
+      <p>
+        The Project Team thanks the following for their tireless editing and
+        validation of the document:
+      </p>
+      <ul>
+        <li><strong>Nicola Perou</strong> - ISO Editor</li>
+        <li><strong>Mats Åhlin</strong> and <strong>Christine Allansson</strong> - ISO/TC 211 Secretariat (SIS)</li>
+      </ul>
+
+      <h3>ISO and CEN Support</h3>
+      <div class="support-grid">
+        <div class="support-item">
+          <span class="support-label">ISO Technical Programme Manager</span>
+          <span class="support-value">Hakim Mkinsi</span>
+        </div>
+        <div class="support-item">
+          <span class="support-label">ISO Editorial Programme Manager</span>
+          <span class="support-value">Alison Reid-Jamond</span>
+        </div>
+        <div class="support-item">
+          <span class="support-label">CEN Secretary</span>
+          <span class="support-value">Christopher Starr</span>
+        </div>
+        <div class="support-item">
+          <span class="support-label">CEN Programme Manager</span>
+          <span class="support-value">Lucia Lanfri</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
       <h2>Migration from 2015 Edition</h2>
       <p>
         Organizations with registers conforming to the 2015 edition should be
@@ -360,6 +466,97 @@
 
 .comparison-card ul {
   font-size: var(--font-size-sm);
+}
+
+.content-section h3 {
+  font-size: var(--font-size-lg);
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.stages-table {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.stage-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stage-row:last-child {
+  border-bottom: none;
+}
+
+.stage-code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  min-width: 60px;
+}
+
+.stage-name {
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+}
+
+.leadership-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-md) 0;
+}
+
+.leadership-list li {
+  padding: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.team-member {
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.support-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.support-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.support-label {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-light);
+}
+
+.support-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
 
 @media (max-width: 768px) {
