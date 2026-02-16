@@ -122,6 +122,37 @@
             containing all SI units and commonly used non-SI units.
           </div>
         </div>
+
+        <div class="entity">
+          <h3>Identifier</h3>
+          <p>
+            A unique label that distinguishes one entity from another. FERIN requires
+            <strong>two types of identifiers</strong> for each entity: an object identifier
+            (non-redirectable, permanent) and a functional identifier (redirectable,
+            supports hierarchy). This dual approach enables both stable citation and
+            semantic addressing.
+          </p>
+          <div class="example">
+            <strong>Example:</strong> The concept "meter" has an object identifier
+            <code>uuid:550e8400-...</code> (permanent) and a functional identifier
+            <code>/concepts/units/length/meter</code> (hierarchical, semantic).
+          </div>
+        </div>
+
+        <div class="entity">
+          <h3>Relationship</h3>
+          <p>
+            A typed connection between entities. FERIN supports concept relationships
+            (between concepts), concept version relationships (between versions), and
+            content relationships (between register items). Relationships enable lineage
+            tracking, semantic navigation, and temporal reconstruction.
+          </p>
+          <div class="example">
+            <strong>Example:</strong> A "supersedes" relationship from meter v2 to meter v1
+            indicates that v2 replaces v1. A "has-part" relationship from "Address" to
+            "Street" indicates composition.
+          </div>
+        </div>
       </div>
     </section>
 
