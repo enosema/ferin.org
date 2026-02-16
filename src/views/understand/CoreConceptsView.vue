@@ -126,8 +126,9 @@
         <div class="entity">
           <h3>Identifier</h3>
           <p>
-            A unique label that distinguishes one entity from another. FERIN requires
-            <strong>two types of identifiers</strong> for each entity: an object identifier
+            A unique label that distinguishes one entity from another. Identifiers
+            exist on <strong>both the concept plane and content plane</strong>. FERIN requires
+            two types of identifiers for each entity: an object identifier
             (non-redirectable, permanent) and a functional identifier (redirectable,
             supports hierarchy). This dual approach enables both stable citation and
             semantic addressing.
@@ -142,15 +143,30 @@
         <div class="entity">
           <h3>Relationship</h3>
           <p>
-            A typed connection between entities. FERIN supports concept relationships
-            (between concepts), concept version relationships (between versions), and
-            content relationships (between register items). Relationships enable lineage
+            A typed connection between entities. Relationships exist on both planes:
+            concept relationships and concept version relationships on the concept plane,
+            and content relationships on the content plane. Relationships enable lineage
             tracking, semantic navigation, and temporal reconstruction.
           </p>
           <div class="example">
             <strong>Example:</strong> A "supersedes" relationship from meter v2 to meter v1
             indicates that v2 replaces v1. A "has-part" relationship from "Address" to
             "Street" indicates composition.
+          </div>
+        </div>
+
+        <div class="entity">
+          <h3>Change</h3>
+          <p>
+            A record of a modification to register content. Every action (add, modify,
+            invalidate, supersede, etc.) creates a change record with complete information
+            about what was modified, when, by whom, and why. Change records enable
+            point-in-time reconstruction and complete audit trails.
+          </p>
+          <div class="example">
+            <strong>Example:</strong> When the definition of "meter" was updated in 1983,
+            a change record was created noting the action (add-version), the affected
+            concept, the new definition, the timestamp, and the deciding body (CGPM).
           </div>
         </div>
       </div>
