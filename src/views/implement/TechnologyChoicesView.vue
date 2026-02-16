@@ -3,92 +3,259 @@
     <header class="page-header">
       <h1>Technology Implementation Guide</h1>
       <p class="page-lead">
-        FERIN is technology-neutral. You can implement a compliant register
-        using SQL databases, document stores, graph databases, or RDF triple
-        stores. This guide maps FERIN concepts to each technology.
+        FERIN is technology-neutral. ISO 19135 deliberately does not prescribe
+        implementation technology. This guide explains what capabilities matter
+        for compliance, and the gap between basic database technology and a
+        FERIN-compliant register.
       </p>
     </header>
 
     <section class="content-section">
-      <h2>Technology Neutrality</h2>
+      <h2>The Two-Plane Model and Technology</h2>
       <p>
-        ISO 19135 deliberately does not prescribe implementation technology.
-        This flexibility allows FERIN to be implemented using any storage
-        system that can support the required capabilities.
+        FERIN's <router-link to="/understand/core-concepts">two-plane model</router-link>
+        separates concerns that technology must support:
       </p>
 
-      <div class="key-insight">
-        <h4>What Matters for Compliance</h4>
+      <div class="plane-model">
+        <div class="plane concept-plane">
+          <h3>Concept Plane</h3>
+          <p class="plane-description">
+            The semantic layer where concepts evolve and relate to each other.
+          </p>
+          <div class="plane-elements">
+            <div class="element">
+              <h4>Concepts</h4>
+              <p>Abstract ideas that can exist in any concept system (a graph of concepts)</p>
+            </div>
+            <div class="element">
+              <h4>Concept Versions</h4>
+              <p>Specific realizations of concepts at points in time</p>
+            </div>
+            <div class="element">
+              <h4>Concept Relationships</h4>
+              <p>Connections between concepts (generalization, part-whole, etc.)</p>
+            </div>
+            <div class="element">
+              <h4>Concept Version Relationships</h4>
+              <p>Connections between versions (supersedes, has-part, etc.)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="plane content-plane">
+          <h3>Content Plane</h3>
+          <p class="plane-description">
+            The data layer where concepts are realized as instances.
+          </p>
+          <div class="plane-elements">
+            <div class="element">
+              <h4>Register Item Classes</h4>
+              <p>Data schemas defining the structure of register items</p>
+            </div>
+            <div class="element">
+              <h4>Register Items</h4>
+              <p>Data instances - the actual content of the register</p>
+            </div>
+            <div class="element">
+              <h4>Changes</h4>
+              <p>Records of all modifications to register content</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="key-relationship">
+        <h4>Key Relationship</h4>
         <p>
-          Technology choice doesn't determine FERIN compliance. These
-          capabilities do:
+          Each <strong>concept version</strong> is backed by a <strong>register item</strong>
+          (data instance) in a particular <strong>register item class</strong> (data schema).
+          This separation enables:
         </p>
         <ul>
-          <li><strong>Persistent identifiers</strong> - IDs must be unique and forever resolvable</li>
-          <li><strong>Status tracking</strong> - Must store and query valid/invalid/superseded states</li>
-          <li><strong>Change history</strong> - Every change recorded with timestamp, actor, rationale</li>
-          <li><strong>Action support</strong> - Must implement add/invalidate/supersede/retire</li>
-          <li><strong>Temporal queries</strong> - Must answer "what was true at time T?"</li>
-          <li><strong>Commitment fulfillment</strong> - Must meet stated access/persistence/transparency promises</li>
+          <li>Concepts to evolve without breaking existing data</li>
+          <li>Multiple register item classes for different representations</li>
+          <li>Schema evolution independent of concept evolution</li>
         </ul>
       </div>
     </section>
 
     <section class="content-section">
-      <h2>Technology Comparison</h2>
+      <h2>The Implementation Gap</h2>
+      <p>
+        There is a significant gap between basic database technology and a
+        FERIN-compliant register. A database provides storage and query capabilities,
+        but FERIN requires:
+      </p>
 
-      <div class="tech-mapping">
+      <div class="gap-diagram">
+        <div class="gap-layer database">
+          <h4>Database Layer</h4>
+          <ul>
+            <li>CRUD operations</li>
+            <li>Query language</li>
+            <li>Transaction support</li>
+            <li>Indexing</li>
+          </ul>
+        </div>
+        <div class="gap-arrow">
+          <span class="gap-size">Significant Gap</span>
+        </div>
+        <div class="gap-layer ferin">
+          <h4>FERIN Layer</h4>
+          <ul>
+            <li>Two-plane model (concept + content)</li>
+            <li>Identifier schemes (object + functional)</li>
+            <li>Status management (validity, publication, etc.)</li>
+            <li>Action semantics (add, invalidate, supersede, etc.)</li>
+            <li>Complete change history</li>
+            <li>Governance processes</li>
+            <li>Commitment fulfillment</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        This is why implementing FERIN requires more than choosing a database.
+        You need a register system that implements FERIN semantics on top of
+        whatever storage technology you choose.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Capabilities Required for Compliance</h2>
+      <p>
+        Technology choice doesn't determine FERIN compliance. These capabilities do:
+      </p>
+
+      <div class="capabilities-grid">
+        <div class="capability">
+          <h4>Persistent Identifiers</h4>
+          <p>
+            Both object identifiers (non-redirectable) and functional identifiers
+            (redirectable, hierarchical) must be supported. See
+            <router-link to="/implement/identifier-design">Identifier Design</router-link>.
+          </p>
+        </div>
+
+        <div class="capability">
+          <h4>Status Tracking</h4>
+          <p>
+            Must store and query validity (valid/invalid), publication
+            (published/unpublished/draft), and other status dimensions. See
+            <router-link to="/reference/statuses">Statuses</router-link>.
+          </p>
+        </div>
+
+        <div class="capability">
+          <h4>Change History</h4>
+          <p>
+            Every change recorded with timestamp, actor, rationale. Must support
+            point-in-time reconstruction. See
+            <router-link to="/implement/temporal-data">Temporal Data</router-link>.
+          </p>
+        </div>
+
+        <div class="capability">
+          <h4>Action Semantics</h4>
+          <p>
+            Must implement FERIN actions: add, add-version, invalidate, supersede,
+            retire, etc. Each action has specific semantics. See
+            <router-link to="/implement/actions">Actions Reference</router-link>.
+          </p>
+        </div>
+
+        <div class="capability">
+          <h4>Relation Support</h4>
+          <p>
+            Must support concept relations, concept version relations, and content
+            relations. See <router-link to="/reference/relations">Relations</router-link>.
+          </p>
+        </div>
+
+        <div class="capability">
+          <h4>Schema Evolution</h4>
+          <p>
+            Register item classes (schemas) must evolve independently of register
+            items (instances). See
+            <router-link to="/implement/schema-evolution">Schema Evolution</router-link>.
+          </p>
+        </div>
+
+        <div class="capability">
+          <h4>Temporal Queries</h4>
+          <p>
+            Must answer "what was true at time T?" for any point in the register's
+            history. See <router-link to="/implement/temporal-data">Temporal Data</router-link>.
+          </p>
+        </div>
+
+        <div class="capability">
+          <h4>Commitment Fulfillment</h4>
+          <p>
+            Must meet stated access, persistence, and transparency promises.
+            See <router-link to="/understand/commitments">Commitments</router-link>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>FERIN Concept Mapping</h2>
+      <p>
+        When evaluating technology, consider how it maps to FERIN concepts:
+      </p>
+
+      <div class="concept-mapping">
         <table>
           <thead>
             <tr>
               <th>FERIN Concept</th>
-              <th>SQL</th>
-              <th>Document</th>
-              <th>Graph/RDF</th>
+              <th>What to Evaluate</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Concept</strong></td>
-              <td>Table with foreign key to versions table</td>
-              <td>Document with embedded version history</td>
-              <td>Node with version edges</td>
+              <td>
+                How will you represent abstract ideas that evolve over time?
+                Can you track concept relationships (generalization, part-whole)?
+              </td>
             </tr>
             <tr>
               <td><strong>Concept Version</strong></td>
-              <td>Row in versions table with concept_id FK</td>
-              <td>Object in versions array</td>
-              <td>Version node linked to concept node</td>
+              <td>
+                How will you represent specific realizations at points in time?
+                Can you track version relationships (supersedes, has-part)?
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Register Item Class</strong></td>
+              <td>
+                How will you define and version data schemas?
+                Can schemas evolve independently of instances?
+              </td>
             </tr>
             <tr>
               <td><strong>Register Item</strong></td>
-              <td>Table with status and timestamp columns</td>
-              <td>Document with status fields</td>
-              <td>Node with status properties</td>
+              <td>
+                How will you store data instances?
+                Can items be linked to concept versions?
+              </td>
             </tr>
             <tr>
               <td><strong>Relations</strong></td>
-              <td>Junction tables with relation types</td>
-              <td>Reference arrays with type metadata</td>
-              <td>Typed edges (native)</td>
+              <td>
+                Can you represent typed relationships with temporal constraints?
+                Can you traverse relationships efficiently?
+              </td>
             </tr>
             <tr>
-              <td><strong>Change History</strong></td>
-              <td>Audit tables or temporal tables</td>
-              <td>Embedded history arrays</td>
-              <td>Version nodes with temporal edges</td>
-            </tr>
-            <tr>
-              <td><strong>Schema Version</strong></td>
-              <td>Separate tables per version or version column</td>
-              <td>schemaVersion field in document</td>
-              <td>Named graphs or SHACL shapes</td>
-            </tr>
-            <tr>
-              <td><strong>Point-in-Time Query</strong></td>
-              <td>Temporal SQL queries</td>
-              <td>Filter on embedded timestamps</td>
-              <td>SPARQL GRAPH queries</td>
+              <td><strong>Change Records</strong></td>
+              <td>
+                Can you capture complete change history with all required metadata?
+                Can you replay history for point-in-time reconstruction?
+              </td>
             </tr>
           </tbody>
         </table>
@@ -96,388 +263,127 @@
     </section>
 
     <section class="content-section">
-      <h2>SQL Databases</h2>
+      <h2>Known FERIN Implementations</h2>
       <p>
-        Relational databases are a natural fit for FERIN with their mature
-        tooling, ACID guarantees, and widespread expertise.
+        Two register systems are known to implement FERIN concepts:
       </p>
 
-      <div class="tech-section">
-        <h3>Strengths</h3>
-        <ul>
-          <li>Mature, well-understood technology</li>
-          <li>ACID transactions ensure data integrity</li>
-          <li>Clear schema enforcement</li>
-          <li>Rich query capabilities (SQL)</li>
-          <li>Temporal table support in modern databases</li>
-        </ul>
-
-        <h3>Challenges</h3>
-        <ul>
-          <li>Schema evolution requires migration scripts</li>
-          <li>Flexible schemas need JSON columns or EAV patterns</li>
-          <li>Version history requires additional tables</li>
-        </ul>
-
-        <h3>Implementation Patterns</h3>
-
-        <div class="pattern">
-          <h4>Temporal Table Pattern</h4>
-          <div class="code-block">
-            <pre><code>-- PostgreSQL example with temporal extension
-CREATE TABLE register_items (
-  id UUID PRIMARY KEY,
-  content JSONB NOT NULL,
-  status TEXT NOT NULL CHECK (status IN ('valid', 'invalid', 'superseded')),
-  schema_version TEXT NOT NULL,
-
-  -- Temporal columns
-  valid_from TIMESTAMP NOT NULL,
-  valid_until TIMESTAMP,
-
-  -- Lineage
-  derived_from UUID[],
-  superseded_by UUID
-);
-
--- Query state at specific point in time
-SELECT * FROM register_items
-WHERE valid_from <= :timestamp
-  AND (valid_until IS NULL OR valid_until > :timestamp)
-  AND status = 'valid';</code></pre>
-          </div>
+      <div class="implementations">
+        <div class="implementation">
+          <h3>Paneron</h3>
+          <p class="implementation-url">
+            <a href="https://www.paneron.org" target="_blank" rel="noopener">
+              www.paneron.org
+            </a>
+          </p>
+          <p class="implementation-vendor">Developed by Ribose</p>
+          <p class="implementation-description">
+            A structured data management platform designed for standards organizations
+            and registries. Implements FERIN concepts including the two-plane model,
+            versioning, and governance workflows.
+          </p>
         </div>
 
-        <div class="pattern">
-          <h4>Audit Table Pattern</h4>
-          <div class="code-block">
-            <pre><code>-- Main items table
-CREATE TABLE items (
-  id UUID PRIMARY KEY,
-  current_version INT NOT NULL,
-  status TEXT NOT NULL
-);
-
--- Separate audit/history table
-CREATE TABLE item_history (
-  id UUID PRIMARY KEY,
-  item_id UUID NOT NULL REFERENCES items(id),
-  version INT NOT NULL,
-  content JSONB NOT NULL,
-  changed_at TIMESTAMP NOT NULL,
-  changed_by TEXT NOT NULL,
-  change_reason TEXT,
-  action TEXT NOT NULL  -- created, modified, invalidated, etc.
-);
-
--- Get historical state
-SELECT * FROM item_history
-WHERE item_id = :id
-  AND changed_at <= :timestamp
-ORDER BY version DESC
-LIMIT 1;</code></pre>
-          </div>
+        <div class="implementation">
+          <h3>R3gistry</h3>
+          <p class="implementation-url">
+            <a href="https://inspire.ec.europa.eu/registry" target="_blank" rel="noopener">
+              INSPIRE EU Registry
+            </a>
+          </p>
+          <p class="implementation-vendor">European Commission INSPIRE</p>
+          <p class="implementation-description">
+            The reference registry for the INSPIRE Directive, managing code lists,
+            registers, and spatial data themes. Implements ISO 19135 register concepts
+            for European spatial data infrastructure.
+          </p>
         </div>
+      </div>
+
+      <p>
+        These implementations demonstrate that FERIN compliance is achievable
+        with different technology stacks, provided the fundamental capabilities
+        are implemented correctly.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Build vs Buy</h2>
+      <p>
+        When deciding whether to build a custom register or adopt an existing
+        solution, consider:
+      </p>
+
+      <div class="decision-factors">
+        <div class="factor">
+          <h4>Build Custom If...</h4>
+          <ul>
+            <li>You have specific integration requirements</li>
+            <li>Your governance model is unique</li>
+            <li>You need full control over the technology stack</li>
+            <li>You have resources for long-term maintenance</li>
+          </ul>
+        </div>
+
+        <div class="factor">
+          <h4>Adopt Existing If...</h4>
+          <ul>
+            <li>Your needs match existing solutions</li>
+            <li>You want faster time to deployment</li>
+            <li>You prefer supported software</li>
+            <li>Your governance model is standard</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="warning">
+        <h4>Important Consideration</h4>
+        <p>
+          Building a FERIN-compliant register requires significant effort to
+          implement all required capabilities correctly. The gap between basic
+          database operations and FERIN semantics should not be underestimated.
+        </p>
       </div>
     </section>
 
     <section class="content-section">
-      <h2>Document Databases</h2>
+      <h2>What ISO 19135 Does Not Require</h2>
       <p>
-        Document stores like MongoDB or CouchDB offer flexible schemas and
-        natural embedding of version history.
+        ISO 19135 is deliberately technology-neutral. It does not require:
       </p>
 
-      <div class="tech-section">
-        <h3>Strengths</h3>
-        <ul>
-          <li>Flexible schema - each document can evolve independently</li>
-          <li>Natural embedding of version history</li>
-          <li>JSON-native, works well with modern APIs</li>
-          <li>Horizontal scaling for large registers</li>
-        </ul>
+      <ul class="not-required">
+        <li>Any specific database technology (SQL, NoSQL, graph, etc.)</li>
+        <li>Any specific query language (SQL, SPARQL, Cypher, etc.)</li>
+        <li>Any specific API style (REST, GraphQL, gRPC, etc.)</li>
+        <li>Any specific serialization format (JSON, XML, RDF, etc.)</li>
+        <li>Any specific hosting model (cloud, on-premise, hybrid)</li>
+      </ul>
 
-        <h3>Challenges</h3>
-        <ul>
-          <li>No native referential integrity - must enforce in application</li>
-          <li>Eventual consistency considerations</li>
-          <li>Temporal queries require careful indexing</li>
-        </ul>
-
-        <h3>Implementation Pattern</h3>
-
-        <div class="pattern">
-          <h4>Embedded History Pattern</h4>
-          <div class="code-block">
-            <pre><code>// Document structure
-{
-  "_id": "urn:example:item:123",
-  "schemaVersion": "2.0",
-  "status": "valid",
-  "currentContent": {
-    "name": "Example Item",
-    "description": "A sample item",
-    "category": "type-a"
-  },
-  "history": [
-    {
-      "version": 1,
-      "schemaVersion": "1.0",
-      "content": {
-        "name": "Example Item",
-        "description": "A sample item"
-      },
-      "changedAt": "2024-01-15T10:00:00Z",
-      "changedBy": "alice@example.com",
-      "action": "created"
-    },
-    {
-      "version": 2,
-      "schemaVersion": "2.0",
-      "content": {
-        "name": "Example Item",
-        "description": "A sample item",
-        "category": "type-a"
-      },
-      "changedAt": "2024-06-20T14:30:00Z",
-      "changedBy": "bob@example.com",
-      "action": "modified",
-      "reason": "Added category field"
-    }
-  ],
-  "relations": [
-    { "type": "supersedes", "target": "urn:example:item:100" }
-  ]
-}
-
-// Query: Get state at specific time
-db.items.aggregate([
-  { $match: { "_id": "urn:example:item:123" } },
-  { $project: {
-      historicalState: {
-        $filter: {
-          input: "$history",
-          cond: { $lte: ["$$this.changedAt", "2024-03-01T00:00:00Z"] }
-        }
-      }
-    }
-  }
-])</code></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Graph Databases</h2>
       <p>
-        Graph databases like Neo4j are excellent for FERIN due to native
-        relationship support and natural modeling of concept systems.
+        These are implementation choices that should be made based on your
+        specific requirements, existing infrastructure, and team expertise.
       </p>
-
-      <div class="tech-section">
-        <h3>Strengths</h3>
-        <ul>
-          <li>Native relationship modeling - edges are first-class citizens</li>
-          <li>Natural for concept systems (generalization, part-whole, etc.)</li>
-          <li>Efficient traversal for lineage queries</li>
-          <li>Flexible property model</li>
-        </ul>
-
-        <h3>Challenges</h3>
-        <ul>
-          <li>Steeper learning curve for teams unfamiliar with graph thinking</li>
-          <li>Different query paradigm (Cypher, Gremlin)</li>
-          <li>Tooling less mature than SQL</li>
-        </ul>
-
-        <h3>Implementation Pattern</h3>
-
-        <div class="pattern">
-          <h4>Node-Edge Model</h4>
-          <div class="code-block">
-            <pre><code>// Cypher (Neo4j) example
-
-// Create concept with version
-CREATE (c:Concept {
-  id: 'urn:example:concept:meter',
-  createdAt: datetime('2024-01-01T00:00:00Z')
-})
-CREATE (v1:ConceptVersion {
-  version: 1,
-  definition: 'Length of prototype bar',
-  validFrom: datetime('1889-01-01T00:00:00Z'),
-  validUntil: datetime('1960-01-01T00:00:00Z')
-})
-CREATE (v2:ConceptVersion {
-  version: 2,
-  definition: 'Wavelength of krypton-86',
-  validFrom: datetime('1960-01-01T00:00:00Z'),
-  validUntil: datetime('1983-01-01T00:00:00Z')
-})
-CREATE (v3:ConceptVersion {
-  version: 3,
-  definition: 'Distance light travels in 1/299,792,458 second',
-  validFrom: datetime('1983-01-01T00:00:00Z')
-})
-CREATE (c)-[:HAS_VERSION]->(v1)
-CREATE (c)-[:HAS_VERSION]->(v2)
-CREATE (c)-[:HAS_VERSION]->(v3)
-
-// Create register item with relations
-CREATE (item:RegisterItem {
-  id: 'urn:example:item:123',
-  status: 'valid',
-  content: {name: 'Meter', symbol: 'm'}
-})
-CREATE (item)-[:REALIZES]->(c)
-
-// Lineage query: trace all ancestors
-MATCH path = (item:RegisterItem {id: 'urn:example:item:456'})-[:SUPERSEDES*]->(ancestor)
-RETURN path</code></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>RDF Triple Stores</h2>
-      <p>
-        RDF stores are ideal for FERIN implementations that need semantic
-        interoperability, linked data, or integration with SHACL validation.
-      </p>
-
-      <div class="tech-section">
-        <h3>Strengths</h3>
-        <ul>
-          <li>Native semantic web support</li>
-          <li>SHACL for schema validation (multiple shapes = multiple versions)</li>
-          <li>SPARQL for complex queries</li>
-          <li>Linked data principles - easy cross-register references</li>
-          <li>Open world assumption aligns with lazy migration</li>
-        </ul>
-
-        <h3>Challenges</h3>
-        <ul>
-          <li>Steeper learning curve</li>
-          <li>Performance tuning more complex</li>
-          <li>Tooling less familiar to most developers</li>
-        </ul>
-
-        <h3>Implementation Pattern</h3>
-
-        <div class="pattern">
-          <h4>Named Graphs + SHACL</h4>
-          <div class="code-block">
-            <pre><code># Data exists without schema constraints
-@prefix ex: &lt;http://example.org/&gt; .
-@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
-
-# Item data (can exist independently of shapes)
-ex:item-123 a ex:RegisterItem ;
-  ex:name "Example Item" ;
-  ex:description "A sample item" ;
-  ex:category "type-a" ;  # Optional - new in v2
-  ex:status "valid" ;
-  ex:schemaVersion "2.0" .
-
-# SHACL Shape v1 (original schema)
-ex:ItemShape-v1 a sh:NodeShape ;
-  sh:targetClass ex:RegisterItem ;
-  sh:property [
-    sh:path ex:name ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-  ] , [
-    sh:path ex:description ;
-    sh:minCount 0 ;
-  ] .
-
-# SHACL Shape v2 (adds category requirement)
-ex:ItemShape-v2 a sh:NodeShape ;
-  sh:targetClass ex:RegisterItem ;
-  sh:property [
-    sh:path ex:name ;
-    sh:minCount 1 ;
-  ] , [
-    sh:path ex:category ;  # New required field
-    sh:minCount 1 ;
-  ] .
-
-# Query: Items valid at specific schema version
-SELECT ?item WHERE {
-  ?item a ex:RegisterItem .
-  ?item ex:schemaVersion "1.0" .
-  ?item ex:status "valid" .
-}
-
-# Validation: Check item against specific shape
-# (Using SHACL engine - not SPARQL)</code></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
-      <h2>Choosing Your Technology</h2>
-
-      <div class="decision-guide">
-        <div class="guide-item">
-          <h4>Choose SQL if...</h4>
-          <ul>
-            <li>Your team has strong SQL expertise</li>
-            <li>You need ACID transactions</li>
-            <li>Schema is relatively stable</li>
-            <li>You're building on existing relational infrastructure</li>
-          </ul>
-        </div>
-
-        <div class="guide-item">
-          <h4>Choose Document if...</h4>
-          <ul>
-            <li>Schemas evolve frequently</li>
-            <li>You need horizontal scalability</li>
-            <li>Content is naturally hierarchical</li>
-            <li>JSON-native APIs are important</li>
-          </ul>
-        </div>
-
-        <div class="guide-item">
-          <h4>Choose Graph if...</h4>
-          <ul>
-            <li>Relationships are central to your domain</li>
-            <li>Lineage queries are frequent</li>
-            <li>You're building concept systems/taxonomies</li>
-            <li>Traversal performance matters</li>
-          </ul>
-        </div>
-
-        <div class="guide-item">
-          <h4>Choose RDF if...</h4>
-          <ul>
-            <li>Semantic interoperability is required</li>
-            <li>You need linked data capabilities</li>
-            <li>SHACL validation fits your needs</li>
-            <li>Cross-register references are common</li>
-          </ul>
-        </div>
-      </div>
     </section>
 
     <section class="content-section">
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
+          <router-link to="/understand/core-concepts">Core Concepts</router-link>
+          - The concept plane and content plane model
+        </li>
+        <li>
+          <router-link to="/implement/identifier-design">Identifier Design</router-link>
+          - Object and functional identifier schemes
+        </li>
+        <li>
           <router-link to="/implement/schema-evolution">Schema Evolution</router-link>
-          - Versioning schemas independently of data
+          - Versioning register item classes
         </li>
         <li>
           <router-link to="/implement/temporal-data">Temporal Data</router-link>
-          - Point-in-time queries and history
-        </li>
-        <li>
-          <router-link to="/implement/semantic-interoperability">Semantic Interoperability</router-link>
-          - RDF/SHACL integration details
+          - Point-in-time queries and complete history
         </li>
         <li>
           <router-link to="/implement/getting-started">Getting Started</router-link>
@@ -527,124 +433,310 @@ SELECT ?item WHERE {
   margin: var(--spacing-md) 0 var(--spacing-sm);
 }
 
-.key-insight {
+.plane-model {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.plane {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+}
+
+.concept-plane {
+  border-color: rgba(13, 148, 136, 0.3);
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, var(--color-surface) 100%);
+}
+
+.content-plane {
+  border-color: rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, var(--color-surface) 100%);
+}
+
+.plane h3 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-lg);
+}
+
+.concept-plane h3 {
+  color: var(--color-accent);
+}
+
+.content-plane h3 {
+  color: #6366f1;
+}
+
+.plane-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin: 0 0 var(--spacing-md);
+}
+
+.plane-elements {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.element {
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.element h4 {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.element p {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+}
+
+.key-relationship {
   background: rgba(13, 148, 136, 0.05);
   border: 1px solid rgba(13, 148, 136, 0.2);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
+  margin: var(--spacing-xl) 0;
 }
 
-.key-insight h4 {
+.key-relationship h4 {
   margin: 0 0 var(--spacing-md);
   color: var(--color-accent);
 }
 
-.key-insight ul {
+.key-relationship ul {
+  margin: var(--spacing-sm) 0 0;
+  padding-left: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.gap-diagram {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin: var(--spacing-xl) 0;
+}
+
+.gap-layer {
+  flex: 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.gap-layer h4 {
+  margin: 0 0 var(--spacing-md);
+  font-size: var(--font-size-base);
+}
+
+.gap-layer ul {
   margin: 0;
   padding-left: var(--spacing-lg);
-}
-
-.key-insight li {
-  margin-bottom: var(--spacing-sm);
   font-size: var(--font-size-sm);
 }
 
-.tech-mapping {
-  overflow-x: auto;
-  margin: var(--spacing-lg) 0;
-}
-
-.tech-mapping table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: var(--font-size-sm);
-}
-
-.tech-mapping th,
-.tech-mapping td {
-  padding: var(--spacing-sm) var(--spacing-md);
-  text-align: left;
-  vertical-align: top;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.tech-mapping th {
-  background: var(--color-surface);
-  font-weight: var(--font-weight-semibold);
-}
-
-.tech-mapping td:first-child {
-  font-weight: var(--font-weight-medium);
-  white-space: nowrap;
-}
-
-.tech-section {
-  margin-top: var(--spacing-lg);
-}
-
-.tech-section ul {
-  margin: 0 0 var(--spacing-md);
-  padding-left: var(--spacing-lg);
-  font-size: var(--font-size-sm);
-}
-
-.tech-section li {
+.gap-layer li {
   margin-bottom: var(--spacing-xs);
 }
 
-.pattern {
-  margin: var(--spacing-md) 0;
+.database {
+  border-color: var(--color-border);
 }
 
-.pattern h4 {
+.ferin {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, var(--color-surface) 100%);
+}
+
+.ferin h4 {
   color: var(--color-accent);
-  margin-bottom: var(--spacing-sm);
 }
 
-.code-block {
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow-x: auto;
+.gap-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
 
-.code-block pre {
-  margin: 0;
-  padding: var(--spacing-md);
-  font-family: var(--font-mono);
+.gap-arrow::before {
+  content: "→";
+  font-size: var(--font-size-2xl);
+  color: var(--color-accent);
+}
+
+.gap-size {
   font-size: var(--font-size-xs);
-  line-height: var(--line-height-relaxed);
-  white-space: pre;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  white-space: nowrap;
 }
 
-.decision-guide {
+.capabilities-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-lg);
   margin: var(--spacing-lg) 0;
 }
 
-.guide-item {
+.capability {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
 }
 
-.guide-item h4 {
+.capability h4 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-accent);
+}
+
+.capability p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.capability a {
+  color: var(--color-accent);
+}
+
+.concept-mapping {
+  overflow-x: auto;
+  margin: var(--spacing-lg) 0;
+}
+
+.concept-mapping table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.concept-mapping th,
+.concept-mapping td {
+  padding: var(--spacing-md);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.concept-mapping th {
+  background: var(--color-surface);
+  font-weight: var(--font-weight-semibold);
+}
+
+.concept-mapping td:first-child {
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.implementations {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.implementation {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-lg);
+}
+
+.implementation h3 {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-lg);
+}
+
+.implementation-url {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.implementation-url a {
+  color: var(--color-accent);
+}
+
+.implementation-vendor {
+  margin: 0 0 var(--spacing-md);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.implementation-description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  line-height: var(--line-height-relaxed);
+}
+
+.decision-factors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.factor {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.factor h4 {
   margin: 0 0 var(--spacing-md);
   font-size: var(--font-size-base);
   color: var(--color-accent);
 }
 
-.guide-item ul {
+.factor ul {
   margin: 0;
   padding-left: var(--spacing-lg);
   font-size: var(--font-size-sm);
 }
 
-.guide-item li {
+.factor li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.warning {
+  background: rgba(245, 158, 11, 0.05);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.warning h4 {
+  margin: 0 0 var(--spacing-sm);
+  color: #f59e0b;
+}
+
+.warning p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.not-required {
+  margin: var(--spacing-md) 0;
+  padding-left: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.not-required li {
   margin-bottom: var(--spacing-xs);
 }
 
@@ -666,12 +758,28 @@ SELECT ?item WHERE {
 }
 
 @media (max-width: 768px) {
-  .decision-guide {
+  .plane-model {
     grid-template-columns: 1fr;
   }
 
-  .code-block pre {
-    font-size: 10px;
+  .gap-diagram {
+    flex-direction: column;
+  }
+
+  .gap-arrow::before {
+    content: "↓";
+  }
+
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .implementations {
+    grid-template-columns: 1fr;
+  }
+
+  .decision-factors {
+    grid-template-columns: 1fr;
   }
 }
 </style>
