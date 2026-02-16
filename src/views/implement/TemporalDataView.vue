@@ -3,78 +3,116 @@
     <header class="page-header">
       <h1>Temporal Data and Complete History</h1>
       <p class="page-lead">
-        FERIN provides complete historical tracking - every change, every split,
-        every merge, across the entire timeline. This enables point-in-time
-        queries, lineage reconstruction, and regulatory-grade audit trails.
+        FERIN provides complete historical tracking through the concept plane,
+        where concept relationships track both concept evolution and concept
+        version relationships. Every change is recorded for point-in-time
+        reconstruction and lineage tracing.
       </p>
     </header>
 
     <section class="content-section">
-      <h2>The Complete Timeline</h2>
+      <h2>The FERIN Temporal Model</h2>
       <p>
-        Every register item has a complete history. You can reconstruct the
-        state of the register at any point in time, trace the lineage of any
-        item through splits and merges, and provide regulatory-grade audit
-        trails with immutable change records.
+        Temporal data in FERIN is managed through the
+        <router-link to="/understand/core-concepts">concept plane</router-link>,
+        which provides rich concept semantics for tracking relationships between
+        concepts and between concept versions over time.
+      </p>
+
+      <div class="conceptual-overview">
+        <div class="plane">
+          <h4>Concept Plane</h4>
+          <ul>
+            <li><strong>Concepts</strong> — abstract ideas that evolve over time</li>
+            <li><strong>Concept versions</strong> — specific realizations at points in time</li>
+            <li><strong>Concept relations</strong> — connections between concepts</li>
+            <li><strong>Concept version relations</strong> — connections between versions</li>
+          </ul>
+        </div>
+        <div class="plane">
+          <h4>Content Plane</h4>
+          <ul>
+            <li><strong>Register item classes</strong> — schemas defining structure</li>
+            <li><strong>Register items</strong> — instances of concepts</li>
+            <li><strong>Changes</strong> — records of all modifications</li>
+          </ul>
+        </div>
+      </div>
+
+      <p>
+        The concept plane maintains the temporal and semantic relationships,
+        while the content plane stores the actual data instances. This separation
+        enables independent evolution of meaning and representation.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Concept Version Timeline</h2>
+      <p>
+        Each concept has one or more concept versions, connected through
+        relations. The <code>#></code> relation indicates "has version" and
+        <code>#=></code> indicates "current version."
       </p>
 
       <div class="timeline-example">
         <div class="timeline-header">
-          <h3>Example: Timeline of Item X</h3>
+          <h3>Example: Concept X Timeline</h3>
         </div>
         <div class="timeline">
           <div class="timeline-event">
             <div class="event-marker created"></div>
             <div class="event-content">
-              <span class="event-time">t1</span>
-              <span class="event-action">Created</span>
-              <span class="event-status">status: valid</span>
+              <span class="event-time">t₁</span>
+              <span class="event-action">Add Concept</span>
+              <div class="ferin-notation">
+                <code>Concept X #> Concept X v1.0</code>
+              </div>
             </div>
           </div>
           <div class="timeline-event">
             <div class="event-marker modified"></div>
             <div class="event-content">
-              <span class="event-time">t2</span>
-              <span class="event-action">Modified</span>
-              <span class="event-status">version: 2</span>
+              <span class="event-time">t₂</span>
+              <span class="event-action">Add Concept Version</span>
+              <div class="ferin-notation">
+                <code>Concept X #> Concept X v1.1</code><br>
+                <code>Concept X v1.1 !> Concept X v1.0</code>
+              </div>
             </div>
           </div>
           <div class="timeline-event split">
             <div class="event-marker split"></div>
             <div class="event-content">
-              <span class="event-time">t3</span>
+              <span class="event-time">t₃</span>
               <span class="event-action">Split</span>
-              <div class="event-details">
-                <p>X → Y, Z</p>
-                <ul>
-                  <li>X.status → superseded</li>
-                  <li>Y created (derived from X)</li>
-                  <li>Z created (derived from X)</li>
-                </ul>
+              <div class="ferin-notation">
+                <code>Concept Y #> Concept Y v1.0</code><br>
+                <code>Concept Z #> Concept Z v1.0</code><br>
+                <code>Concept Y v1.0 |> Concept X v1.1</code><br>
+                <code>Concept Z v1.0 |> Concept X v1.1</code>
               </div>
             </div>
           </div>
           <div class="timeline-event merge">
             <div class="event-marker merge"></div>
             <div class="event-content">
-              <span class="event-time">t4</span>
+              <span class="event-time">t₄</span>
               <span class="event-action">Merge</span>
-              <div class="event-details">
-                <p>Y + W → Q</p>
-                <ul>
-                  <li>Y.status → superseded</li>
-                  <li>W.status → superseded</li>
-                  <li>Q created (merged from Y, W)</li>
-                </ul>
+              <div class="ferin-notation">
+                <code>Concept Q #> Concept Q v1.0</code><br>
+                <code>Concept Q v1.0 |> Concept Y v1.0</code><br>
+                <code>Concept Q v1.0 |> Concept W v1.0</code>
               </div>
             </div>
           </div>
           <div class="timeline-event">
             <div class="event-marker invalidated"></div>
             <div class="event-content">
-              <span class="event-time">t5</span>
-              <span class="event-action">Invalidated</span>
-              <span class="event-status">Q.status → invalid</span>
+              <span class="event-time">t₅</span>
+              <span class="event-action">Invalidate</span>
+              <div class="ferin-notation">
+                <code>Concept Q v1.0.status.validity → invalid</code>
+              </div>
             </div>
           </div>
         </div>
@@ -82,73 +120,108 @@
     </section>
 
     <section class="content-section">
+      <h2>FERIN Relation Notation</h2>
+      <p>
+        FERIN uses specific notation for concept and content relations.
+        These relations enable temporal tracking and lineage reconstruction.
+      </p>
+
+      <table class="notation-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Relation</th>
+            <th>Temporal Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>#></code></td>
+            <td>has version</td>
+            <td>Links concept to its versions; links version to sub-versions</td>
+          </tr>
+          <tr>
+            <td><code>#=></code></td>
+            <td>current version</td>
+            <td>Points to the current version of a concept</td>
+          </tr>
+          <tr>
+            <td><code>!></code></td>
+            <td>supersedes</td>
+            <td>Indicates replacement; superseded version is no longer current</td>
+          </tr>
+          <tr>
+            <td><code>|></code></td>
+            <td>has part</td>
+            <td>Indicates composition; used in splits and merges</td>
+          </tr>
+          <tr>
+            <td><code>(@...)</code></td>
+            <td>instance of</td>
+            <td>Links realization to its definition</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section">
       <h2>Point-in-Time Queries</h2>
       <p>
-        Query the register state at any historical point. This is essential for
-        audit, reproducibility, and understanding what was true at a specific
-        moment.
+        Because all relations and statuses can have temporal constraints,
+        the register can be reconstructed at any point in time by:
       </p>
+
+      <ol>
+        <li>Filtering concept versions by their validity period</li>
+        <li>Following relations that were active at that time</li>
+        <li>Resolving the current version relation as it existed then</li>
+      </ol>
 
       <div class="query-examples">
         <div class="query-example">
-          <h4>Query: State at t3</h4>
+          <h4>Query: State at t₃</h4>
           <div class="query-result">
             <ul>
-              <li>X: valid</li>
-              <li>Y: valid</li>
-              <li>Z: valid</li>
-              <li>W: valid</li>
+              <li>Concept X: published (has version v1.1)</li>
+              <li>Concept Y: published (has version v1.0)</li>
+              <li>Concept Z: published (has version v1.0)</li>
+              <li>Concept W: published</li>
             </ul>
           </div>
         </div>
         <div class="query-example">
-          <h4>Query: State at t4</h4>
+          <h4>Query: State at t₄</h4>
           <div class="query-result">
             <ul>
-              <li>X: superseded</li>
-              <li>Y: superseded</li>
-              <li>Z: valid</li>
-              <li>W: superseded</li>
-              <li>Q: valid</li>
+              <li>Concept X: superseded by Y, Z</li>
+              <li>Concept Y: superseded (merged into Q)</li>
+              <li>Concept Z: published</li>
+              <li>Concept W: superseded (merged into Q)</li>
+              <li>Concept Q: published (has version v1.0)</li>
             </ul>
           </div>
         </div>
         <div class="query-example">
-          <h4>Query: Lineage of Q</h4>
-          <div class="query-result">
-            <p class="lineage">Q ← [Y, W] ← Y ← X</p>
+          <h4>Query: Lineage of Concept Q</h4>
+          <div class="query-result ferin-lineage">
+            <code>Q |> [Y, W] |> Y |> X</code>
           </div>
         </div>
-      </div>
-
-      <h3>Implementation Pattern</h3>
-      <div class="code-block">
-        <pre><code>-- Temporal query: state at specific timestamp
-SELECT * FROM items
-WHERE valid_from <= :timestamp
-  AND (valid_until IS NULL OR valid_until > :timestamp)
-  AND status = 'valid';
-
--- Reconstruct register state at historical point
-SELECT * FROM items
-WHERE register_id = :register_id
-  AND valid_from <= :historical_timestamp
-  AND (valid_until IS NULL OR valid_until > :historical_timestamp);</code></pre>
       </div>
     </section>
 
     <section class="content-section">
       <h2>Split and Merge Operations</h2>
       <p>
-        Complex transformations - splits and merges - are fully tracked with
-        complete lineage. This is critical for reference data that evolves
-        through organizational, political, or scientific changes.
+        Complex transformations—splits and merges—are tracked through
+        concept version relations. These are critical for reference data
+        that evolves through organizational, political, or scientific changes.
       </p>
 
       <div class="operations">
         <div class="operation">
           <h3>Split Operation</h3>
-          <p>One item becomes multiple items.</p>
+          <p>One concept becomes multiple concepts.</p>
           <div class="operation-diagram">
             <div class="diagram-box single">
               <span class="item-id">CS</span>
@@ -169,22 +242,20 @@ WHERE register_id = :register_id
             </div>
           </div>
           <div class="operation-relations">
-            <h4>Relations Created</h4>
-            <ul>
-              <li><code>CZ</code> has_part_of <code>CS</code></li>
-              <li><code>SK</code> has_part_of <code>CS</code></li>
-              <li><code>CS</code> status → <code>invalid</code></li>
-            </ul>
+            <h4>FERIN Notation</h4>
+            <pre class="ferin-code">CZ |> CS
+SK |> CS
+CS.status.publication → superseded</pre>
           </div>
           <div class="operation-query">
             <h4>Query: "What replaced CS?"</h4>
-            <p>Answer: "CZ or SK (context-dependent on use case)"</p>
+            <p>Follow <code>|></code> relations to find CZ and SK</p>
           </div>
         </div>
 
         <div class="operation">
           <h3>Merge Operation</h3>
-          <p>Multiple items become one item.</p>
+          <p>Multiple concepts become one concept.</p>
           <div class="operation-diagram">
             <div class="diagram-boxes">
               <div class="diagram-box small">
@@ -209,16 +280,100 @@ WHERE register_id = :register_id
             </div>
           </div>
           <div class="operation-relations">
-            <h4>Relations Created</h4>
-            <ul>
-              <li><code>EUR</code> supersedes <code>[EUR-AT, EUR-BE, EUR-DE, ...]</code></li>
-              <li>All source items status → <code>superseded</code></li>
-            </ul>
+            <h4>FERIN Notation</h4>
+            <pre class="ferin-code">EUR |> [EUR-AT, EUR-BE, EUR-DE, ...]
+EUR-AT.status.publication → superseded
+EUR-BE.status.publication → superseded
+...</pre>
           </div>
           <div class="operation-query">
             <h4>Query: "EUR codes in 2002?"</h4>
-            <p>Answer: Must include pre-unification entries (EUR-AT, EUR-BE, etc.)</p>
+            <p>Query temporal constraint on relations to find pre-merge entries</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Change Records</h2>
+      <p>
+        Every change in FERIN creates a <strong>change record</strong> that
+        captures sufficient information to replay the change history. This
+        enables point-in-time reconstruction of any register object.
+      </p>
+
+      <div class="change-record-structure">
+        <h3>Change Record Components</h3>
+        <div class="change-components">
+          <div class="change-component">
+            <h4>Object Identifier</h4>
+            <p>Permanent identifier for this change</p>
+          </div>
+          <div class="change-component">
+            <h4>Action</h4>
+            <p>The operation performed (add, modify, invalidate, etc.)</p>
+          </div>
+          <div class="change-component">
+            <h4>Affected Objects</h4>
+            <p>Links to modified concepts, concept versions, register items</p>
+          </div>
+          <div class="change-component">
+            <h4>Change Content</h4>
+            <p>New, replaced, or removed content</p>
+          </div>
+          <div class="change-component">
+            <h4>Timestamp</h4>
+            <p>When the change occurred</p>
+          </div>
+          <div class="change-component">
+            <h4>Actor</h4>
+            <p>Who performed the change (per governance process)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="change-example">
+        <h4>Example: Change Record for Split</h4>
+        <pre class="ferin-code">Change: uuid:550e8400-...
+Action: split
+Affected: Concept CS, Concept CZ, Concept SK
+Content:
+  - Concept CS.status → superseded
+  - Concept CZ created
+  - Concept SK created
+  - CZ |> CS
+  - SK |> CS
+Timestamp: 1993-01-01T00:00:00Z
+Actor: Control Body decision CB-1992-47</pre>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Temporal Constraints</h2>
+      <p>
+        Relations and statuses can have temporal constraints indicating when
+        they apply. This enables precise historical queries.
+      </p>
+
+      <div class="temporal-constraints">
+        <div class="constraint-type">
+          <h4>Validity Period</h4>
+          <p>A status or relation applies during a specific time range</p>
+          <pre class="ferin-code">CS.status.validity
+  applies: until 1993-01-01</pre>
+        </div>
+        <div class="constraint-type">
+          <h4>Effective Date</h4>
+          <p>A relation becomes effective from a specific date</p>
+          <pre class="ferin-code">CZ |> CS
+  applies: from 1993-01-01</pre>
+        </div>
+        <div class="constraint-type">
+          <h4>Multiple Intervals</h4>
+          <p>Complex temporal patterns with multiple periods</p>
+          <pre class="ferin-code">Concept.status
+  applies: [1990-01-01 to 1995-12-31,
+            2000-01-01 to 2005-12-31]</pre>
         </div>
       </div>
     </section>
@@ -226,8 +381,9 @@ WHERE register_id = :register_id
     <section class="content-section">
       <h2>Regulatory Compliance</h2>
       <p>
-        FERIN's complete history satisfies regulatory requirements for audit
-        trails, immutability, and point-in-time reconstruction.
+        FERIN's complete history through change records satisfies regulatory
+        requirements for audit trails, immutability, and point-in-time
+        reconstruction.
       </p>
 
       <div class="compliance-table">
@@ -246,11 +402,9 @@ WHERE register_id = :register_id
               </td>
               <td>
                 <ul>
-                  <li>Timestamp (ISO 8601)</li>
-                  <li>Actor (who made the change)</li>
-                  <li>Justification (why)</li>
-                  <li>Before/After values</li>
-                  <li>Optional: cryptographic hash chain</li>
+                  <li>Change records with object identifiers</li>
+                  <li>Timestamp and actor metadata</li>
+                  <li>Before/after content in change records</li>
                 </ul>
               </td>
             </tr>
@@ -261,22 +415,9 @@ WHERE register_id = :register_id
               </td>
               <td>
                 <ul>
-                  <li>Configurable per register</li>
-                  <li>History retained even after deletion</li>
-                  <li>Commitment-based retention policies</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <strong>Read-only auditor access</strong>
-                <p>Auditors can view but not modify</p>
-              </td>
-              <td>
-                <ul>
-                  <li>Role-based access control</li>
-                  <li>Auditor role has read-only permissions</li>
-                  <li>All access logged</li>
+                  <li>Defined in register specification</li>
+                  <li>Change records preserved indefinitely or per commitment</li>
+                  <li>Deletion status marks content removed, not destroyed</li>
                 </ul>
               </td>
             </tr>
@@ -287,36 +428,23 @@ WHERE register_id = :register_id
               </td>
               <td>
                 <ul>
-                  <li>Temporal queries supported</li>
-                  <li>Complete change history</li>
-                  <li>Split/merge lineage preserved</li>
+                  <li>Temporal constraints on relations and statuses</li>
+                  <li>Change records enable replay</li>
+                  <li>Concept version history preserved</li>
                 </ul>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-
-      <div class="example-box">
-        <h4>Example: SEC Compliance</h4>
-        <p>
-          For SEC regulatory requirements, a FERIN register can provide:
-        </p>
-        <ul>
-          <li>Cryptographic attestation of change records (hash chains)</li>
-          <li>Configurable retention periods (e.g., 7 years)</li>
-          <li>External auditor access with read-only credentials</li>
-          <li>Point-in-time reconstruction for compliance verification</li>
-          <li>Complete lineage for any item under investigation</li>
-        </ul>
-      </div>
     </section>
 
     <section class="content-section">
       <h2>Commitment-Based History Access</h2>
       <p>
-        Different stakeholders have different access rights to history. FERIN
-        supports commitment-based access control for historical data.
+        Access to historical data is governed by the register's
+        <router-link to="/understand/commitments">commitments</router-link>.
+        Different stakeholders have different access rights.
       </p>
 
       <div class="commitment-levels">
@@ -344,116 +472,27 @@ WHERE register_id = :register_id
     </section>
 
     <section class="content-section">
-      <h2>Implementation Patterns</h2>
-
-      <div class="patterns">
-        <div class="pattern">
-          <h3>Event Sourcing</h3>
-          <p>Store events, not current state. Reconstruct any point in time.</p>
-          <div class="code-block">
-            <pre><code>const events = [
-  { type: 'created', item: 'X', data: {...}, timestamp: 't1', actor: 'alice' },
-  { type: 'modified', item: 'X', delta: {...}, timestamp: 't2', actor: 'bob' },
-  { type: 'split', item: 'X', children: ['Y', 'Z'], timestamp: 't3' },
-  { type: 'merged', sources: ['Y', 'W'], result: 'Q', timestamp: 't4' },
-  { type: 'invalidated', item: 'Q', reason: '...', timestamp: 't5' }
-];
-
-// Reconstruct state at any point
-function getStateAt(targetTime) {
-  return events
-    .filter(e => e.timestamp <= targetTime)
-    .reduce(applyEvent, initialState);
-}
-
-// Trace lineage
-function traceLineage(itemId) {
-  return events
-    .filter(e => e.item === itemId || e.children?.includes(itemId) || e.result === itemId)
-    .reduce(buildLineage, []);
-}</code></pre>
-          </div>
-        </div>
-
-        <div class="pattern">
-          <h3>Temporal Tables</h3>
-          <p>Store validity periods with each record.</p>
-          <div class="code-block">
-            <pre><code>CREATE TABLE items (
-  id UUID PRIMARY KEY,
-  content JSONB NOT NULL,
-  status TEXT NOT NULL,
-  valid_from TIMESTAMP NOT NULL,
-  valid_until TIMESTAMP,
-  derived_from UUID[],
-  merged_into UUID
-);
-
--- Query state at specific time
-SELECT * FROM items
-WHERE valid_from <= :target_time
-  AND (valid_until IS NULL OR valid_until > :target_time);
-
--- Trace lineage
-WITH RECURSIVE lineage AS (
-  SELECT * FROM items WHERE id = :item_id
-  UNION ALL
-  SELECT i.* FROM items i
-  JOIN lineage l ON i.id = ANY(l.derived_from)
-)
-SELECT * FROM lineage;</code></pre>
-          </div>
-        </div>
-
-        <div class="pattern">
-          <h3>Change Records Table</h3>
-          <p>Separate table for all change metadata.</p>
-          <div class="code-block">
-            <pre><code>CREATE TABLE change_records (
-  id UUID PRIMARY KEY,
-  item_id UUID NOT NULL,
-  action TEXT NOT NULL,  -- created, modified, split, merged, invalidated
-  timestamp TIMESTAMP NOT NULL,
-  actor TEXT NOT NULL,
-  justification TEXT,
-  before_state JSONB,
-  after_state JSONB,
-  attestation_hash TEXT  -- Optional: cryptographic proof
-);
-
--- Complete audit trail for an item
-SELECT * FROM change_records
-WHERE item_id = :item_id
-ORDER BY timestamp;
-
--- Register state at historical point
-SELECT DISTINCT ON (item_id) *
-FROM change_records
-WHERE timestamp <= :target_time
-ORDER BY item_id, timestamp DESC;</code></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="content-section">
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/implement/schema-evolution">Schema Evolution and Lazy Migration</router-link>
+          <router-link to="/understand/core-concepts">Core Concepts</router-link>
+          - The concept plane and content plane model
+        </li>
+        <li>
+          <router-link to="/implement/schema-evolution">Schema Evolution</router-link>
           - Versioning schemas independently of data
         </li>
         <li>
-          <router-link to="/reference/statuses">Statuses Reference</router-link>
-          - Valid, invalid, superseded, and other item statuses
+          <router-link to="/reference/statuses">Statuses</router-link>
+          - Validity, publication, redaction, deletion statuses
         </li>
         <li>
-          <router-link to="/reference/relations">Relations Reference</router-link>
-          - Supersedes, has_part_of, and other relations
+          <router-link to="/reference/relations">Relations</router-link>
+          - Complete relation reference with notation
         </li>
         <li>
-          <router-link to="/implement/technology-choices">Technology Implementation Guide</router-link>
-          - Database-specific temporal patterns
+          <router-link to="/implement/technology-choices">Technology Choices</router-link>
+          - Implementation patterns for temporal data
         </li>
       </ul>
     </section>
@@ -497,6 +536,35 @@ ORDER BY item_id, timestamp DESC;</code></pre>
 .content-section h4 {
   font-size: var(--font-size-base);
   margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.conceptual-overview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.plane {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.plane h4 {
+  margin: 0 0 var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.plane ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.plane li {
+  margin-bottom: var(--spacing-xs);
 }
 
 .timeline-example {
@@ -553,10 +621,6 @@ ORDER BY item_id, timestamp DESC;</code></pre>
 
 .event-content {
   flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  align-items: baseline;
 }
 
 .event-time {
@@ -564,35 +628,42 @@ ORDER BY item_id, timestamp DESC;</code></pre>
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-light);
+  margin-right: var(--spacing-sm);
 }
 
 .event-action {
   font-weight: var(--font-weight-medium);
+  margin-right: var(--spacing-md);
 }
 
-.event-status {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-light);
-}
-
-.event-details {
-  width: 100%;
-  margin-top: var(--spacing-xs);
+.ferin-notation {
+  margin-top: var(--spacing-sm);
   padding: var(--spacing-sm);
   background: var(--color-background);
   border-radius: var(--radius-md);
+}
+
+.ferin-notation code {
+  font-family: var(--font-mono);
   font-size: var(--font-size-sm);
+  display: block;
+  line-height: 1.6;
 }
 
-.event-details p {
-  margin: 0 0 var(--spacing-xs);
-  font-weight: var(--font-weight-medium);
+.notation-table {
+  margin: var(--spacing-lg) 0;
 }
 
-.event-details ul {
-  margin: 0;
-  padding-left: var(--spacing-lg);
-  color: var(--color-text-light);
+.notation-table th:first-child,
+.notation-table td:first-child {
+  text-align: left;
+}
+
+.notation-table code {
+  font-family: var(--font-mono);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
 }
 
 .query-examples {
@@ -628,26 +699,10 @@ ORDER BY item_id, timestamp DESC;</code></pre>
   margin-bottom: var(--spacing-xs);
 }
 
-.lineage {
+.ferin-lineage code {
   font-family: var(--font-mono);
   font-size: var(--font-size-sm);
   color: var(--color-text);
-}
-
-.code-block {
-  background: var(--color-background);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  overflow-x: auto;
-  margin: var(--spacing-md) 0;
-}
-
-.code-block pre {
-  margin: 0;
-  padding: var(--spacing-md);
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xs);
-  line-height: var(--line-height-relaxed);
 }
 
 .operations {
@@ -744,22 +799,94 @@ ORDER BY item_id, timestamp DESC;</code></pre>
   font-size: var(--font-size-sm);
 }
 
-.operation-relations ul {
-  margin: 0;
-  padding-left: var(--spacing-lg);
-  font-size: var(--font-size-sm);
-}
-
-.operation-relations code {
-  font-family: var(--font-mono);
-  background: rgba(0, 0, 0, 0.05);
-  padding: 0 var(--spacing-xs);
-  border-radius: var(--radius-sm);
-}
-
 .operation-query p {
   margin: 0;
   font-size: var(--font-size-sm);
+}
+
+.ferin-code {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  background: var(--color-background);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.change-record-structure {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.change-record-structure h3 {
+  margin: 0 0 var(--spacing-md);
+}
+
+.change-components {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+}
+
+.change-component {
+  background: var(--color-background);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.change-component h4 {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+}
+
+.change-component p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.change-example {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.change-example h4 {
+  margin: 0 0 var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.temporal-constraints {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.constraint-type {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.constraint-type h4 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-base);
+}
+
+.constraint-type p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-md);
 }
 
 .compliance-table {
@@ -801,29 +928,6 @@ ORDER BY item_id, timestamp DESC;</code></pre>
   margin-bottom: var(--spacing-xs);
 }
 
-.example-box {
-  background: rgba(13, 148, 136, 0.05);
-  border: 1px solid rgba(13, 148, 136, 0.2);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-}
-
-.example-box h4 {
-  margin: 0 0 var(--spacing-md);
-  color: var(--color-accent);
-}
-
-.example-box ul {
-  margin: 0;
-  padding-left: var(--spacing-lg);
-  font-size: var(--font-size-sm);
-}
-
-.example-box li {
-  margin-bottom: var(--spacing-xs);
-}
-
 .commitment-levels {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -856,32 +960,6 @@ ORDER BY item_id, timestamp DESC;</code></pre>
   font-style: italic;
 }
 
-.patterns {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-}
-
-.pattern {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-}
-
-.pattern h3 {
-  margin: 0 0 var(--spacing-sm);
-  font-size: var(--font-size-base);
-  color: var(--color-accent);
-}
-
-.pattern p {
-  margin: 0 0 var(--spacing-md);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-light);
-}
-
 .next-steps {
   list-style: none;
   padding: 0;
@@ -900,7 +978,19 @@ ORDER BY item_id, timestamp DESC;</code></pre>
 }
 
 @media (max-width: 768px) {
+  .conceptual-overview {
+    grid-template-columns: 1fr;
+  }
+
   .query-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .change-components {
+    grid-template-columns: 1fr;
+  }
+
+  .temporal-constraints {
     grid-template-columns: 1fr;
   }
 
