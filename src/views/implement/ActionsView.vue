@@ -9,6 +9,56 @@
     </header>
 
     <section class="content-section">
+      <h2>Actions as Risk Controls</h2>
+      <p>
+        Every action in FERIN serves a <router-link to="/implement/risk-management">risk management</router-link>
+        purpose. Actions are not just operations—they are controlled responses
+        to information risks:
+      </p>
+
+      <table class="risk-actions-table">
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Risk It Addresses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Add</strong></td>
+            <td>Risk of missing information needed by users</td>
+          </tr>
+          <tr>
+            <td><strong>Invalidate</strong></td>
+            <td>Risk of incorrect or erroneous information being used</td>
+          </tr>
+          <tr>
+            <td><strong>Supersede</strong></td>
+            <td>Risk of using outdated information when newer exists</td>
+          </tr>
+          <tr>
+            <td><strong>Retire</strong></td>
+            <td>Risk of using obsolete information</td>
+          </tr>
+          <tr>
+            <td><strong>Unpublish</strong></td>
+            <td>Risk of exposing information that should not be public</td>
+          </tr>
+          <tr>
+            <td><strong>Deprecate</strong></td>
+            <td>Risk of continued use of content that will be removed</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The availability and use of these actions should be documented in your
+        <router-link to="/implement/register-specification">Register Specification</router-link>
+        as part of your risk management approach.
+      </p>
+    </section>
+
+    <section class="content-section">
       <h2>Required Actions</h2>
       <p>
         All FERIN-compliant registers must support these core actions:
@@ -306,6 +356,10 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
+          <router-link to="/implement/risk-management">Risk Management</router-link>
+          - How actions serve as risk controls
+        </li>
+        <li>
           <router-link to="/reference/statuses">Statuses</router-link>
           - Complete status reference
         </li>
@@ -417,8 +471,18 @@
 }
 
 .decision-matrix,
-.rollback-table {
+.rollback-table,
+.risk-actions-table {
   margin: var(--spacing-md) 0;
+}
+
+.risk-actions-table th:first-child,
+.risk-actions-table td:first-child {
+  text-align: left;
+}
+
+.risk-actions-table td {
+  font-size: var(--font-size-sm);
 }
 
 .warning-box {

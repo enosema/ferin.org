@@ -3,17 +3,113 @@
     <header class="page-header">
       <h1>Risk Management</h1>
       <p class="page-lead">
-        Risk management determines your register's governance rigor, commitments
-        to users, and change thresholds. This topic is outside the scope of
-        ISO 19135 but is essential for register owners to consider.
+        FERIN is fundamentally a risk management framework for authoritative
+        information. Every feature—versioning, actions, statuses, governance—
+        exists to manage information risks. This topic is outside the scope of
+        ISO 19135 but is essential for register owners to understand.
       </p>
     </header>
 
     <section class="content-section">
-      <h2>Why Risk Management Matters</h2>
+      <h2>Why Information Registers Exist</h2>
       <p>
-        Every register operates within a risk context. Understanding and
-        documenting your risk profile is essential because it determines:
+        An information register exists <strong>for risk management</strong>.
+        Organizations create registers because they need to manage risks related
+        to information:
+      </p>
+
+      <div class="info-risks-grid">
+        <div class="info-risk">
+          <h4>Persistence</h4>
+          <p>Risk of information loss, broken references, unavailable history</p>
+        </div>
+        <div class="info-risk">
+          <h4>Accuracy</h4>
+          <p>Risk of wrong decisions based on incorrect data</p>
+        </div>
+        <div class="info-risk">
+          <h4>Authority</h4>
+          <p>Risk of using wrong or untrusted sources</p>
+        </div>
+        <div class="info-risk">
+          <h4>Timeliness</h4>
+          <p>Risk of using outdated or stale information</p>
+        </div>
+      </div>
+
+      <p>
+        FERIN provides the framework to address these risks systematically.
+        The register owner's job is to understand which risks matter most for
+        their context and apply appropriate controls.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>FERIN Features as Risk Controls</h2>
+      <p>
+        Every FERIN capability serves a risk management purpose. Understanding
+        this connection helps you apply the right level of rigor:
+      </p>
+
+      <table class="risk-controls-table">
+        <thead>
+          <tr>
+            <th>FERIN Feature</th>
+            <th>Risk It Manages</th>
+            <th>How It Works</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><router-link to="/implement/versioning">Versioning</router-link></td>
+            <td>Change risk, history loss, broken references</td>
+            <td>Preserves all versions; changes create new versions rather than overwriting</td>
+          </tr>
+          <tr>
+            <td><router-link to="/implement/actions">Actions</router-link></td>
+            <td>Incorrect, outdated, or obsolete information</td>
+            <td>Controlled operations: Invalidate, Supersede, Retire, etc.</td>
+          </tr>
+          <tr>
+            <td><router-link to="/reference/statuses">Statuses</router-link></td>
+            <td>User confusion about reliability</td>
+            <td>Clear signals: Valid, Invalid, Deprecated, Retired</td>
+          </tr>
+          <tr>
+            <td><router-link to="/implement/governance">Governance</router-link></td>
+            <td>Fraud, error, bias, inconsistency</td>
+            <td>Role separation, review processes, appeal mechanisms</td>
+          </tr>
+          <tr>
+            <td><router-link to="/understand/commitments">Commitments</router-link></td>
+            <td>Unclear expectations, trust erosion</td>
+            <td>Explicit promises about availability, accuracy, persistence</td>
+          </tr>
+          <tr>
+            <td><router-link to="/implement/identifier-design">Identifiers</router-link></td>
+            <td>Broken references, lost citations</td>
+            <td>Persistent, unique identifiers that don't change</td>
+          </tr>
+          <tr>
+            <td><router-link to="/implement/register-specification">Specification</router-link></td>
+            <td>Undocumented decisions, scope creep</td>
+            <td>Formal documentation of scope, policies, commitments</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="key-insight">
+        <strong>Key insight:</strong> FERIN doesn't just "have" risk management
+        features—FERIN IS a risk management framework. The question is not
+        whether to manage risk, but how much rigor to apply based on your
+        specific risk profile.
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Risk Determines Configuration</h2>
+      <p>
+        Understanding your risk profile determines how you configure FERIN:
       </p>
 
       <div class="risk-determines">
@@ -542,12 +638,20 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/understand/commitments">Commitments</router-link>
-          - What you promise users (scales with risk)
+          <router-link to="/implement/versioning">Versioning</router-link>
+          - Managing change risk through versions
         </li>
         <li>
-          <router-link to="/implement/versioning">Versioning</router-link>
-          - Substantive vs non-substantive changes (thresholds depend on risk)
+          <router-link to="/implement/actions">Actions</router-link>
+          - Controlled operations for risk mitigation
+        </li>
+        <li>
+          <router-link to="/reference/statuses">Statuses</router-link>
+          - Risk signals to users
+        </li>
+        <li>
+          <router-link to="/understand/commitments">Commitments</router-link>
+          - What you promise users (scales with risk)
         </li>
         <li>
           <router-link to="/implement/governance">Governance Model</router-link>
@@ -599,6 +703,48 @@
 .content-section h4 {
   font-size: var(--font-size-base);
   margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.info-risks-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.info-risk {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(30, 58, 95, 0.1) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.info-risk h4 {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-accent);
+  font-size: var(--font-size-base);
+}
+
+.info-risk p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.risk-controls-table {
+  margin: var(--spacing-lg) 0;
+}
+
+.risk-controls-table th:first-child,
+.risk-controls-table td:first-child {
+  text-align: left;
+  font-weight: var(--font-weight-medium);
+}
+
+.risk-controls-table td {
+  font-size: var(--font-size-sm);
+  vertical-align: top;
 }
 
 .risk-determines {
@@ -935,6 +1081,10 @@
 }
 
 @media (max-width: 768px) {
+  .info-risks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .risk-determines {
     grid-template-columns: 1fr;
   }
