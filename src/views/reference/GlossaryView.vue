@@ -98,8 +98,8 @@ const terms = [
   },
   {
     term: 'Functional Identifier',
-    definition: 'An identifier that identifies something by its function or meaning.',
-    interpretation: 'May be reassigned when meaning changes. Examples: country codes, currency codes.'
+    definition: 'An identifier that always retains its original intent by enabling its association to be redirectable and change over time.',
+    interpretation: 'Must support hierarchical specification (URI, URN, URL). Used for semantic addressing. Required for concepts, concept versions, register items, register item classes, and changes.'
   },
   {
     term: 'Governance',
@@ -118,8 +118,8 @@ const terms = [
   },
   {
     term: 'Object Identifier',
-    definition: 'A unique, persistent identifier for a specific item.',
-    interpretation: 'Never changes or gets reused. Examples: UUIDs, sequential IDs.'
+    definition: 'An identifier that identifies an object where the association is non-redirectable and does not change over time.',
+    interpretation: 'Permanently assigned to a specific object. Only concerned with uniqueness. Required for concepts, concept versions, register items, register item classes, and changes.'
   },
   {
     term: 'Proposal',

@@ -57,7 +57,7 @@
             </ul>
 
             <p>
-              See <router-link to="/build/identifier-design">Identifier Design</router-link>
+              See <router-link to="/implement/identifier-design">Identifier Design</router-link>
               for detailed guidance.
           </p>
           </div>
@@ -212,7 +212,7 @@
               </tbody>
             </table>
             <p>
-              See <router-link to="/learn/risk-management">Risk Management</router-link>
+              See <router-link to="/understand/risk-management">Risk Management</router-link>
               for detailed guidance on assessing your register's risk level.
             </p>
           </div>

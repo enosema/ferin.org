@@ -178,7 +178,7 @@
           A low-risk informative register has different requirements than a
           high-risk authoritative registry.
         </p>
-        <router-link to="/learn/risk-management" class="risk-link">
+        <router-link to="/implement/risk-management" class="risk-link">
           See Risk Management for guidance on assessing your register's risk level →
         </router-link>
       </div>
@@ -425,19 +425,19 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/risk-management">Risk Management</router-link>
+          <router-link to="/implement/risk-management">Risk Management</router-link>
           - Match governance rigor to your register's risk level
         </li>
         <li>
-          <router-link to="/learn/framework">Framework Overview</router-link>
+          <router-link to="/implement/framework">Framework Overview</router-link>
           - Data, Governance, and Compliance pillars
         </li>
         <li>
-          <router-link to="/build/actions">Actions Reference</router-link>
+          <router-link to="/implement/actions">Actions Reference</router-link>
           - Operations for managing content
         </li>
         <li>
-          <router-link to="/build/register-specification">Register Specification</router-link>
+          <router-link to="/implement/register-specification">Register Specification</router-link>
           - Documenting your governance model
         </li>
       </ul>

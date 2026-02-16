@@ -89,7 +89,7 @@
     <section class="content-section">
       <h2>Step 2: Choose Register Type</h2>
       <p>
-        Refer to <router-link to="/learn/register-types">Register Types</router-link>
+        Refer to <router-link to="/implement/register-types">Register Types</router-link>
         for detailed guidance. Key decision points:
       </p>
 
@@ -119,7 +119,7 @@
       <h2>Step 3: Design Identifier Scheme</h2>
       <p>
         Identifiers are critical—they must be unique and persistent. See
-        <router-link to="/build/identifier-design">Identifier Design</router-link>
+        <router-link to="/implement/identifier-design">Identifier Design</router-link>
         for detailed guidance.
       </p>
 
@@ -169,7 +169,7 @@ Custom:   REG-2024-00001</code></pre>
     <section class="content-section">
       <h2>Step 4: Establish Governance</h2>
       <p>
-        Define who does what. See <router-link to="/learn/governance">Governance</router-link>
+        Define who does what. See <router-link to="/implement/governance">Governance</router-link>
         for role definitions.
       </p>
 
@@ -193,7 +193,7 @@ Custom:   REG-2024-00001</code></pre>
       <h2>Step 5: Create Specification</h2>
       <p>
         Document all decisions in a register specification. Use the
-        <router-link to="/build/register-specification">Register Specification</router-link>
+        <router-link to="/implement/register-specification">Register Specification</router-link>
         template as a starting point.
       </p>
 
@@ -255,7 +255,7 @@ Custom:   REG-2024-00001</code></pre>
       <h3>Initial Population</h3>
       <p>
         If migrating existing data, see the
-        <router-link to="/build/migration">Migration Guide</router-link>.
+        <router-link to="/implement/migration">Migration Guide</router-link>.
         Key considerations:
       </p>
       <ul>
@@ -309,15 +309,15 @@ Custom:   REG-2024-00001</code></pre>
       <h2>Next Steps</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/build/identifier-design">Identifier Design</router-link>
+          <router-link to="/implement/identifier-design">Identifier Design</router-link>
           - Designing persistent identifiers
         </li>
         <li>
-          <router-link to="/build/versioning">Versioning</router-link>
+          <router-link to="/implement/versioning">Versioning</router-link>
           - Managing content changes
         </li>
         <li>
-          <router-link to="/build/register-specification">Register Specification</router-link>
+          <router-link to="/implement/register-specification">Register Specification</router-link>
           - Complete template and samples
         </li>
       </ul>

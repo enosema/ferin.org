@@ -551,7 +551,7 @@ CREATE TABLE relations (
           - Detailed relation specifications
         </li>
         <li>
-          <router-link to="/learn/core-concepts">Core Concepts</router-link>
+          <router-link to="/understand/core-concepts">Core Concepts</router-link>
           - Conceptual foundations
         </li>
       </ul>

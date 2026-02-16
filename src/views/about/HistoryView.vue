@@ -356,7 +356,7 @@
         </li>
       </ul>
       <p>
-        See the <router-link to="/build/migration">Migration Guide</router-link>
+        See the <router-link to="/implement/migration">Migration Guide</router-link>
         for detailed transition guidance.
       </p>
     </section>

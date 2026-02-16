@@ -393,19 +393,19 @@ ex:item-new-unit a prov:Entity ;
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/schema-evolution">Schema Evolution</router-link>
+          <router-link to="/implement/schema-evolution">Schema Evolution</router-link>
           - Versioning schemas with SHACL shapes
         </li>
         <li>
-          <router-link to="/build/technology-choices">Technology Implementation Guide</router-link>
+          <router-link to="/implement/technology-choices">Technology Implementation Guide</router-link>
           - RDF implementation patterns
         </li>
         <li>
-          <router-link to="/learn/temporal-data">Temporal Data</router-link>
+          <router-link to="/implement/temporal-data">Temporal Data</router-link>
           - PROV-O for change history
         </li>
         <li>
-          <router-link to="/learn/core-concepts">Core Concepts</router-link>
+          <router-link to="/implement/core-concepts">Core Concepts</router-link>
           - Concept plane modeling
         </li>
       </ul>

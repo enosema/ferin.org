@@ -223,7 +223,7 @@
       </table>
 
       <p>
-        See <router-link to="/build/register-specification">Register Specification</router-link>
+        See <router-link to="/implement/register-specification">Register Specification</router-link>
         for a complete template and samples.
       </p>
     </section>
@@ -277,11 +277,11 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/register-types">Register Types</router-link>
+          <router-link to="/understand/register-types">Register Types</router-link>
           - Understanding conformance classes
         </li>
         <li>
-          <router-link to="/learn/governance">Governance</router-link>
+          <router-link to="/understand/governance">Governance</router-link>
           - Roles, processes, and lifecycle
         </li>
         <li>

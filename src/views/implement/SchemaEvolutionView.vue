@@ -360,19 +360,19 @@ function getItemAtVersion(id, targetVersion) {
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/temporal-data">Temporal Data and Complete History</router-link>
+          <router-link to="/implement/temporal-data">Temporal Data and Complete History</router-link>
           - Point-in-time queries and historical reconstruction
         </li>
         <li>
-          <router-link to="/learn/semantic-interoperability">Semantic Interoperability</router-link>
+          <router-link to="/implement/semantic-interoperability">Semantic Interoperability</router-link>
           - Integration with RDF/SHACL for schema validation
         </li>
         <li>
-          <router-link to="/build/technology-choices">Technology Implementation Guide</router-link>
+          <router-link to="/implement/technology-choices">Technology Implementation Guide</router-link>
           - Database-specific implementation patterns
         </li>
         <li>
-          <router-link to="/learn/core-concepts">Core Concepts</router-link>
+          <router-link to="/implement/core-concepts">Core Concepts</router-link>
           - Concept plane vs. content plane fundamentals
         </li>
       </ul>

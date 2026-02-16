@@ -5,10 +5,10 @@
       <p class="hero-tagline">The International Standard for Information Registration</p>
       <p class="hero-description">Practical guidance for implementing ISO 19135:2026</p>
       <div class="hero-actions">
-        <GradientButton to="/learn/core-concepts" size="lg">
+        <GradientButton to="/understand/core-concepts" size="lg">
           Start Learning
         </GradientButton>
-        <GradientButton to="/build/getting-started" variant="outline" size="lg">
+        <GradientButton to="/implement/getting-started" variant="outline" size="lg">
           Build a Register
         </GradientButton>
       </div>
@@ -62,7 +62,7 @@
           <FeatureCard
             title="I'm building a register"
             description="Practical guides for implementing FERIN-compliant registers, from design to deployment."
-            to="/build/getting-started"
+            to="/implement/getting-started"
             link-text="Start Building"
           >
             <template #icon>
@@ -100,31 +100,31 @@
         </p>
 
         <div class="featured-grid">
-          <router-link to="/build/versioning#substantive-vs-non-substantive" class="featured-item">
+          <router-link to="/implement/versioning#substantive-vs-non-substantive" class="featured-item">
             <span class="featured-label">Decision Framework</span>
             <h3>Substantive vs Non-Substantive Changes</h3>
             <p>How to decide whether a change requires a new version or can be applied to the current one.</p>
           </router-link>
 
-          <router-link to="/build/identifier-design" class="featured-item">
+          <router-link to="/implement/identifier-design" class="featured-item">
             <span class="featured-label">Implementation Guide</span>
             <h3>Designing Persistent Identifiers</h3>
             <p>Choosing and implementing identifier schemes that remain stable over time.</p>
           </router-link>
 
-          <router-link to="/learn/risk-management" class="featured-item">
+          <router-link to="/understand/risk-management" class="featured-item">
             <span class="featured-label">Best Practices</span>
             <h3>Risk-Based Governance</h3>
             <p>Match your governance rigor to your register's risk level, from personal registers to public registries.</p>
           </router-link>
 
-          <router-link to="/build/migration" class="featured-item">
+          <router-link to="/implement/migration" class="featured-item">
             <span class="featured-label">Migration Guide</span>
             <h3>Migrating from Legacy Systems</h3>
             <p>Strategies for importing existing content into a FERIN-compliant register.</p>
           </router-link>
 
-          <router-link to="/learn/core-concepts#granularity" class="featured-item">
+          <router-link to="/understand/core-concepts#granularity" class="featured-item">
             <span class="featured-label">Conceptual Guide</span>
             <h3>Concept Granularity</h3>
             <p>When to create a new concept vs. a new version of an existing concept.</p>

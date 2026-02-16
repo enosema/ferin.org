@@ -5,6 +5,7 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- About section -->
   <url>
     <loc>https://ferin.org/about</loc>
     <changefreq>weekly</changefreq>
@@ -12,6 +13,11 @@
   </url>
   <url>
     <loc>https://ferin.org/about/what-is-ferin</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/about/why-registers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -25,71 +31,125 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- Understand section -->
   <url>
-    <loc>https://ferin.org/learn</loc>
+    <loc>https://ferin.org/understand</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ferin.org/learn/core-concepts</loc>
+    <loc>https://ferin.org/understand/core-concepts</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/learn/principles</loc>
+    <loc>https://ferin.org/understand/principles</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/learn/framework</loc>
+    <loc>https://ferin.org/understand/framework</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/learn/register-types</loc>
+    <loc>https://ferin.org/understand/register-types</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/learn/governance</loc>
+    <loc>https://ferin.org/understand/composite-registers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/build</loc>
+    <loc>https://ferin.org/understand/commitments</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Implement section -->
+  <url>
+    <loc>https://ferin.org/implement</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ferin.org/build/getting-started</loc>
+    <loc>https://ferin.org/implement/getting-started</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/build/identifier-design</loc>
+    <loc>https://ferin.org/implement/governance</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/build/versioning</loc>
+    <loc>https://ferin.org/implement/risk-management</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/build/actions</loc>
+    <loc>https://ferin.org/implement/identifier-design</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/build/register-specification</loc>
+    <loc>https://ferin.org/implement/versioning</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ferin.org/build/migration</loc>
+    <loc>https://ferin.org/implement/actions</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://ferin.org/implement/register-specification</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/implement/schema-evolution</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/implement/temporal-data</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/implement/semantic-interoperability</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/implement/technology-choices</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/implement/integration-patterns</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/implement/migration</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Conform section -->
+  <url>
+    <loc>https://ferin.org/conform</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ferin.org/conform/samples</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Reference section -->
   <url>
     <loc>https://ferin.org/reference</loc>
     <changefreq>weekly</changefreq>
@@ -102,11 +162,6 @@
   </url>
   <url>
     <loc>https://ferin.org/reference/conceptual-model</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://ferin.org/reference/commitments</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -130,11 +185,7 @@
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://ferin.org/reference/samples</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- News -->
   <url>
     <loc>https://ferin.org/news</loc>
     <changefreq>daily</changefreq>

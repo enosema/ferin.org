@@ -273,15 +273,15 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/governance">Governance Model</router-link>
+          <router-link to="/implement/governance">Governance Model</router-link>
           - Roles and processes
         </li>
         <li>
-          <router-link to="/build/register-specification">Register Specification</router-link>
+          <router-link to="/implement/register-specification">Register Specification</router-link>
           - Documenting your register
         </li>
         <li>
-          <router-link to="/build/actions">Actions Reference</router-link>
+          <router-link to="/implement/actions">Actions Reference</router-link>
           - Managing content changes
         </li>
       </ul>

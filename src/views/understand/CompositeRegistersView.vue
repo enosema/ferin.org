@@ -251,15 +251,15 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/register-types">Register Types</router-link>
+          <router-link to="/understand/register-types">Register Types</router-link>
           - Conformance classes and capabilities
         </li>
         <li>
-          <router-link to="/learn/governance">Governance Model</router-link>
+          <router-link to="/understand/governance">Governance Model</router-link>
           - Roles and processes
         </li>
         <li>
-          <router-link to="/build/identifier-design">Identifier Design</router-link>
+          <router-link to="/implement/identifier-design">Identifier Design</router-link>
           - Designing persistent identifiers
         </li>
       </ul>

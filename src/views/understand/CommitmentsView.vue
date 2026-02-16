@@ -291,15 +291,15 @@ All versions remain accessible; current view shows only valid items.
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/build/register-specification">Register Specification</router-link>
+          <router-link to="/implement/register-specification">Register Specification</router-link>
           - Documenting commitments
         </li>
         <li>
-          <router-link to="/learn/register-types">Register Types</router-link>
+          <router-link to="/understand/register-types">Register Types</router-link>
           - CCR requires high commitments
         </li>
         <li>
-          <router-link to="/learn/principles">Principles</router-link>
+          <router-link to="/understand/principles">Principles</router-link>
           - Compliance with commitments principle
         </li>
       </ul>

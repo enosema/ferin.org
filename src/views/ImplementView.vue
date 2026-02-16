@@ -3,7 +3,7 @@
     <div class="container">
       <TheBreadcrumbs />
       <div class="content-layout">
-        <TheSidebar section="learn" />
+        <TheSidebar section="implement" />
         <main class="content-main">
           <router-view />
         </main>

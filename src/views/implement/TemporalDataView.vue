@@ -440,7 +440,7 @@ ORDER BY item_id, timestamp DESC;</code></pre>
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/schema-evolution">Schema Evolution and Lazy Migration</router-link>
+          <router-link to="/implement/schema-evolution">Schema Evolution and Lazy Migration</router-link>
           - Versioning schemas independently of data
         </li>
         <li>
@@ -452,7 +452,7 @@ ORDER BY item_id, timestamp DESC;</code></pre>
           - Supersedes, has_part_of, and other relations
         </li>
         <li>
-          <router-link to="/build/technology-choices">Technology Implementation Guide</router-link>
+          <router-link to="/implement/technology-choices">Technology Implementation Guide</router-link>
           - Database-specific temporal patterns
         </li>
       </ul>

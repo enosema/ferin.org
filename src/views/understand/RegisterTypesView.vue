@@ -344,7 +344,7 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/build/getting-started">Getting Started</router-link>
+          <router-link to="/implement/getting-started">Getting Started</router-link>
           - Begin implementing your register
         </li>
         <li>

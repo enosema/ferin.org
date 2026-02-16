@@ -468,19 +468,19 @@ SELECT ?item WHERE {
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/schema-evolution">Schema Evolution</router-link>
+          <router-link to="/implement/schema-evolution">Schema Evolution</router-link>
           - Versioning schemas independently of data
         </li>
         <li>
-          <router-link to="/learn/temporal-data">Temporal Data</router-link>
+          <router-link to="/implement/temporal-data">Temporal Data</router-link>
           - Point-in-time queries and history
         </li>
         <li>
-          <router-link to="/learn/semantic-interoperability">Semantic Interoperability</router-link>
+          <router-link to="/implement/semantic-interoperability">Semantic Interoperability</router-link>
           - RDF/SHACL integration details
         </li>
         <li>
-          <router-link to="/build/getting-started">Getting Started</router-link>
+          <router-link to="/implement/getting-started">Getting Started</router-link>
           - Implementation guide
         </li>
       </ul>

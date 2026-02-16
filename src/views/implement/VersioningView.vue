@@ -325,7 +325,7 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/build/actions">Actions Reference</router-link>
+          <router-link to="/implement/actions">Actions Reference</router-link>
           - Operations for managing versions
         </li>
         <li>
@@ -333,7 +333,7 @@
           - Complete status reference
         </li>
         <li>
-          <router-link to="/learn/core-concepts">Core Concepts</router-link>
+          <router-link to="/implement/core-concepts">Core Concepts</router-link>
           - Concept versioning details
         </li>
       </ul>

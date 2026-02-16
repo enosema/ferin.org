@@ -290,11 +290,11 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/build/getting-started">Getting Started</router-link>
+          <router-link to="/implement/getting-started">Getting Started</router-link>
           - Implementation guide
         </li>
         <li>
-          <router-link to="/build/register-specification">Register Specification</router-link>
+          <router-link to="/implement/register-specification">Register Specification</router-link>
           - Documenting your register
         </li>
         <li>

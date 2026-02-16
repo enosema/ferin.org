@@ -302,15 +302,15 @@
           - Introduction to the framework
         </li>
         <li>
-          <router-link to="/learn/risk-management">Risk Management</router-link>
+          <router-link to="/understand/risk-management">Risk Management</router-link>
           - Assess your register's risk level
         </li>
         <li>
-          <router-link to="/build/getting-started">Getting Started</router-link>
+          <router-link to="/implement/getting-started">Getting Started</router-link>
           - Implementation guide
         </li>
         <li>
-          <router-link to="/learn/register-types">Register Types</router-link>
+          <router-link to="/understand/register-types">Register Types</router-link>
           - Choose the right conformance level
         </li>
       </ul>

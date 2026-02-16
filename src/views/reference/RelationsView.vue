@@ -288,11 +288,11 @@ FullName hasPart FamilyName
           - Relations in the model
         </li>
         <li>
-          <router-link to="/learn/core-concepts">Core Concepts</router-link>
+          <router-link to="/understand/core-concepts">Core Concepts</router-link>
           - Concept systems
         </li>
         <li>
-          <router-link to="/build/actions">Actions Reference</router-link>
+          <router-link to="/implement/actions">Actions Reference</router-link>
           - Supersede action
         </li>
       </ul>

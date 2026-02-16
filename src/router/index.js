@@ -2,6 +2,7 @@
  * Vue Router Configuration
  *
  * Route definitions for SSG with vite-ssg
+ * Structure: About, Understand, Implement, Conform, Reference
  */
 
 export const routes = [
@@ -10,7 +11,7 @@ export const routes = [
     name: 'home',
     component: () => import('@/views/HomeView.vue')
   },
-  // About section
+  // About section (What FERIN Is)
   {
     path: '/about',
     name: 'about',
@@ -43,123 +44,146 @@ export const routes = [
       }
     ]
   },
-  // Learn section
+  // Understand section (How to Use FERIN)
   {
-    path: '/learn',
-    name: 'learn',
-    component: () => import('@/views/LearnView.vue'),
+    path: '/understand',
+    name: 'understand',
+    component: () => import('@/views/UnderstandView.vue'),
     children: [
       {
         path: '',
-        name: 'learn-index',
-        redirect: '/learn/core-concepts'
+        name: 'understand-index',
+        redirect: '/understand/core-concepts'
       },
       {
         path: 'core-concepts',
         name: 'core-concepts',
-        component: () => import('@/views/learn/CoreConceptsView.vue')
+        component: () => import('@/views/understand/CoreConceptsView.vue')
       },
       {
         path: 'principles',
         name: 'principles',
-        component: () => import('@/views/learn/PrinciplesView.vue')
+        component: () => import('@/views/understand/PrinciplesView.vue')
       },
       {
         path: 'framework',
         name: 'framework',
-        component: () => import('@/views/learn/FrameworkView.vue')
+        component: () => import('@/views/understand/FrameworkView.vue')
       },
       {
         path: 'register-types',
         name: 'register-types',
-        component: () => import('@/views/learn/RegisterTypesView.vue')
-      },
-      {
-        path: 'governance',
-        name: 'governance',
-        component: () => import('@/views/learn/GovernanceView.vue')
-      },
-      {
-        path: 'risk-management',
-        name: 'risk-management',
-        component: () => import('@/views/learn/RiskManagementView.vue')
+        component: () => import('@/views/understand/RegisterTypesView.vue')
       },
       {
         path: 'composite-registers',
         name: 'composite-registers',
-        component: () => import('@/views/learn/CompositeRegistersView.vue')
+        component: () => import('@/views/understand/CompositeRegistersView.vue')
       },
       {
-        path: 'schema-evolution',
-        name: 'schema-evolution',
-        component: () => import('@/views/learn/SchemaEvolutionView.vue')
-      },
-      {
-        path: 'temporal-data',
-        name: 'temporal-data',
-        component: () => import('@/views/learn/TemporalDataView.vue')
-      },
-      {
-        path: 'semantic-interoperability',
-        name: 'semantic-interoperability',
-        component: () => import('@/views/learn/SemanticInteroperabilityView.vue')
+        path: 'commitments',
+        name: 'commitments',
+        component: () => import('@/views/understand/CommitmentsView.vue')
       }
     ]
   },
-  // Build section
+  // Implement section (Building Your Register)
   {
-    path: '/build',
-    name: 'build',
-    component: () => import('@/views/BuildView.vue'),
+    path: '/implement',
+    name: 'implement',
+    component: () => import('@/views/ImplementView.vue'),
     children: [
       {
         path: '',
-        name: 'build-index',
-        redirect: '/build/getting-started'
+        name: 'implement-index',
+        redirect: '/implement/getting-started'
       },
       {
         path: 'getting-started',
         name: 'getting-started',
-        component: () => import('@/views/build/GettingStartedView.vue')
+        component: () => import('@/views/implement/GettingStartedView.vue')
       },
       {
         path: 'identifier-design',
         name: 'identifier-design',
-        component: () => import('@/views/build/IdentifierDesignView.vue')
+        component: () => import('@/views/implement/IdentifierDesignView.vue')
       },
       {
         path: 'versioning',
         name: 'versioning',
-        component: () => import('@/views/build/VersioningView.vue')
+        component: () => import('@/views/implement/VersioningView.vue')
       },
       {
         path: 'actions',
         name: 'actions',
-        component: () => import('@/views/build/ActionsView.vue')
+        component: () => import('@/views/implement/ActionsView.vue')
       },
       {
         path: 'register-specification',
         name: 'register-specification',
-        component: () => import('@/views/build/RegisterSpecificationView.vue')
+        component: () => import('@/views/implement/RegisterSpecificationView.vue')
       },
       {
         path: 'migration',
         name: 'migration',
-        component: () => import('@/views/build/MigrationView.vue')
+        component: () => import('@/views/implement/MigrationView.vue')
       },
       {
         path: 'technology-choices',
         name: 'technology-choices',
-        component: () => import('@/views/build/TechnologyChoicesView.vue')
+        component: () => import('@/views/implement/TechnologyChoicesView.vue')
       },
       {
         path: 'integration-patterns',
         name: 'integration-patterns',
-        component: () => import('@/views/build/IntegrationPatternsView.vue')
+        component: () => import('@/views/implement/IntegrationPatternsView.vue')
+      },
+      {
+        path: 'governance',
+        name: 'governance',
+        component: () => import('@/views/implement/GovernanceView.vue')
+      },
+      {
+        path: 'risk-management',
+        name: 'risk-management',
+        component: () => import('@/views/implement/RiskManagementView.vue')
+      },
+      {
+        path: 'schema-evolution',
+        name: 'schema-evolution',
+        component: () => import('@/views/implement/SchemaEvolutionView.vue')
+      },
+      {
+        path: 'temporal-data',
+        name: 'temporal-data',
+        component: () => import('@/views/implement/TemporalDataView.vue')
+      },
+      {
+        path: 'semantic-interoperability',
+        name: 'semantic-interoperability',
+        component: () => import('@/views/implement/SemanticInteroperabilityView.vue')
       }
     ]
   },
-  // Reference section
+  // Conform section (Certification & Verification)
+  {
+    path: '/conform',
+    name: 'conform',
+    component: () => import('@/views/ConformView.vue'),
+    children: [
+      {
+        path: '',
+        name: 'conform-index',
+        redirect: '/conform/samples'
+      },
+      {
+        path: 'samples',
+        name: 'samples',
+        component: () => import('@/views/conform/SamplesView.vue')
+      }
+    ]
+  },
+  // Reference section (Reference Materials)
   {
     path: '/reference',
     name: 'reference',
@@ -181,11 +205,6 @@ export const routes = [
         component: () => import('@/views/reference/ConceptualModelView.vue')
       },
       {
-        path: 'commitments',
-        name: 'commitments',
-        component: () => import('@/views/reference/CommitmentsView.vue')
-      },
-      {
         path: 'statuses',
         name: 'statuses',
         component: () => import('@/views/reference/StatusesView.vue')
@@ -204,11 +223,6 @@ export const routes = [
         path: 'faq',
         name: 'faq',
         component: () => import('@/views/reference/FaqView.vue')
-      },
-      {
-        path: 'samples',
-        name: 'samples',
-        component: () => import('@/views/reference/SamplesView.vue')
       }
     ]
   },
@@ -217,6 +231,35 @@ export const routes = [
     path: '/news',
     name: 'news',
     component: () => import('@/views/NewsView.vue')
+  },
+  // Legacy redirects for backward compatibility
+  {
+    path: '/learn',
+    redirect: '/understand'
+  },
+  {
+    path: '/learn/:pathMatch(.*)*',
+    redirect: to => {
+      const path = to.params.pathMatch
+      if (Array.isArray(path)) {
+        return `/understand/${path.join('/')}`
+      }
+      return `/understand/${path}`
+    }
+  },
+  {
+    path: '/build',
+    redirect: '/implement'
+  },
+  {
+    path: '/build/:pathMatch(.*)*',
+    redirect: to => {
+      const path = to.params.pathMatch
+      if (Array.isArray(path)) {
+        return `/implement/${path.join('/')}`
+      }
+      return `/implement/${path}`
+    }
   },
   // 404 - must be last
   {

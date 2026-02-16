@@ -155,11 +155,11 @@
       <h2>Next Steps</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/core-concepts">Understand the core concepts</router-link>
+          <router-link to="/understand/core-concepts">Understand the core concepts</router-link>
           in more detail
         </li>
         <li>
-          <router-link to="/learn/principles">Learn the six principles</router-link>
+          <router-link to="/understand/principles">Learn the six principles</router-link>
           that guide FERIN
         </li>
         <li>

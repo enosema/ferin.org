@@ -402,15 +402,15 @@ GET https://iso.org/registers/80000/items/meter</code></pre>
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/build/register-specification">Register Specification</router-link>
+          <router-link to="/implement/register-specification">Register Specification</router-link>
           - Document your register's API and commitments
         </li>
         <li>
-          <router-link to="/learn/schema-evolution">Schema Evolution</router-link>
+          <router-link to="/implement/schema-evolution">Schema Evolution</router-link>
           - Version negotiation strategies
         </li>
         <li>
-          <router-link to="/learn/temporal-data">Temporal Data</router-link>
+          <router-link to="/implement/temporal-data">Temporal Data</router-link>
           - Point-in-time queries
         </li>
         <li>

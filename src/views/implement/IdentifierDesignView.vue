@@ -9,6 +9,172 @@
     </header>
 
     <section class="content-section">
+      <h2>ISO 19135 Requirements for Identifiers</h2>
+      <p>
+        ISO 19135:2026 requires that <strong>every</strong> concept, concept version,
+        register item, register item class, and change must have <strong>both</strong>
+        types of identifiers:
+      </p>
+
+      <div class="id-types">
+        <div class="id-type">
+          <h3>Object Identifier</h3>
+          <p class="id-subtitle">Non-Redirectable</p>
+          <p>
+            An identifier that is <strong>permanently assigned</strong> to a specific
+            object. The association never changes—once an object identifier points to
+            an object, it always points to that same object.
+          </p>
+          <p><strong>Characteristics:</strong></p>
+          <ul>
+            <li>Non-redirectable (cannot point to a different object)</li>
+            <li>Permanent (does not change over time)</li>
+            <li>Only concerned with uniqueness, not meaning</li>
+            <li>Assigned at creation</li>
+          </ul>
+          <div class="example">
+            <strong>Example:</strong>
+            <code>550e8400-e29b-41d4-a716-446655440000</code> (UUID)
+            <p>This UUID will forever identify this specific concept version.</p>
+          </div>
+        </div>
+
+        <div class="id-type">
+          <h3>Functional Identifier</h3>
+          <p class="id-subtitle">Redirectable</p>
+          <p>
+            An identifier that <strong>reflects semantic intent</strong> and can be
+            redirected to point to different objects over time while maintaining the
+            original meaning of the identifier.
+          </p>
+          <p><strong>Characteristics:</strong></p>
+          <ul>
+            <li>Redirectable (can point to different objects over time)</li>
+            <li>Persistent in semantics (meaning persists even if target changes)</li>
+            <li><strong>MUST support hierarchical specification</strong></li>
+            <li>Enables semantic addressing</li>
+          </ul>
+          <div class="example">
+            <strong>Example:</strong>
+            <code>/concepts/crs/wgs-84/current</code>
+            <p>This functional identifier means "the current version of WGS 84 CRS".
+            As new versions are created, this identifier redirects to the latest.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-both">
+        <h3>Why Both Are Required</h3>
+        <div class="reason-grid">
+          <div class="reason">
+            <h4>Object Identifiers</h4>
+            <p>Provide <strong>permanent reference</strong> for citations and history</p>
+          </div>
+          <div class="reason">
+            <h4>Functional Identifiers</h4>
+            <p>Provide <strong>semantic access</strong> for current usage</p>
+          </div>
+          <div class="reason">
+            <h4>Together</h4>
+            <p>Enable both <strong>stability</strong> and <strong>flexibility</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Hierarchical Identifier Requirement</h2>
+      <p>
+        ISO 19135:2026 requires that <strong>functional identifiers must support
+        hierarchical specification</strong>. This means the identifier scheme must
+        allow representation of multiple components.
+      </p>
+
+      <h3>What Hierarchy Means</h3>
+      <p>
+        A hierarchical identifier can represent:
+      </p>
+      <ul>
+        <li>The nature of the identified item</li>
+        <li>Parameters such as version</li>
+        <li>Parent/child relationships</li>
+      </ul>
+
+      <h3>Example Hierarchical Schemes</h3>
+      <div class="hierarchy-examples">
+        <div class="hierarchy-example">
+          <h4>URI</h4>
+          <code>https://example.org/register/concepts/meter/v2.0</code>
+          <div class="breakdown">
+            <span class="part">└─domain─┘</span>
+            <span class="part">└─register─┘</span>
+            <span class="part">└─type─┘</span>
+            <span class="part">└─item─┘</span>
+            <span class="part">└─version┘</span>
+          </div>
+        </div>
+        <div class="hierarchy-example">
+          <h4>URN</h4>
+          <code>urn:example:register:meter:2.0</code>
+          <div class="breakdown">
+            <span class="part">└─nid──┘</span>
+            <span class="part">└─namespace──────┘</span>
+            <span class="part">└─hierarchical-spec─┘</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <strong>Important:</strong> UUID is <strong>NOT hierarchical</strong>—it cannot
+        represent components or hierarchy. UUIDs can be used for object identifiers, but
+        functional identifiers must use a scheme that supports hierarchy (URI, URN, URL).
+      </div>
+
+      <h3>What Needs Both Types of Identifiers</h3>
+      <table class="entities-table">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Object Identifier</th>
+            <th>Functional Identifier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The Register itself</td>
+            <td>—</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Concepts</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Concept Versions</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Register Item Classes</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Register Items</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Changes</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section">
       <h2>What Makes a Good Identifier?</h2>
       <p>
         FERIN requires identifiers to be:
@@ -56,10 +222,10 @@
               <ul>
                 <li>Not human-readable</li>
                 <li>No built-in resolution</li>
-                <li>Hard to communicate verbally</li>
+                <li>NOT hierarchical (object IDs only)</li>
               </ul>
             </td>
-            <td>Technical systems, internal use</td>
+            <td>Object identifiers</td>
           </tr>
           <tr>
             <td><strong>URN</strong></td>
@@ -67,7 +233,7 @@
               <ul>
                 <li>Standard format</li>
                 <li>Designed for persistence</li>
-                <li>Namespace support</li>
+                <li>Namespace support (hierarchical)</li>
               </ul>
             </td>
             <td>
@@ -77,7 +243,7 @@
                 <li>Complex syntax</li>
               </ul>
             </td>
-            <td>Long-term references, standards</td>
+            <td>Functional identifiers, long-term references</td>
           </tr>
           <tr>
             <td><strong>URL/URI</strong></td>
@@ -85,7 +251,7 @@
               <ul>
                 <li>Universally resolvable</li>
                 <li>Familiar to users</li>
-                <li>Easy to share</li>
+                <li>Hierarchical by design</li>
               </ul>
             </td>
             <td>
@@ -95,7 +261,7 @@
                 <li>Link rot risk</li>
               </ul>
             </td>
-            <td>Web-accessible registers</td>
+            <td>Functional identifiers, web-accessible registers</td>
           </tr>
           <tr>
             <td><strong>DOI</strong></td>
@@ -132,84 +298,6 @@
               </ul>
             </td>
             <td>Organization-specific registers</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="content-section">
-      <h2>Functional vs Object Identifiers</h2>
-      <p>
-        FERIN distinguishes two types of identifiers:
-      </p>
-
-      <div class="id-types">
-        <div class="id-type">
-          <h3>Object Identifier</h3>
-          <p>
-            Identifies a specific <em>thing</em> regardless of its function.
-            Think of it as a serial number—it identifies this specific item.
-          </p>
-          <div class="example">
-            <strong>Example:</strong>
-            <code>item-12345</code> identifies a specific register entry
-          </div>
-          <p><strong>Characteristics:</strong></p>
-          <ul>
-            <li>Never changes</li>
-            <li>Opaque (no embedded meaning)</li>
-            <li>Assigned at creation</li>
-          </ul>
-        </div>
-
-        <div class="id-type">
-          <h3>Functional Identifier</h3>
-          <p>
-            Identifies something by its <em>function</em> or <em>meaning</em>.
-            Think of it as a code—identifies what something means.
-          </p>
-          <div class="example">
-            <strong>Example:</strong>
-            <code>US</code> identifies the United States country code
-          </div>
-          <p><strong>Characteristics:</strong></p>
-          <ul>
-            <li>May be reassigned (carefully!)</li>
-            <li>Often meaningful/semantic</li>
-            <li>May change with meaning</li>
-          </ul>
-        </div>
-      </div>
-
-      <h3>When to Use Each</h3>
-      <table class="usage-table">
-        <thead>
-          <tr>
-            <th>Scenario</th>
-            <th>Use</th>
-            <th>Rationale</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Need stable reference for citations</td>
-            <td>Object ID</td>
-            <td>Won't break if meaning changes</td>
-          </tr>
-          <tr>
-            <td>Need human-readable codes</td>
-            <td>Functional ID</td>
-            <td>Easier for users to work with</td>
-          </tr>
-          <tr>
-            <td>Content may be superseded</td>
-            <td>Both</td>
-            <td>Object ID for history, Functional ID for current</td>
-          </tr>
-          <tr>
-            <td>Integrating with external systems</td>
-            <td>Functional ID</td>
-            <td>Matches existing conventions</td>
           </tr>
         </tbody>
       </table>
@@ -360,15 +448,15 @@ Reuse: Never; retired codes marked unavailable</code></pre>
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/build/getting-started">Getting Started</router-link>
+          <router-link to="/implement/getting-started">Getting Started</router-link>
           - Overall implementation guide
         </li>
         <li>
-          <router-link to="/build/register-specification">Register Specification</router-link>
+          <router-link to="/implement/register-specification">Register Specification</router-link>
           - Documenting your identifier scheme
         </li>
         <li>
-          <router-link to="/learn/principles">Principles</router-link>
+          <router-link to="/implement/principles">Principles</router-link>
           - Persistent identification principle
         </li>
       </ul>
@@ -564,5 +652,125 @@ Reuse: Never; retired codes marked unavailable</code></pre>
   .namespace-patterns {
     grid-template-columns: 1fr;
   }
+
+  .hierarchy-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .reason-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* New styles for ISO 19135 requirements section */
+.id-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+  margin-top: calc(-1 * var(--spacing-sm));
+  margin-bottom: var(--spacing-md);
+}
+
+.why-both {
+  margin-top: var(--spacing-xl);
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(30, 58, 95, 0.05) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-xl);
+}
+
+.why-both h3 {
+  margin-top: 0;
+}
+
+.reason-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.reason {
+  text-align: center;
+}
+
+.reason h4 {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+}
+
+.reason p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+/* Hierarchy examples */
+.hierarchy-examples {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.hierarchy-example {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.hierarchy-example h4 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-base);
+}
+
+.hierarchy-example code {
+  display: block;
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-sm);
+  word-break: break-all;
+}
+
+.breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.breakdown .part {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  background: rgba(13, 148, 136, 0.1);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+.warning-box {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+  font-size: var(--font-size-sm);
+}
+
+.warning-box strong {
+  color: var(--color-error);
+}
+
+/* Entities table */
+.entities-table {
+  margin: var(--spacing-lg) 0;
+}
+
+.entities-table th,
+.entities-table td {
+  text-align: center;
+}
+
+.entities-table td:first-child {
+  text-align: left;
 }
 </style>

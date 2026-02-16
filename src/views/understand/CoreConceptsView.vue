@@ -100,6 +100,87 @@
       </div>
     </section>
 
+    <section class="content-section">
+      <h2>Identifiers</h2>
+      <p>
+        Every entity in FERIN requires <strong>two types of identifiers</strong>:
+      </p>
+
+      <div class="identifier-types">
+        <div class="identifier-type">
+          <h3>Object Identifier</h3>
+          <p>
+            Non-redirectable, permanently assigned to a specific object.
+            Provides <strong>permanent reference</strong> for citations.
+          </p>
+          <div class="example">
+            <strong>Example:</strong>
+            <code>550e8400-e29b-41d4-a716-446655440000</code> (UUID)
+          </div>
+        </div>
+
+        <div class="identifier-type">
+          <h3>Functional Identifier</h3>
+          <p>
+            Redirectable, reflects semantic intent. Must support
+            <strong>hierarchical specification</strong>.
+          </p>
+          <div class="example">
+            <strong>Example:</strong>
+            <code>/concepts/meter/v2.0</code> (URI)
+          </div>
+        </div>
+      </div>
+
+      <h3>What Needs Both Types</h3>
+      <table class="id-requirements-table">
+        <thead>
+          <tr>
+            <th>Entity</th>
+            <th>Object ID</th>
+            <th>Functional ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>The Register</td>
+            <td>—</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Concepts</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Concept Versions</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Register Item Classes</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Register Items</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+          <tr>
+            <td>Changes</td>
+            <td>Required</td>
+            <td>Required</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        See <router-link to="/implement/identifier-design">Identifier Design</router-link>
+        for implementation guidance.
+      </p>
+    </section>
+
     <section class="content-section" id="granularity">
       <h2>Concept Granularity</h2>
 
@@ -253,15 +334,15 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/learn/principles">Principles</router-link>
+          <router-link to="/understand/principles">Principles</router-link>
           - The six core principles of FERIN
         </li>
         <li>
-          <router-link to="/learn/framework">Framework Overview</router-link>
+          <router-link to="/understand/framework">Framework Overview</router-link>
           - Data, Governance, and Compliance pillars
         </li>
         <li>
-          <router-link to="/build/versioning">Versioning</router-link>
+          <router-link to="/implement/versioning">Versioning</router-link>
           - Detailed guidance on versioning strategies
         </li>
       </ul>
@@ -486,5 +567,48 @@
   .concept-systems {
     grid-template-columns: 1fr;
   }
+
+  .identifier-types {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Identifier types section */
+.identifier-types {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.identifier-type {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.identifier-type h3 {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-accent);
+  font-size: var(--font-size-base);
+}
+
+.identifier-type p {
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.id-requirements-table {
+  margin: var(--spacing-lg) 0;
+}
+
+.id-requirements-table th,
+.id-requirements-table td {
+  text-align: center;
+}
+
+.id-requirements-table td:first-child {
+  text-align: left;
 }
 </style>

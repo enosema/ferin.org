@@ -310,11 +310,11 @@
           - Complete status reference
         </li>
         <li>
-          <router-link to="/build/versioning">Versioning</router-link>
+          <router-link to="/implement/versioning">Versioning</router-link>
           - When to create new versions
         </li>
         <li>
-          <router-link to="/learn/governance">Governance</router-link>
+          <router-link to="/implement/governance">Governance</router-link>
           - Who can perform actions
         </li>
       </ul>
