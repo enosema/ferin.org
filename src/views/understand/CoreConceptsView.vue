@@ -19,22 +19,31 @@
           <h3>Concept Plane</h3>
           <p class="plane-definition">Where <strong>meaning</strong> lives</p>
           <ul>
-            <li>Abstract ideas and categories</li>
-            <li>Definitions that can evolve</li>
-            <li>Independent of any specific representation</li>
-            <li>Organized into concept systems</li>
+            <li><strong>Concepts</strong> — abstract ideas in concept systems</li>
+            <li><strong>Concept versions</strong> — specific realizations over time</li>
+            <li><strong>Concept relationships</strong> — connections between concepts</li>
+            <li><strong>Concept version relationships</strong> — connections between versions</li>
           </ul>
         </div>
         <div class="plane content-plane">
           <h3>Content Plane</h3>
           <p class="plane-definition">Where <strong>data</strong> persists</p>
           <ul>
-            <li>Concrete representations</li>
-            <li>Versioned and status-tracked</li>
-            <li>Referenced by identifiers</li>
-            <li>Managed through governance</li>
+            <li><strong>Register item classes</strong> — data schemas</li>
+            <li><strong>Register items</strong> — data instances</li>
+            <li><strong>Changes</strong> — records of modifications</li>
           </ul>
         </div>
+      </div>
+
+      <div class="key-insight">
+        <h4>Key Relationship</h4>
+        <p>
+          Each <strong>concept version</strong> is backed by a <strong>register item</strong>
+          (data instance) in a particular <strong>register item class</strong> (data schema).
+          This separation enables concepts to evolve while preserving the integrity of
+          the data that represents them.
+        </p>
       </div>
 
       <p>
@@ -74,15 +83,31 @@
         </div>
 
         <div class="entity">
+          <h3>Register Item Class</h3>
+          <p>
+            A data schema that defines the structure of register items. Each register
+            item class specifies what fields and data types are valid for items in
+            that class. Register item classes can evolve independently of the concepts
+            they represent.
+          </p>
+          <div class="example">
+            <strong>Example:</strong> A "Unit of Measure" register item class might
+            define fields for name, symbol, definition, and conversion factor. This
+            schema can be versioned separately from the concept of "meter" itself.
+          </div>
+        </div>
+
+        <div class="entity">
           <h3>Register Item</h3>
           <p>
-            A concrete piece of content in a register. Register items have identifiers,
-            status, and are managed through governance processes.
+            A concrete piece of content in a register—an instance of a register item
+            class. Register items have identifiers, status, and are managed through
+            governance processes. Each concept version is backed by a register item.
           </p>
           <div class="example">
             <strong>Example:</strong> The symbol "m" for meter, with identifier
             <code>urn:iso:std:iso:19135:meter</code>, status "valid", added on
-            1960-10-14 by the BIPM.
+            1960-10-14 by the BIPM, in the "Unit of Measure" register item class.
           </div>
         </div>
 
@@ -610,5 +635,23 @@
 
 .id-requirements-table td:first-child {
   text-align: left;
+}
+
+.key-insight {
+  background: rgba(13, 148, 136, 0.05);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.key-insight h4 {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-accent);
+}
+
+.key-insight p {
+  margin: 0;
+  font-size: var(--font-size-sm);
 }
 </style>
