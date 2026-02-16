@@ -232,35 +232,6 @@ export const routes = [
     name: 'news',
     component: () => import('@/views/NewsView.vue')
   },
-  // Legacy redirects for backward compatibility
-  {
-    path: '/learn',
-    redirect: '/understand'
-  },
-  {
-    path: '/learn/:pathMatch(.*)*',
-    redirect: to => {
-      const path = to.params.pathMatch
-      if (Array.isArray(path)) {
-        return `/understand/${path.join('/')}`
-      }
-      return `/understand/${path}`
-    }
-  },
-  {
-    path: '/build',
-    redirect: '/implement'
-  },
-  {
-    path: '/build/:pathMatch(.*)*',
-    redirect: to => {
-      const path = to.params.pathMatch
-      if (Array.isArray(path)) {
-        return `/implement/${path.join('/')}`
-      }
-      return `/implement/${path}`
-    }
-  },
   // 404 - must be last
   {
     path: '/:pathMatch(.*)*',
