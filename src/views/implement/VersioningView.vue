@@ -26,7 +26,23 @@
       <p>
         The standard distinguishes between changes that require a new version
         and those that don't—but the distinction requires interpretation.
+        <strong>The threshold for what is "substantive" depends on your register's
+        <router-link to="/implement/risk-management">risk profile</router-link>.</strong>
       </p>
+
+      <div class="risk-threshold-box">
+        <h4>Risk-Based Thresholds</h4>
+        <div class="threshold-comparison">
+          <div class="threshold low">
+            <h5>Low Risk</h5>
+            <p>Only major meaning changes are substantive. Typos, formatting, and minor clarifications don't require versions.</p>
+          </div>
+          <div class="threshold high">
+            <h5>High Risk</h5>
+            <p>Any meaningful change is substantive. Even typo fixes that could change interpretation require versions.</p>
+          </div>
+        </div>
+      </div>
 
       <h3>What the Standard Says</h3>
       <blockquote>
@@ -325,6 +341,10 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
+          <router-link to="/implement/risk-management">Risk Management</router-link>
+          - How risk determines your change threshold
+        </li>
+        <li>
           <router-link to="/implement/actions">Actions Reference</router-link>
           - Operations for managing versions
         </li>
@@ -333,7 +353,7 @@
           - Complete status reference
         </li>
         <li>
-          <router-link to="/implement/core-concepts">Core Concepts</router-link>
+          <router-link to="/understand/core-concepts">Core Concepts</router-link>
           - Concept versioning details
         </li>
       </ul>
@@ -397,6 +417,58 @@
 .decision-framework ul {
   margin-top: var(--spacing-xs);
   padding-left: var(--spacing-lg);
+}
+
+.risk-threshold-box {
+  background: rgba(13, 148, 136, 0.05);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.risk-threshold-box h4 {
+  margin: 0 0 var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.threshold-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.threshold {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+}
+
+.threshold h5 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.threshold p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.threshold.low {
+  border-left: 3px solid #22c55e;
+}
+
+.threshold.low h5 {
+  color: #16a34a;
+}
+
+.threshold.high {
+  border-left: 3px solid #ef4444;
+}
+
+.threshold.high h5 {
+  color: #dc2626;
 }
 
 .examples-table,

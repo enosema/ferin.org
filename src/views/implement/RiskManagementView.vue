@@ -3,18 +3,171 @@
     <header class="page-header">
       <h1>Risk Management</h1>
       <p class="page-lead">
-        FERIN is designed to scale from simple personal registers to complex
-        authoritative registries. The appropriate level of governance rigor
-        depends on the risk profile of your register.
+        Risk management determines your register's governance rigor, commitments
+        to users, and change thresholds. This topic is outside the scope of
+        ISO 19135 but is essential for register owners to consider.
       </p>
     </header>
 
     <section class="content-section">
-      <h2>What Is Register Risk?</h2>
+      <h2>Why Risk Management Matters</h2>
       <p>
-        Governance is not one-size-fits-all. A personal reference list needs
-        different controls than a national safety-critical registry.
+        Every register operates within a risk context. Understanding and
+        documenting your risk profile is essential because it determines:
       </p>
+
+      <div class="risk-determines">
+        <div class="determines-item">
+          <div class="determines-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+            </svg>
+          </div>
+          <h3>Commitments</h3>
+          <p>
+            What you promise to users—availability, accuracy, response times—
+            depends on your risk level.
+            <router-link to="/understand/commitments">See Commitments</router-link>
+          </p>
+        </div>
+
+        <div class="determines-item">
+          <div class="determines-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </div>
+          <h3>Change Thresholds</h3>
+          <p>
+            What counts as a "substantive" change requiring a new version
+            depends on your risk profile.
+            <router-link to="/implement/versioning">See Versioning</router-link>
+          </p>
+        </div>
+
+        <div class="determines-item">
+          <div class="determines-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <h3>Governance Rigor</h3>
+          <p>
+            How many roles, how much separation, how formal the processes—all
+            scale with risk.
+            <router-link to="/implement/governance">See Governance</router-link>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Risk Management Frameworks</h2>
+      <p>
+        Risk management is a well-studied discipline. While FERIN does not
+        mandate a specific framework, register owners should be aware of
+        established approaches:
+      </p>
+
+      <div class="frameworks-grid">
+        <div class="framework">
+          <h4>ISO 31000</h4>
+          <p>
+            <strong>Risk Management — Guidelines</strong><br>
+            The international standard for risk management principles and
+            processes. Provides a framework applicable to any organization.
+          </p>
+        </div>
+
+        <div class="framework">
+          <h4>NIST RMF</h4>
+          <p>
+            <strong>Risk Management Framework</strong><br>
+            US government approach particularly relevant for information
+            systems and security-focused registers.
+          </p>
+        </div>
+
+        <div class="framework">
+          <h4>COBIT</h4>
+          <p>
+            <strong>Control Objectives for Information Technologies</strong><br>
+            Framework for IT governance and management, useful for
+            technology-focused registers.
+          </p>
+        </div>
+      </div>
+
+      <div class="note-box">
+        <strong>Note:</strong> FERIN does not prescribe which risk management
+        framework to use. The register owner should select an approach
+        appropriate for their context and document it in the
+        <router-link to="/implement/register-specification">Register Specification</router-link>.
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Risk Aspects</h2>
+      <p>
+        A register may face multiple types of risk simultaneously. Consider
+        which aspects are relevant to your register:
+      </p>
+
+      <div class="aspects-grid">
+        <div class="aspect">
+          <h4>Quality (ISO 9001)</h4>
+          <p>Data accuracy, consistency, fitness for purpose</p>
+        </div>
+
+        <div class="aspect">
+          <h4>Information Security (ISO 27001)</h4>
+          <p>Confidentiality, integrity, availability of data</p>
+        </div>
+
+        <div class="aspect">
+          <h4>Privacy (ISO 27701)</h4>
+          <p>Personal data protection, consent management</p>
+        </div>
+
+        <div class="aspect">
+          <h4>Business Continuity (ISO 22301)</h4>
+          <p>Availability during disruptions, disaster recovery</p>
+        </div>
+
+        <div class="aspect">
+          <h4>Financial</h4>
+          <p>Cost of errors, liability, compliance penalties</p>
+        </div>
+
+        <div class="aspect">
+          <h4>Regulatory</h4>
+          <p>Legal compliance, mandatory reporting, audit requirements</p>
+        </div>
+
+        <div class="aspect">
+          <h4>Reputational</h4>
+          <p>Trust, credibility, stakeholder confidence</p>
+        </div>
+
+        <div class="aspect">
+          <h4>Environmental (ISO 14001)</h4>
+          <p>Environmental impact, sustainability considerations</p>
+        </div>
+      </div>
+
+      <p>
+        A single register may need to consider multiple aspects. For example,
+        a healthcare code list registry might have quality, security, privacy,
+        and regulatory aspects all relevant to its risk profile.
+      </p>
+    </section>
+
+    <section class="content-section">
+      <h2>Risk = Impact × Possibility</h2>
 
       <div class="formula-box">
         <h3>Risk = Impact × Possibility</h3>
@@ -48,6 +201,117 @@
     </section>
 
     <section class="content-section">
+      <h2>Risk Determines Commitments</h2>
+      <p>
+        Your register's <router-link to="/understand/commitments">commitments</router-link>
+        are contractual promises to users and stakeholders. The appropriate
+        commitments depend on your risk level:
+      </p>
+
+      <table class="commitments-table">
+        <thead>
+          <tr>
+            <th>Commitment</th>
+            <th>Low Risk</th>
+            <th>Medium Risk</th>
+            <th>High Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Availability</td>
+            <td>Best effort</td>
+            <td>Documented uptime</td>
+            <td>SLA with penalties</td>
+          </tr>
+          <tr>
+            <td>Accuracy</td>
+            <td>No guarantees</td>
+            <td>Peer reviewed</td>
+            <td>Formal validation, audit trail</td>
+          </tr>
+          <tr>
+            <td>Response time</td>
+            <td>As resources allow</td>
+            <td>Documented timeframe</td>
+            <td>Binding response periods</td>
+          </tr>
+          <tr>
+            <td>Change notice</td>
+            <td>None required</td>
+            <td>Notification period</td>
+            <td>Formal review period, stakeholder input</td>
+          </tr>
+          <tr>
+            <td>Appeal process</td>
+            <td>Not required</td>
+            <td>Documented process</td>
+            <td>Formal process with timeline</td>
+          </tr>
+          <tr>
+            <td>History retention</td>
+            <td>Current version only</td>
+            <td>Version history</td>
+            <td>Permanent archive, audit trail</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="content-section">
+      <h2>Risk Determines Change Thresholds</h2>
+      <p>
+        The distinction between <router-link to="/implement/versioning">substantive
+        and non-substantive changes</router-link>—which determines when a new
+        version is required—depends on your risk profile:
+      </p>
+
+      <table class="thresholds-table">
+        <thead>
+          <tr>
+            <th>Change Type</th>
+            <th>Low Risk Threshold</th>
+            <th>High Risk Threshold</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Definition change</td>
+            <td>Only major meaning changes are substantive</td>
+            <td>Any clarification is substantive</td>
+          </tr>
+          <tr>
+            <td>Typo fix</td>
+            <td>Never substantive</td>
+            <td>Substantive if it changes interpretation</td>
+          </tr>
+          <tr>
+            <td>Format change</td>
+            <td>Never substantive</td>
+            <td>Substantive if affects systems</td>
+          </tr>
+          <tr>
+            <td>Status change</td>
+            <td>Version if impacts users</td>
+            <td>Always version</td>
+          </tr>
+          <tr>
+            <td>Relation change</td>
+            <td>Version if structural</td>
+            <td>Always version</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="key-insight">
+        <strong>Key principle:</strong> High-risk registers have a lower
+        threshold for what constitutes a "substantive" change. What might be
+        a minor correction in a personal reference list could require a full
+        governance review in a safety-critical registry.
+      </div>
+    </section>
+
+    <section class="content-section">
       <h2>Risk Levels</h2>
 
       <div class="risk-levels">
@@ -65,6 +329,12 @@
             </p>
             <p class="risk-governance">
               <strong>Governance:</strong> Single person may hold all roles; automation acceptable
+            </p>
+            <p class="risk-commitments">
+              <strong>Commitments:</strong> Minimal—best effort availability, no formal guarantees
+            </p>
+            <p class="risk-changes">
+              <strong>Change threshold:</strong> Only major meaning changes require versions
             </p>
             <p class="risk-documentation">
               <strong>Documentation:</strong> Minimal; change log sufficient
@@ -87,6 +357,12 @@
             <p class="risk-governance">
               <strong>Governance:</strong> Separate proposer and approver roles recommended; defined change process
             </p>
+            <p class="risk-commitments">
+              <strong>Commitments:</strong> Moderate—documented availability, peer review, notification periods
+            </p>
+            <p class="risk-changes">
+              <strong>Change threshold:</strong> Definition changes and status changes require versions
+            </p>
             <p class="risk-documentation">
               <strong>Documentation:</strong> Register specification, role assignments, escalation path
             </p>
@@ -108,6 +384,12 @@
             <p class="risk-governance">
               <strong>Governance:</strong> Full role separation; formal Control Body; appeal process essential
             </p>
+            <p class="risk-commitments">
+              <strong>Commitments:</strong> Extensive—SLAs, formal validation, stakeholder review, binding timelines
+            </p>
+            <p class="risk-changes">
+              <strong>Change threshold:</strong> Any meaningful change requires version and review
+            </p>
             <p class="risk-documentation">
               <strong>Documentation:</strong> Comprehensive specification, audit requirements, stakeholder communication plan
             </p>
@@ -117,9 +399,58 @@
     </section>
 
     <section class="content-section">
-      <h2>Deciding Your Governance Level</h2>
+      <h2>Documenting Your Risk Profile</h2>
+      <p>
+        Your risk profile should be documented in your
+        <router-link to="/implement/register-specification">Register Specification</router-link>.
+        This documentation serves as a contract with users and a guide for
+        governance decisions.
+      </p>
 
-      <h3>Questions to Ask</h3>
+      <h3>What to Document</h3>
+      <div class="documentation-checklist">
+        <div class="checklist-item">
+          <h4>1. Risk Assessment</h4>
+          <ul>
+            <li>Identified risks (what could go wrong?)</li>
+            <li>Risk aspects considered (quality, security, privacy, etc.)</li>
+            <li>Impact assessment (who is affected, how severely?)</li>
+            <li>Likelihood assessment (how probable is each risk?)</li>
+          </ul>
+        </div>
+
+        <div class="checklist-item">
+          <h4>2. Risk Framework</h4>
+          <ul>
+            <li>Which risk management framework(s) are used</li>
+            <li>How risks are evaluated and prioritized</li>
+            <li>Risk tolerance thresholds (what is acceptable?)</li>
+          </ul>
+        </div>
+
+        <div class="checklist-item">
+          <h4>3. Mitigation Strategies</h4>
+          <ul>
+            <li>How each identified risk is addressed</li>
+            <li>Governance controls in place</li>
+            <li>Monitoring and review processes</li>
+          </ul>
+        </div>
+
+        <div class="checklist-item">
+          <h4>4. Derived Decisions</h4>
+          <ul>
+            <li>Commitments made (based on risk level)</li>
+            <li>Substantive change threshold (based on risk level)</li>
+            <li>Governance structure (based on risk level)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Decision Questions</h2>
+      <p>Use these questions to help determine your risk level:</p>
 
       <div class="decision-questions">
         <div class="question">
@@ -149,69 +480,13 @@
             <li><span class="answer">It's THE official source</span> → High</li>
           </ul>
         </div>
-      </div>
 
-      <h3>Decision Matrix</h3>
-      <table class="decision-table">
-        <thead>
-          <tr>
-            <th>If Your Register Is...</th>
-            <th>Then Consider...</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Informative, personal</td>
-            <td>Minimal governance; automation; single role</td>
-          </tr>
-          <tr>
-            <td>Informative, shared</td>
-            <td>Basic governance; documented roles; change tracking</td>
-          </tr>
-          <tr>
-            <td>Authoritative, internal</td>
-            <td>Standard governance; role separation; appeal process</td>
-          </tr>
-          <tr>
-            <td>Authoritative, public</td>
-            <td>Full governance; independent Control Body; formal processes</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="content-section">
-      <h2>Risk Mitigation Strategies</h2>
-
-      <div class="mitigation-strategies">
-        <div class="strategy low-strategy">
-          <h3>For Low Risk</h3>
-          <ul>
-            <li>Version control / change history</li>
-            <li>Simple documentation</li>
-            <li>Backup and recovery</li>
-          </ul>
-        </div>
-
-        <div class="strategy medium-strategy">
-          <h3>For Medium Risk</h3>
-          <p class="strategy-note">All low-risk strategies, plus:</p>
-          <ul>
-            <li>Defined change process</li>
-            <li>Peer review before publication</li>
-            <li>Stakeholder notification</li>
-          </ul>
-        </div>
-
-        <div class="strategy high-strategy">
-          <h3>For High Risk</h3>
-          <p class="strategy-note">All medium-risk strategies, plus:</p>
-          <ul>
-            <li>Independent Control Body</li>
-            <li>Formal appeal process</li>
-            <li>Audit trail with signatures</li>
-            <li>Stakeholder review periods</li>
-            <li>Rollback procedures</li>
+        <div class="question">
+          <h4>4. What risk aspects apply?</h4>
+          <ul class="answer-scale">
+            <li><span class="answer">None specifically</span> → Low</li>
+            <li><span class="answer">1-2 aspects (quality, etc.)</span> → Medium</li>
+            <li><span class="answer">Multiple aspects (security, privacy, regulatory)</span> → High</li>
           </ul>
         </div>
       </div>
@@ -261,28 +536,26 @@
           </tr>
         </tbody>
       </table>
-
-      <div class="key-insight">
-        <strong>Key principle:</strong> Governance rigor should match risk level.
-        Over-governing a low-risk register wastes resources; under-governing a
-        high-risk register invites failure.
-      </div>
     </section>
 
     <section class="content-section">
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
+          <router-link to="/understand/commitments">Commitments</router-link>
+          - What you promise users (scales with risk)
+        </li>
+        <li>
+          <router-link to="/implement/versioning">Versioning</router-link>
+          - Substantive vs non-substantive changes (thresholds depend on risk)
+        </li>
+        <li>
           <router-link to="/implement/governance">Governance Model</router-link>
-          - Roles and processes
+          - Roles and processes (rigor depends on risk)
         </li>
         <li>
           <router-link to="/implement/register-specification">Register Specification</router-link>
-          - Documenting your register
-        </li>
-        <li>
-          <router-link to="/implement/actions">Actions Reference</router-link>
-          - Managing content changes
+          - Documenting your risk profile
         </li>
       </ul>
     </section>
@@ -326,6 +599,109 @@
 .content-section h4 {
   font-size: var(--font-size-base);
   margin: var(--spacing-md) 0 var(--spacing-sm);
+}
+
+.risk-determines {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-xl) 0;
+}
+
+.determines-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.determines-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(30, 58, 95, 0.1) 100%);
+  border-radius: var(--radius-lg);
+  margin: 0 auto var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.determines-item h3 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-base);
+}
+
+.determines-item p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.determines-item a {
+  font-size: var(--font-size-xs);
+}
+
+.frameworks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.framework {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.framework h4 {
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-accent);
+}
+
+.framework p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.note-box {
+  background: rgba(13, 148, 136, 0.05);
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+  font-size: var(--font-size-sm);
+}
+
+.aspects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+}
+
+.aspect {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.aspect h4 {
+  margin: 0 0 var(--spacing-xs);
+  font-size: var(--font-size-sm);
+  color: var(--color-accent);
+}
+
+.aspect p {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  margin: 0;
 }
 
 .formula-box {
@@ -375,6 +751,18 @@
 .factor-group li {
   margin-bottom: var(--spacing-sm);
   font-size: var(--font-size-sm);
+}
+
+.commitments-table,
+.thresholds-table,
+.roles-table {
+  margin: var(--spacing-lg) 0;
+}
+
+.commitments-table th:first-child,
+.thresholds-table th:first-child,
+.roles-table th:first-child {
+  text-align: left;
 }
 
 .risk-levels {
@@ -456,6 +844,35 @@
   margin-bottom: 0;
 }
 
+.documentation-checklist {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.checklist-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.checklist-item h4 {
+  margin: 0 0 var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.checklist-item ul {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.checklist-item li {
+  margin-bottom: var(--spacing-xs);
+}
+
 .decision-questions {
   display: flex;
   flex-direction: column;
@@ -491,62 +908,6 @@
   color: var(--color-text);
 }
 
-.decision-table {
-  margin: var(--spacing-lg) 0;
-}
-
-.mitigation-strategies {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-lg);
-  margin: var(--spacing-lg) 0;
-}
-
-.strategy {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-}
-
-.strategy h3 {
-  margin: 0 0 var(--spacing-md);
-  font-size: var(--font-size-base);
-}
-
-.low-strategy h3 {
-  color: #16a34a;
-}
-
-.medium-strategy h3 {
-  color: #ca8a04;
-}
-
-.high-strategy h3 {
-  color: #dc2626;
-}
-
-.strategy-note {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-light);
-  font-style: italic;
-  margin-bottom: var(--spacing-sm);
-}
-
-.strategy ul {
-  margin: 0;
-  padding-left: var(--spacing-lg);
-  font-size: var(--font-size-sm);
-}
-
-.strategy li {
-  margin-bottom: var(--spacing-xs);
-}
-
-.roles-table {
-  margin: var(--spacing-lg) 0;
-}
-
 .key-insight {
   background: rgba(13, 148, 136, 0.05);
   border-left: 3px solid var(--color-accent);
@@ -574,11 +935,23 @@
 }
 
 @media (max-width: 768px) {
+  .risk-determines {
+    grid-template-columns: 1fr;
+  }
+
+  .frameworks-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .aspects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .factors-grid {
     grid-template-columns: 1fr;
   }
 
-  .mitigation-strategies {
+  .documentation-checklist {
     grid-template-columns: 1fr;
   }
 }

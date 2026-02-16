@@ -9,6 +9,39 @@
     </header>
 
     <section class="content-section">
+      <h2>Commitments Scale with Risk</h2>
+      <p>
+        The commitments a register makes to its users are not fixed—they
+        depend on the register's <router-link to="/implement/risk-management">risk
+        profile</router-link>. A low-risk personal register may offer minimal
+        commitments, while a high-risk authoritative registry must provide
+        extensive guarantees.
+      </p>
+
+      <div class="risk-commitments-summary">
+        <div class="risk-commitment low">
+          <h4>Low Risk Registers</h4>
+          <p>Minimal commitments: best effort availability, no formal guarantees, limited history</p>
+        </div>
+        <div class="risk-commitment medium">
+          <h4>Medium Risk Registers</h4>
+          <p>Moderate commitments: documented availability, peer review, notification periods</p>
+        </div>
+        <div class="risk-commitment high">
+          <h4>High Risk Registers</h4>
+          <p>Extensive commitments: SLAs, formal validation, stakeholder review, binding timelines</p>
+        </div>
+      </div>
+
+      <p>
+        When defining your commitments, consider who relies on your data and
+        what happens if those commitments are not met. Document your commitments
+        in your <router-link to="/implement/register-specification">Register Specification</router-link>
+        as a contract with your users.
+      </p>
+    </section>
+
+    <section class="content-section">
       <h2>Commitment Categories</h2>
       <p>
         FERIN defines three categories of commitments:
@@ -291,6 +324,10 @@ All versions remain accessible; current view shows only valid items.
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
+          <router-link to="/implement/risk-management">Risk Management</router-link>
+          - How risk level determines your commitments
+        </li>
+        <li>
           <router-link to="/implement/register-specification">Register Specification</router-link>
           - Documenting commitments
         </li>
@@ -462,5 +499,58 @@ All versions remain accessible; current view shows only valid items.
   .commitment-grid {
     grid-template-columns: 1fr;
   }
+
+  .risk-commitments-summary {
+    grid-template-columns: 1fr;
+  }
+}
+
+.risk-commitments-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  margin: var(--spacing-lg) 0;
+}
+
+.risk-commitment {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.risk-commitment h4 {
+  margin: 0 0 var(--spacing-sm);
+  font-size: var(--font-size-sm);
+}
+
+.risk-commitment p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+.risk-commitment.low {
+  border-left: 3px solid #22c55e;
+}
+
+.risk-commitment.low h4 {
+  color: #16a34a;
+}
+
+.risk-commitment.medium {
+  border-left: 3px solid #eab308;
+}
+
+.risk-commitment.medium h4 {
+  color: #ca8a04;
+}
+
+.risk-commitment.high {
+  border-left: 3px solid #ef4444;
+}
+
+.risk-commitment.high h4 {
+  color: #dc2626;
 }
 </style>
