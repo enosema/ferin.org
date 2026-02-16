@@ -205,7 +205,7 @@
               >
                 Purchase ISO 19135:2026
               </a>
-              <router-link to="/learn/core-concepts" class="btn-secondary">
+              <router-link to="/understand/core-concepts" class="btn-secondary">
                 Start Learning FERIN
               </router-link>
             </div>

@@ -12,7 +12,7 @@
         <router-link to="/" class="btn-primary">
           Go to Homepage
         </router-link>
-        <router-link to="/learn/core-concepts" class="btn-secondary">
+        <router-link to="/understand/core-concepts" class="btn-secondary">
           Start Learning FERIN
         </router-link>
       </div>

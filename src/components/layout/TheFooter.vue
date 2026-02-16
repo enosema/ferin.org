@@ -19,16 +19,16 @@
         <div class="footer-links">
           <div class="footer-section">
             <h4>Learn</h4>
-            <router-link to="/learn/core-concepts">Core Concepts</router-link>
-            <router-link to="/learn/principles">Principles</router-link>
-            <router-link to="/learn/framework">Framework</router-link>
+            <router-link to="/understand/core-concepts">Core Concepts</router-link>
+            <router-link to="/understand/principles">Principles</router-link>
+            <router-link to="/understand/framework">Framework</router-link>
           </div>
 
           <div class="footer-section">
             <h4>Build</h4>
-            <router-link to="/build/getting-started">Getting Started</router-link>
-            <router-link to="/build/actions">Actions Reference</router-link>
-            <router-link to="/build/register-specification">Specification</router-link>
+            <router-link to="/implement/getting-started">Getting Started</router-link>
+            <router-link to="/implement/actions">Actions Reference</router-link>
+            <router-link to="/implement/register-specification">Specification</router-link>
           </div>
 
           <div class="footer-section">
