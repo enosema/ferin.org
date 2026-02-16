@@ -36,6 +36,20 @@
         </div>
       </div>
 
+      <div class="spanning-elements">
+        <h4>Elements on Both Planes</h4>
+        <div class="spanning-grid">
+          <div class="spanning-item">
+            <strong>Identifiers</strong>
+            <p>Both object and functional identifiers apply to entities on both planes.</p>
+          </div>
+          <div class="spanning-item">
+            <strong>Relationships</strong>
+            <p>Typed connections exist as concept relationships, concept version relationships, and content relationships.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="key-insight">
         <h4>Key Relationship</h4>
         <p>
@@ -631,6 +645,46 @@
   font-weight: var(--font-weight-medium);
 }
 
+.spanning-elements {
+  margin: var(--spacing-xl) 0;
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.spanning-elements h4 {
+  margin: 0 0 var(--spacing-md);
+  text-align: center;
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.spanning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.spanning-item {
+  background: var(--color-surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.spanning-item strong {
+  display: block;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-accent);
+}
+
+.spanning-item p {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
 @media (max-width: 768px) {
   .concept-diagram {
     grid-template-columns: 1fr;
@@ -641,6 +695,10 @@
   }
 
   .identifier-types {
+    grid-template-columns: 1fr;
+  }
+
+  .spanning-grid {
     grid-template-columns: 1fr;
   }
 }
