@@ -27,7 +27,11 @@
         <div class="timeline-item">
           <div class="timeline-date">2005</div>
           <div class="timeline-content">
-            <h3>ISO 19135:2005 (First Edition)</h3>
+            <h3>
+              <a href="https://www.iso.org/standard/32553.html" target="_blank" rel="noopener noreferrer">
+                ISO 19135:2005 (First Edition)
+              </a>
+            </h3>
             <p>
               <strong>Geographic information - Procedures for item registration</strong>
               is published on October 15, 2005. This first edition establishes
@@ -49,7 +53,12 @@
         <div class="timeline-item">
           <div class="timeline-date">2012</div>
           <div class="timeline-content">
-            <h3>ISO/TS 19135-2:2012</h3>
+            <h3>
+              <a href="https://www.iso.org/standard/55998.html" target="_blank" rel="noopener noreferrer">
+                ISO/TS 19135-2:2012
+              </a>
+              <span class="status-badge withdrawn">Withdrawn</span>
+            </h3>
             <p>
               A technical specification for <strong>XML Schema Implementation</strong>
               (the "grg" encoding) is published. This provides a concrete encoding
@@ -65,7 +74,12 @@
         <div class="timeline-item">
           <div class="timeline-date">2015</div>
           <div class="timeline-content">
-            <h3>ISO 19135-1:2015 (Second Edition)</h3>
+            <h3>
+              <a href="https://www.iso.org/standard/54721.html" target="_blank" rel="noopener noreferrer">
+                ISO 19135-1:2015 (Second Edition)
+              </a>
+              <span class="status-badge withdrawn">Withdrawn</span>
+            </h3>
             <p>
               A technical revision introduces significant improvements:
             </p>
@@ -89,7 +103,12 @@
         <div class="timeline-item">
           <div class="timeline-date">2021</div>
           <div class="timeline-content">
-            <h3>ISO 19135-1:2015/Amd 1:2021</h3>
+            <h3>
+              <a href="https://www.iso.org/standard/78896.html" target="_blank" rel="noopener noreferrer">
+                ISO 19135-1:2015/Amd 1:2021
+              </a>
+              <span class="status-badge withdrawn">Withdrawn</span>
+            </h3>
             <p>
               An amendment incorporates provisions from the withdrawn XML schema
               specification, but as conceptual requirements rather than
@@ -101,7 +120,12 @@
         <div class="timeline-item">
           <div class="timeline-date">2025</div>
           <div class="timeline-content">
-            <h3>ISO 19135:2025 (Third Edition) - The FERIN Framework</h3>
+            <h3>
+              <a href="https://www.iso.org/standard/87753.html" target="_blank" rel="noopener noreferrer">
+                ISO 19135:2025 (Third Edition) - The FERIN Framework
+              </a>
+              <span class="status-badge current">Current</span>
+            </h3>
             <p>
               A major revision introduces the <strong>FERIN framework</strong>:
             </p>
@@ -441,6 +465,40 @@ import TeamMemberBadge from '@/components/ui/TeamMemberBadge.vue'
 .timeline-content h3 {
   font-size: var(--font-size-lg);
   margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.timeline-content h3 a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.timeline-content h3 a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.status-badge {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status-badge.withdrawn {
+  background: rgba(239, 68, 68, 0.1);
+  color: #dc2626;
+}
+
+.status-badge.current {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
 }
 
 .timeline-content p:last-child {
