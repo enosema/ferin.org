@@ -44,10 +44,10 @@
               </p>
               <ul class="leadership-list">
                 <li>
-                  <strong>Ronald Tse</strong> (CalConnect / Ribose) - Project Leader
+                  <strong><TeamMemberBadge member="Ronald Tse (CalConnect / Ribose)" /></strong> - Project Leader
                 </li>
                 <li>
-                  <strong>Reese Plews</strong> (JISC Japan / Plews Consulting) - Project Leader
+                  <strong><TeamMemberBadge member="Reese Plews (JISC Japan / Plews Consulting)" /></strong> - Project Leader
                 </li>
               </ul>
 
@@ -61,7 +61,7 @@
                   :key="member"
                   class="team-member"
                 >
-                  {{ member }}
+                  <TeamMemberBadge :member="member" />
                 </div>
               </div>
 
@@ -183,10 +183,7 @@
               </p>
               <p class="enosema-attribution">
                 The site is owned and published by the
-                <a href="https://enosema.org" target="_blank" rel="noopener">
-                  <img src="/enosema-icon.svg" alt="" class="enosema-logo-inline" />
-                  Enosema Foundation
-                </a>.
+                <OrganizationLink org-key="enosema" :show-icon="true" />.
               </p>
             </template>
 
@@ -200,7 +197,7 @@
                 v-if="item.id === 'iso-19135-2026-published'"
                 href="https://www.iso.org/standard/87753.html"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="btn-primary"
               >
                 Purchase ISO 19135:2026
@@ -218,6 +215,8 @@
 
 <script setup>
 import { newsItems, formatNewsDate } from '@/data/news.js'
+import OrganizationLink from '@/components/ui/OrganizationLink.vue'
+import TeamMemberBadge from '@/components/ui/TeamMemberBadge.vue'
 </script>
 
 <style scoped>
@@ -333,7 +332,7 @@ import { newsItems, formatNewsDate } from '@/data/news.js'
   gap: var(--spacing-xs);
 }
 
-.enosema-attribution a {
+.enosema-attribution :deep(.org-link) {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
@@ -341,11 +340,11 @@ import { newsItems, formatNewsDate } from '@/data/news.js'
   text-decoration: none;
 }
 
-.enosema-attribution a:hover {
+.enosema-attribution :deep(.org-link:hover) {
   text-decoration: underline;
 }
 
-.enosema-logo-inline {
+.enosema-attribution :deep(.org-icon) {
   width: 16px;
   height: 16px;
   vertical-align: middle;
@@ -378,6 +377,10 @@ import { newsItems, formatNewsDate } from '@/data/news.js'
   padding: var(--spacing-sm) var(--spacing-md);
   background: var(--color-background);
   border-radius: var(--radius-md);
+}
+
+.team-member :deep(.affiliation-link) {
+  font-size: var(--font-size-xs);
 }
 
 .acknowledgments-section {

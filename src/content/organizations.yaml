@@ -1,0 +1,177 @@
+# Organization Registry
+# Centralized registry of organizations mentioned across the FERIN site
+
+# Standards Bodies
+iso:
+  name: ISO
+  full_name: International Organization for Standardization
+  url: https://www.iso.org
+  type: standards_body
+
+iso_tc211:
+  name: ISO/TC 211
+  full_name: ISO Technical Committee 211 on Geographic Information/Geomatics
+  url: https://www.isotc211.org
+  type: technical_committee
+
+cen:
+  name: CEN
+  full_name: European Committee for Standardization
+  url: https://www.cen.eu
+  type: standards_body
+
+cen_tc287:
+  name: CEN/TC 287
+  full_name: CEN Technical Committee 287 on Geographic Information
+  url: https://www.cen.eu/work/fields/ict/Pages/default.aspx
+  type: technical_committee
+
+sis:
+  name: SIS
+  full_name: Swedish Standards Institute
+  url: https://www.sis.se
+  type: standards_body
+
+# Liaison Organizations
+iho:
+  name: IHO
+  full_name: International Hydrographic Organization
+  url: https://iho.int
+  type: liaison
+
+ogc:
+  name: OGC
+  full_name: Open Geospatial Consortium
+  url: https://www.ogc.org
+  type: liaison
+
+calconnect:
+  name: CalConnect
+  full_name: CalConnect - The Calendaring and Scheduling Consortium
+  url: https://www.calconnect.org
+  type: liaison
+
+# National Mapping Agencies
+nrcan:
+  name: NRCAN
+  full_name: Natural Resources Canada
+  url: https://natural-resources.canada.ca
+  type: government
+
+sdfe:
+  name: SDFE
+  full_name: Danish Agency for Data Supply and Infrastructure
+  url: https://www.sdfe.dk
+  type: government
+
+kartverket:
+  name: Kartverket
+  full_name: Norwegian Mapping Authority
+  url: https://www.kartverket.no
+  type: government
+
+geonovum:
+  name: Geonovum
+  full_name: Geonovum - Dutch Geoinformation
+  url: https://www.geonovum.nl
+  type: government
+
+nzta:
+  name: NZTA
+  full_name: Waka Kotahi NZ Transport Agency
+  url: https://www.nzta.govt.nz
+  type: government
+
+ign:
+  name: IGN
+  full_name: Institut national de l'information géographique et forestière
+  url: https://www.ign.fr
+  type: government
+
+ordnance_survey:
+  name: Ordnance Survey
+  full_name: Ordnance Survey - Great Britain's Mapping Agency
+  url: https://www.ordnancesurvey.co.uk
+  type: government
+
+lantmateriet:
+  name: Lantmäteriet
+  full_name: Swedish Mapping, Cadastral and Land Registration Authority
+  url: https://www.lantmateriet.se
+  type: government
+
+dalrrd:
+  name: DALRRD
+  full_name: Department of Agriculture, Land Reform and Rural Development (South Africa)
+  url: https://www.dalrrd.gov.za
+  type: government
+
+sdfi:
+  name: SDFI
+  full_name: Danish Agency for Data Supply and Infrastructure (Styrelsen for Dataforsyning og Infrastruktur)
+  url: https://www.klimadatastyrelsen.dk
+  type: government
+
+radi:
+  name: RADI
+  full_name: Aerospace Information Research Institute, Chinese Academy of Sciences (formerly RADI)
+  url: http://www.aircas.ac.cn
+  type: research
+
+# Industry and Consulting
+ribose:
+  name: Ribose
+  full_name: Ribose Limited
+  url: https://www.ribose.com
+  type: industry
+
+jisc_japan:
+  name: JISC Japan
+  full_name: Japanese Industrial Standards Committee
+  url: https://www.jisc.go.jp
+  type: government
+
+plews_consulting:
+  name: Plews Consulting
+  full_name: Plews Consulting
+  url: https://www.plews-consulting.com
+  type: consulting
+
+asia_air_survey:
+  name: Asia Air Survey
+  full_name: Asia Air Survey Co., Ltd.
+  url: https://www.asiaairsurvey.co.jp
+  type: industry
+
+iogp:
+  name: IOGP
+  full_name: International Association of Oil & Gas Producers
+  url: https://www.iogp.org
+  type: industry
+
+strobel_geoinformatics:
+  name: Strobel Geoinformatics
+  full_name: Strobel Geoinformatics
+  url: https://www.strobel-geoinformatics.de
+  type: consulting
+
+etri:
+  name: ETRI
+  full_name: Electronics and Telecommunications Research Institute (Korea)
+  url: https://www.etri.re.kr
+  type: research
+
+# Academic Institutions
+curtin_university:
+  name: Curtin University
+  full_name: Curtin University (Australia)
+  url: https://www.curtin.edu.au
+  type: academic
+
+# Foundation
+enosema:
+  name: Enosema Foundation
+  full_name: Enosema Foundation
+  url: https://enosema.org
+  icon: /enosema-icon.svg
+  type: foundation

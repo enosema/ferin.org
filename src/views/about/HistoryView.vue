@@ -147,7 +147,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>ISO/TC 211</strong></td>
+            <td><strong><OrganizationLink org-key="iso_tc211" /></strong></td>
             <td>
               Technical committee responsible for developing and maintaining
               the standard. Comprises national standards bodies and liaison
@@ -155,28 +155,28 @@
             </td>
           </tr>
           <tr>
-            <td><strong>CEN/TC 287</strong></td>
+            <td><strong><OrganizationLink org-key="cen_tc287" /></strong></td>
             <td>
               European collaboration via the Vienna Agreement, ensuring
               alignment between ISO and European standards.
             </td>
           </tr>
           <tr>
-            <td><strong>IHO</strong></td>
+            <td><strong><OrganizationLink org-key="iho" /></strong></td>
             <td>
               International Hydrographic Organization references FERIN concepts
               in the S-100 framework for maritime data.
             </td>
           </tr>
           <tr>
-            <td><strong>OGC</strong></td>
+            <td><strong><OrganizationLink org-key="ogc" /></strong></td>
             <td>
               Open Geospatial Consortium has long-standing collaboration with
               ISO/TC 211 on geographic standards.
             </td>
           </tr>
           <tr>
-            <td><strong>Enosema Foundation</strong></td>
+            <td><strong><OrganizationLink org-key="enosema" :show-icon="true" /></strong></td>
             <td>
               Contributor to concept relations development and site publisher.
             </td>
@@ -264,8 +264,8 @@
       <h3>Project Leadership</h3>
       <p>The standard was developed under the leadership of:</p>
       <ul class="leadership-list">
-        <li><strong>Ronald Tse</strong> (CalConnect / Ribose) - Project Leader</li>
-        <li><strong>Reese Plews</strong> (JISC Japan / Plews Consulting) - Project Leader</li>
+        <li><strong><TeamMemberBadge member="Ronald Tse (CalConnect / Ribose)" /></strong> - Project Leader</li>
+        <li><strong><TeamMemberBadge member="Reese Plews (JISC Japan / Plews Consulting)" /></strong> - Project Leader</li>
       </ul>
 
       <h3>Project Team</h3>
@@ -274,30 +274,30 @@
         liaison organizations, and industry:
       </p>
       <div class="team-grid">
-        <div class="team-member">Jean Brodeur</div>
-        <div class="team-member">Jiantao Bi (RADI)</div>
-        <div class="team-member">Michael Craymer (NRCAN)</div>
-        <div class="team-member">Gobe Hobona (OGC)</div>
-        <div class="team-member">Jan Hjelmager (SDFE)</div>
-        <div class="team-member">Knut Jetlund (Kartverket)</div>
-        <div class="team-member">Paul Janssen (Geonovum)</div>
-        <div class="team-member">Liz Kolster (NZTA)</div>
-        <div class="team-member">Chikako Kurokawa (Asia Air Survey)</div>
-        <div class="team-member">Jeffrey Lau (Ribose)</div>
-        <div class="team-member">Marie Lambois (IGN)</div>
-        <div class="team-member">Roger Lott (IOGP)</div>
-        <div class="team-member">Peter Parslow (Ordnance Survey)</div>
-        <div class="team-member">Ivana Ivanova (Curtin University)</div>
-        <div class="team-member">Scott Simmons (OGC)</div>
-        <div class="team-member">Stefan Strobel (Strobel Geoinformatics)</div>
-        <div class="team-member">Anton Strogonoff (Ribose)</div>
-        <div class="team-member">Torsten Svärd (Lantmäteriet)</div>
-        <div class="team-member">Larry D. Hothem</div>
-        <div class="team-member">Yong Baek (IHO)</div>
-        <div class="team-member">Mats Åhlin (SIS)</div>
-        <div class="team-member">Patrick Vorster (DALRRD)</div>
-        <div class="team-member">Ryu Ryan (ETRI)</div>
-        <div class="team-member">Heidi Vanparys (SDFI)</div>
+        <div class="team-member"><TeamMemberBadge member="Jean Brodeur" /></div>
+        <div class="team-member"><TeamMemberBadge member="Jiantao Bi (RADI)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Michael Craymer (NRCAN)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Gobe Hobona (OGC)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Jan Hjelmager (SDFE)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Knut Jetlund (Kartverket)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Paul Janssen (Geonovum)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Liz Kolster (NZTA)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Chikako Kurokawa (Asia Air Survey)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Jeffrey Lau (Ribose)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Marie Lambois (IGN)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Roger Lott (IOGP)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Peter Parslow (Ordnance Survey)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Ivana Ivanova (Curtin University)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Scott Simmons (OGC)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Stefan Strobel (Strobel Geoinformatics)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Anton Strogonoff (Ribose)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Torsten Svärd (Lantmäteriet)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Larry D. Hothem" /></div>
+        <div class="team-member"><TeamMemberBadge member="Yong Baek (IHO)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Mats Åhlin (SIS)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Patrick Vorster (DALRRD)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Ryu Ryan (ETRI)" /></div>
+        <div class="team-member"><TeamMemberBadge member="Heidi Vanparys (SDFI)" /></div>
       </div>
 
       <h3>Acknowledgments</h3>
@@ -307,7 +307,7 @@
       </p>
       <ul>
         <li><strong>Nicola Perou</strong> - ISO Editor</li>
-        <li><strong>Mats Åhlin</strong> and <strong>Christine Allansson</strong> - ISO/TC 211 Secretariat (SIS)</li>
+        <li><strong>Mats Åhlin</strong> and <strong>Christine Allansson</strong> - ISO/TC 211 Secretariat (<OrganizationLink org-key="sis" />)</li>
       </ul>
 
       <h3>ISO and CEN Support</h3>
@@ -364,6 +364,8 @@
 </template>
 
 <script setup>
+import OrganizationLink from '@/components/ui/OrganizationLink.vue'
+import TeamMemberBadge from '@/components/ui/TeamMemberBadge.vue'
 </script>
 
 <style scoped>
@@ -447,6 +449,15 @@
 
 .org-table {
   margin: var(--spacing-lg) 0;
+}
+
+.org-table a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.org-table a:hover {
+  text-decoration: underline;
 }
 
 .comparison-grid {

@@ -11,6 +11,7 @@ import './styles/main.css'
 
 // Import composables for SSG preload
 import { preloadContent } from './composables/useContent.js'
+import { preloadOrganizations } from './composables/useOrganizations.js'
 
 // ViteSSG setup - head is provided by vite-ssg
 export const createApp = ViteSSG(
@@ -19,8 +20,11 @@ export const createApp = ViteSSG(
   ({ app, router, isClient, initialState }) => {
     // Preload content during build
     if (!isClient) {
-      // Server-side: preload all content
-      return preloadContent()
+      // Server-side: preload all content and organizations
+      return Promise.all([
+        preloadContent(),
+        preloadOrganizations()
+      ])
     }
 
     // Client-side: restore from initialState if available
