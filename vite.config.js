@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
+import { newsItems } from './src/data/news.js'
 
 export default defineConfig({
   plugins: [vue()],
@@ -30,8 +31,8 @@ export default defineConfig({
 
       function flattenRoutes(routeList, parentPath = '') {
         for (const route of routeList) {
-          // Skip redirect routes and routes with parameters
-          if (route.redirect || route.path.includes(':')) {
+          // Skip redirect routes
+          if (route.redirect) {
             continue
           }
 
@@ -40,6 +41,20 @@ export default defineConfig({
             : parentPath
               ? `${parentPath}/${route.path}`.replace(/\/+/g, '/')
               : route.path
+
+          // Handle dynamic news routes
+          if (fullPath === '/news/:id') {
+            // Generate routes for each news item
+            for (const item of newsItems) {
+              allRoutes.push(`/news/${item.id}`)
+            }
+            continue
+          }
+
+          // Skip other routes with parameters
+          if (route.path.includes(':')) {
+            continue
+          }
 
           if (fullPath && fullPath !== '') {
             allRoutes.push(fullPath)

@@ -27,7 +27,7 @@
           <TeamMemberBadge
             v-for="(member, index) in newsItem.team"
             :key="index"
-            :name="member"
+            :member="member"
           />
         </div>
       </section>
