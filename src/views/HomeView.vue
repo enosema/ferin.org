@@ -214,7 +214,7 @@ import GradientButton from '@/components/ui/GradientButton.vue'
 import FeatureCard from '@/components/content/FeatureCard.vue'
 import { getLatestNews, formatNewsDate } from '@/data/news.js'
 
-const latestNews = getLatestNews(1)
+const latestNews = getLatestNews(2)
 </script>
 
 <style scoped>
@@ -378,7 +378,10 @@ const latestNews = getLatestNews(1)
 }
 
 .news-preview {
-  max-width: 700px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -486,6 +489,13 @@ const latestNews = getLatestNews(1)
 .news-link:hover {
   background: var(--color-accent);
   color: var(--color-text-inverse);
+}
+
+@media (max-width: 900px) {
+  .news-preview {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
 }
 
 @media (max-width: 768px) {
