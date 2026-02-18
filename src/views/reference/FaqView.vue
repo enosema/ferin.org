@@ -56,8 +56,8 @@
             assign new ones, and determine whether bulk import should bypass
             normal governance.
           </p>
-          <router-link to="/implement/migration">
-            See the Migration Guide →
+          <router-link to="/upgrade">
+            See the Upgrade Guide →
           </router-link>
         </div>
 

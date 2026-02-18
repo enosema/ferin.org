@@ -380,7 +380,7 @@
         </li>
       </ul>
       <p>
-        See the <router-link to="/implement/migration">Migration Guide</router-link>
+        See the <router-link to="/upgrade">Upgrade Guide</router-link>
         for detailed transition guidance.
       </p>
     </section>

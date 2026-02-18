@@ -255,7 +255,7 @@ Custom:   REG-2024-00001</code></pre>
       <h3>Initial Population</h3>
       <p>
         If migrating existing data, see the
-        <router-link to="/implement/migration">Migration Guide</router-link>.
+        <router-link to="/upgrade">Upgrade Guide</router-link>.
         Key considerations:
       </p>
       <ul>

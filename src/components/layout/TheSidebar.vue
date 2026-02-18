@@ -71,8 +71,22 @@ const sidebarContent = {
       { path: '/implement/temporal-data', label: 'Temporal Data' },
       { path: '/implement/semantic-interoperability', label: 'Semantic Interoperability' },
       { path: '/implement/technology-choices', label: 'Technology Choices' },
-      { path: '/implement/integration-patterns', label: 'Integration Patterns' },
-      { path: '/implement/migration', label: 'Migration' }
+      { path: '/implement/integration-patterns', label: 'Integration Patterns' }
+    ]
+  },
+  upgrade: {
+    title: 'Upgrade',
+    items: [
+      { path: '/upgrade', label: 'Overview' },
+      { path: '/upgrade/paradigm-shifts', label: 'Paradigm Shifts' },
+      { path: '/upgrade/terminology', label: 'Terminology' },
+      { path: '/upgrade/conformance', label: 'Conformance' },
+      { path: '/upgrade/status-model', label: 'Status Model' },
+      { path: '/upgrade/data-model', label: 'Data Model' },
+      { path: '/upgrade/governance', label: 'Governance' },
+      { path: '/upgrade/paths', label: 'Migration Paths' },
+      { path: '/upgrade/checklist', label: 'Checklist' },
+      { path: '/upgrade/faq', label: 'FAQ & Pitfalls' }
     ]
   },
   conform: {
