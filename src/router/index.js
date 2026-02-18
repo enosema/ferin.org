@@ -126,47 +126,57 @@ export const routes = [
       {
         path: 'migration',
         name: 'migration',
-        component: () => import('@/views/implement/migrate/IndexView.vue')
+        component: () => import('@/views/implement/migration/IndexView.vue')
+      },
+      {
+        path: 'migration/paradigm-shifts',
+        name: 'migration-paradigm-shifts',
+        component: () => import('@/views/implement/migration/ParadigmShiftsView.vue')
+      },
+      {
+        path: 'migration/terminology',
+        name: 'migration-terminology',
+        component: () => import('@/views/implement/migration/TerminologyView.vue')
+      },
+      {
+        path: 'migration/conformance',
+        name: 'migration-conformance',
+        component: () => import('@/views/implement/migration/ConformanceView.vue')
+      },
+      {
+        path: 'migration/status-model',
+        name: 'migration-status-model',
+        component: () => import('@/views/implement/migration/StatusModelView.vue')
+      },
+      {
+        path: 'migration/data-model',
+        name: 'migration-data-model',
+        component: () => import('@/views/implement/migration/DataModelView.vue')
+      },
+      {
+        path: 'migration/governance',
+        name: 'migration-governance',
+        component: () => import('@/views/implement/migration/GovernanceView.vue')
+      },
+      {
+        path: 'migration/paths',
+        name: 'migration-paths',
+        component: () => import('@/views/implement/migration/PathsView.vue')
+      },
+      {
+        path: 'migration/checklist',
+        name: 'migration-checklist',
+        component: () => import('@/views/implement/migration/ChecklistView.vue')
+      },
+      {
+        path: 'migration/faq',
+        name: 'migration-faq',
+        component: () => import('@/views/implement/migration/FaqView.vue')
       },
       {
         path: 'migrate',
         name: 'migrate',
         redirect: '/implement/migration'
-      },
-      {
-        path: 'migrate/minimal',
-        name: 'migrate-minimal',
-        component: () => import('@/views/implement/migrate/MinimalView.vue')
-      },
-      {
-        path: 'migrate/register-specification',
-        name: 'migrate-register-specification',
-        component: () => import('@/views/implement/migrate/RegisterSpecificationView.vue')
-      },
-      {
-        path: 'migrate/governance',
-        name: 'migrate-governance',
-        component: () => import('@/views/implement/migrate/GovernanceView.vue')
-      },
-      {
-        path: 'migrate/concepts',
-        name: 'migrate-concepts',
-        component: () => import('@/views/implement/migrate/ConceptsView.vue')
-      },
-      {
-        path: 'migrate/statuses',
-        name: 'migrate-statuses',
-        component: () => import('@/views/implement/migrate/StatusesView.vue')
-      },
-      {
-        path: 'migrate/terminology',
-        name: 'migrate-terminology',
-        component: () => import('@/views/implement/migrate/TerminologyView.vue')
-      },
-      {
-        path: 'migrate/checklist',
-        name: 'migrate-checklist',
-        component: () => import('@/views/implement/migrate/ChecklistView.vue')
       },
       {
         path: 'technology-choices',

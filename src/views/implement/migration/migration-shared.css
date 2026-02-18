@@ -1,0 +1,133 @@
+/* Shared styles for migration guide pages */
+
+.migration-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb .separator {
+  color: var(--color-text-lighter);
+}
+
+.breadcrumb .current {
+  color: var(--color-text-light);
+}
+
+.page-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.page-header h1 {
+  margin-bottom: var(--spacing-md);
+}
+
+.page-lead {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-light);
+  line-height: var(--line-height-relaxed);
+}
+
+.content-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.content-section h2 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.content-section h3 {
+  font-size: var(--font-size-lg);
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.content-section p {
+  line-height: var(--line-height-relaxed);
+}
+
+.content-section ul,
+.content-section ol {
+  line-height: var(--line-height-relaxed);
+}
+
+/* Page Navigation */
+.page-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-2xl);
+  padding-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+}
+
+.nav-prev,
+.nav-next {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  min-width: 200px;
+}
+
+.nav-prev:hover,
+.nav-next:hover {
+  border-color: var(--color-accent);
+  background: rgba(13, 148, 136, 0.05);
+}
+
+.nav-next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.nav-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nav-title {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  margin-top: var(--spacing-xs);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-nav {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .nav-next {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .nav-prev,
+  .nav-next {
+    min-width: auto;
+  }
+}
