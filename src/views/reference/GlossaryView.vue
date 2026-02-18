@@ -8,13 +8,19 @@
     </header>
 
     <section class="content-section">
-      <div class="letter-nav">
-        <a v-for="letter in letters" :key="letter" :href="`#${letter}`">
+      <div class="letter-nav" ref="letterNavRef">
+        <a
+          v-for="letter in lettersWithTerms"
+          :key="letter"
+          :href="`#${letter}`"
+          :class="{ active: activeLetter === letter }"
+          @click.prevent="scrollToLetter(letter)"
+        >
           {{ letter }}
         </a>
       </div>
 
-      <div v-for="letter in letters" :key="letter" class="letter-section">
+      <div v-for="letter in lettersWithTerms" :key="letter" class="letter-section" :ref="el => sectionRefs[letter] = el">
         <h2 :id="letter">{{ letter }}</h2>
         <dl class="glossary-list">
           <template v-for="term in getTermsByLetter(letter)" :key="term.term">
@@ -33,6 +39,8 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
 const terms = [
@@ -236,6 +244,66 @@ const terms = [
 const getTermsByLetter = (letter) => {
   return terms.filter(t => t.term.toUpperCase().startsWith(letter))
 }
+
+// Only show letters that have terms
+const lettersWithTerms = computed(() => {
+  return letters.filter(letter => getTermsByLetter(letter).length > 0)
+})
+
+// Active letter for highlighting
+const activeLetter = ref(lettersWithTerms.value[0] || 'A')
+
+// Section refs for scroll observation
+const sectionRefs = {}
+
+// Scroll to letter handler
+const scrollToLetter = (letter) => {
+  const element = document.getElementById(letter)
+  if (element) {
+    const headerOffset = 80
+    const elementPosition = element.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    })
+  }
+}
+
+// Scroll observer for highlighting current section
+let observer = null
+
+onMounted(() => {
+  // Set up intersection observer for scroll highlighting
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeLetter.value = entry.target.id
+        }
+      })
+    },
+    {
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    }
+  )
+
+  // Observe all letter sections
+  lettersWithTerms.value.forEach((letter) => {
+    const element = document.getElementById(letter)
+    if (element) {
+      observer.observe(element)
+    }
+  })
+})
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect()
+  }
+})
 </script>
 
 <style scoped>
@@ -284,7 +352,8 @@ const getTermsByLetter = (letter) => {
   transition: all var(--transition-fast);
 }
 
-.letter-nav a:hover {
+.letter-nav a:hover,
+.letter-nav a.active {
   background: var(--color-accent);
   color: var(--color-text-inverse);
 }

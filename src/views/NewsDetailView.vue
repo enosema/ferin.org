@@ -409,6 +409,10 @@ function formatDateLong(dateString) {
 }
 
 @media (max-width: 768px) {
+  .news-detail {
+    padding: 0 var(--spacing-lg);
+  }
+
   .news-header h1 {
     font-size: var(--font-size-2xl);
   }

@@ -16,7 +16,25 @@ import { preloadOrganizations } from './composables/useOrganizations.js'
 // ViteSSG setup - head is provided by vite-ssg
 export const createApp = ViteSSG(
   App,
-  { routes, base: '/' },
+  {
+    routes,
+    base: '/',
+    scrollBehavior(to, from, savedPosition) {
+      // Always scroll to top on navigation
+      if (savedPosition) {
+        return savedPosition
+      }
+      // If there's a hash, scroll to the anchor
+      if (to.hash) {
+        return {
+          el: to.hash,
+          behavior: 'smooth'
+        }
+      }
+      // Otherwise, scroll to top
+      return { top: 0, left: 0, behavior: 'instant' }
+    }
+  },
   ({ app, router, isClient, initialState }) => {
     // Preload content during build
     if (!isClient) {

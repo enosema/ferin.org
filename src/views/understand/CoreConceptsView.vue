@@ -685,24 +685,6 @@
   color: var(--color-text-light);
 }
 
-@media (max-width: 768px) {
-  .concept-diagram {
-    grid-template-columns: 1fr;
-  }
-
-  .concept-systems {
-    grid-template-columns: 1fr;
-  }
-
-  .identifier-types {
-    grid-template-columns: 1fr;
-  }
-
-  .spanning-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Identifier types section */
 .identifier-types {
   display: grid;
@@ -716,6 +698,8 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
+  min-width: 0; /* Allow grid item to shrink */
+  overflow: hidden; /* Prevent content overflow */
 }
 
 .identifier-type h3 {
@@ -727,6 +711,19 @@
 .identifier-type p {
   font-size: var(--font-size-sm);
   margin-bottom: var(--spacing-md);
+}
+
+.identifier-type .example {
+  font-size: var(--font-size-xs);
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.identifier-type .example code {
+  display: inline-block;
+  word-break: break-all;
+  max-width: 100%;
+  font-size: var(--font-size-xs);
 }
 
 .id-requirements-table {
@@ -758,5 +755,23 @@
 .key-insight p {
   margin: 0;
   font-size: var(--font-size-sm);
+}
+
+@media (max-width: 768px) {
+  .concept-diagram {
+    grid-template-columns: 1fr;
+  }
+
+  .concept-systems {
+    grid-template-columns: 1fr;
+  }
+
+  .identifier-types {
+    grid-template-columns: 1fr;
+  }
+
+  .spanning-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

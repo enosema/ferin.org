@@ -19,8 +19,8 @@
         <router-link to="/implement" class="nav-link" @click="closeMobileMenu">
           Implement
         </router-link>
-        <router-link to="/conform" class="nav-link" @click="closeMobileMenu">
-          Conform
+        <router-link to="/upgrade" class="nav-link" @click="closeMobileMenu">
+          Upgrade
         </router-link>
         <router-link to="/reference" class="nav-link" @click="closeMobileMenu">
           Reference
