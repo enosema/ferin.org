@@ -37,49 +37,57 @@ navigation:
           path: /about/history
         - label: ISO 19135
           path: /about/iso-19135
-    - label: Learn
-      path: /learn
+    - label: Understand
+      path: /understand
       children:
         - label: Core Concepts
-          path: /learn/core-concepts
+          path: /understand/core-concepts
         - label: Principles
-          path: /learn/principles
+          path: /understand/principles
         - label: Framework
-          path: /learn/framework
+          path: /understand/framework
         - label: Register Types
-          path: /learn/register-types
-        - label: Governance
-          path: /learn/governance
-    - label: Build
-      path: /build
+          path: /understand/register-types
+        - label: Commitments
+          path: /understand/commitments
+    - label: Implement
+      path: /implement
       children:
         - label: Getting Started
-          path: /build/getting-started
+          path: /implement/getting-started
         - label: Identifier Design
-          path: /build/identifier-design
+          path: /implement/identifier-design
         - label: Versioning
-          path: /build/versioning
+          path: /implement/versioning
         - label: Actions
-          path: /build/actions
+          path: /implement/actions
         - label: Register Specification
-          path: /build/register-specification
-        - label: Migration Guide
-          path: /implement/migration
-          children:
-            - label: Minimal Migration
-              path: /implement/migrate/minimal
-            - label: Register Specification
-              path: /implement/migrate/register-specification
-            - label: Governance Update
-              path: /implement/migrate/governance
-            - label: Concepts & Relations
-              path: /implement/migrate/concepts
-            - label: Status Mapping
-              path: /implement/migrate/statuses
-            - label: Terminology Changes
-              path: /implement/migrate/terminology
-            - label: Full Checklist
-              path: /implement/migrate/checklist
+          path: /implement/register-specification
+        - label: Governance
+          path: /implement/governance
+    - label: Upgrade
+      path: /upgrade
+      children:
+        - label: Overview
+          path: /upgrade
+        - label: Paradigm Shifts
+          path: /upgrade/paradigm-shifts
+        - label: Terminology
+          path: /upgrade/terminology
+        - label: Conformance
+          path: /upgrade/conformance
+        - label: Status Model
+          path: /upgrade/status-model
+        - label: Data Model
+          path: /upgrade/data-model
+        - label: Governance
+          path: /upgrade/governance
+        - label: Migration Paths
+          path: /upgrade/paths
+        - label: Checklist
+          path: /upgrade/checklist
+        - label: FAQ & Pitfalls
+          path: /upgrade/faq
     - label: Reference
       path: /reference
       children:
@@ -87,8 +95,6 @@ navigation:
           path: /reference/glossary
         - label: Conceptual Model
           path: /reference/conceptual-model
-        - label: Commitments
-          path: /reference/commitments
         - label: Statuses
           path: /reference/statuses
         - label: Relations
@@ -97,8 +103,8 @@ navigation:
           path: /reference/anti-patterns
         - label: FAQ
           path: /reference/faq
-        - label: Samples
-          path: /reference/samples
+    - label: News
+      path: /news
 
 social:
   - name: GitHub

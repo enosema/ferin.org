@@ -1,7 +1,7 @@
 <template>
   <article class="content-page migration-page">
     <nav class="breadcrumb">
-      <router-link to="/implement/migration">Migration Guide</router-link>
+      <router-link to="/upgrade">Upgrade Guide</router-link>
       <span class="separator">/</span>
       <span class="current">FAQ &amp; Common Pitfalls</span>
     </nav>
@@ -121,13 +121,13 @@
     </section>
 
     <nav class="page-nav">
-      <router-link to="/implement/migration/checklist" class="nav-prev">
+      <router-link to="/upgrade/checklist" class="nav-prev">
         <span class="nav-label">Previous</span>
         <span class="nav-title">Implementation Checklist</span>
       </router-link>
-      <router-link to="/implement/migration" class="nav-next">
+      <router-link to="/upgrade" class="nav-next">
         <span class="nav-label">Back to</span>
-        <span class="nav-title">Migration Guide Home</span>
+        <span class="nav-title">Upgrade Guide Home</span>
       </router-link>
     </nav>
   </article>

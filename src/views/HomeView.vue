@@ -118,10 +118,10 @@
             <p>Match your governance rigor to your register's risk level, from personal registers to public registries.</p>
           </router-link>
 
-          <router-link to="/implement/migration" class="featured-item">
+          <router-link to="/upgrade" class="featured-item">
             <span class="featured-label">Migration Guide</span>
-            <h3>Migrating from Legacy Systems</h3>
-            <p>Strategies for importing existing content into a FERIN-compliant register.</p>
+            <h3>Upgrade from 2015 Edition</h3>
+            <p>Migrate your existing ISO 19135-1:2015 register to the new FERIN framework.</p>
           </router-link>
 
           <router-link to="/understand/core-concepts#granularity" class="featured-item">
@@ -150,7 +150,7 @@
           <router-link
             v-for="item in latestNews"
             :key="item.id"
-            to="/news"
+            :to="`/news/${item.id}`"
             class="news-card"
             :class="{ featured: item.featured }"
           >

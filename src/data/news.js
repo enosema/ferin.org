@@ -11,7 +11,7 @@ export const newsItems = [
     featured: false,
     content: `
       <p>We are pleased to announce the publication of a comprehensive
-      <a href="/implement/migration">migration guide</a> to help organizations
+      <a href="/upgrade">upgrade guide</a> to help organizations
       transition their existing registers from ISO 19135-1:2015 to ISO 19135:2026.</p>
 
       <h3>Why This Guide Matters</h3>
@@ -40,13 +40,15 @@ export const newsItems = [
       <h3>Guide Contents</h3>
       <p>The multi-page guide covers:</p>
       <ul>
-        <li>Minimal migration path for each conformance class</li>
-        <li>Register specification requirements and templates</li>
-        <li>Governance updates and role mapping</li>
-        <li>Concept model documentation</li>
-        <li>Status value mapping from 2015 to 2026</li>
-        <li>Terminology changes reference</li>
-        <li>Complete migration checklist</li>
+        <li>Paradigm shifts in the new standard</li>
+        <li>Terminology changes from 2015 to 2026</li>
+        <li>Conformance class mapping</li>
+        <li>Status value transformation</li>
+        <li>Data model updates</li>
+        <li>Governance changes</li>
+        <li>Multiple migration paths</li>
+        <li>Complete implementation checklist</li>
+        <li>FAQ and common pitfalls</li>
       </ul>
 
       <h3>Helping the Community</h3>
@@ -59,10 +61,8 @@ export const newsItems = [
 
       <h3>Get Started</h3>
       <p>
-        Visit the <a href="/implement/migration">Migration Guide</a> to begin your
-        transition to ISO 19135:2026. Start with the
-        <a href="/implement/migrate/minimal">Minimal Migration</a> page for the
-        quickest path to compliance.
+        Visit the <a href="/upgrade">Upgrade Guide</a> to begin your
+        transition to ISO 19135:2026.
       </p>
     `
   },

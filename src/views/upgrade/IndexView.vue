@@ -8,7 +8,7 @@
         </svg>
         <span class="to-edition">ISO 19135:2026</span>
       </div>
-      <h1>Migration Guide</h1>
+      <h1>Upgrade Guide</h1>
       <p class="page-lead">
         A comprehensive guide for migrating registers from ISO 19135-1:2015
         (and its Amendment 1:2021) to the FERIN framework in ISO 19135:2026.
@@ -18,7 +18,7 @@
     <nav class="guide-nav">
       <h2>Guide Contents</h2>
       <div class="nav-grid">
-        <router-link to="/implement/migration/paradigm-shifts" class="nav-card">
+        <router-link to="/upgrade/paradigm-shifts" class="nav-card">
           <span class="nav-number">1</span>
           <div class="nav-content">
             <h3>Paradigm Shifts</h3>
@@ -27,7 +27,7 @@
           <span class="nav-complexity essential">Essential</span>
         </router-link>
 
-        <router-link to="/implement/migration/terminology" class="nav-card">
+        <router-link to="/upgrade/terminology" class="nav-card">
           <span class="nav-number">2</span>
           <div class="nav-content">
             <h3>Terminology Mapping</h3>
@@ -36,7 +36,7 @@
           <span class="nav-complexity essential">Essential</span>
         </router-link>
 
-        <router-link to="/implement/migration/conformance" class="nav-card">
+        <router-link to="/upgrade/conformance" class="nav-card">
           <span class="nav-number">3</span>
           <div class="nav-content">
             <h3>Conformance Migration</h3>
@@ -45,7 +45,7 @@
           <span class="nav-complexity essential">Essential</span>
         </router-link>
 
-        <router-link to="/implement/migration/status-model" class="nav-card">
+        <router-link to="/upgrade/status-model" class="nav-card">
           <span class="nav-number">4</span>
           <div class="nav-content">
             <h3>Status Model Migration</h3>
@@ -54,7 +54,7 @@
           <span class="nav-complexity complex">Complex</span>
         </router-link>
 
-        <router-link to="/implement/migration/data-model" class="nav-card">
+        <router-link to="/upgrade/data-model" class="nav-card">
           <span class="nav-number">5</span>
           <div class="nav-content">
             <h3>Data Model Migration</h3>
@@ -63,7 +63,7 @@
           <span class="nav-complexity moderate">Moderate</span>
         </router-link>
 
-        <router-link to="/implement/migration/governance" class="nav-card">
+        <router-link to="/upgrade/governance" class="nav-card">
           <span class="nav-number">6</span>
           <div class="nav-content">
             <h3>Governance Migration</h3>
@@ -72,7 +72,7 @@
           <span class="nav-complexity moderate">Moderate</span>
         </router-link>
 
-        <router-link to="/implement/migration/paths" class="nav-card">
+        <router-link to="/upgrade/paths" class="nav-card">
           <span class="nav-number">7</span>
           <div class="nav-content">
             <h3>Migration Paths</h3>
@@ -81,7 +81,7 @@
           <span class="nav-complexity essential">Essential</span>
         </router-link>
 
-        <router-link to="/implement/migration/checklist" class="nav-card">
+        <router-link to="/upgrade/checklist" class="nav-card">
           <span class="nav-number">8</span>
           <div class="nav-content">
             <h3>Implementation Checklist</h3>
@@ -90,7 +90,7 @@
           <span class="nav-complexity essential">Essential</span>
         </router-link>
 
-        <router-link to="/implement/migration/faq" class="nav-card">
+        <router-link to="/upgrade/faq" class="nav-card">
           <span class="nav-number">9</span>
           <div class="nav-content">
             <h3>FAQ &amp; Common Pitfalls</h3>
@@ -144,7 +144,7 @@
             <p>{{ complexityDescription }}</p>
             <p class="recommended-path">
               <strong>Recommended path:</strong>
-              <router-link :to="`/implement/migration/paths#${recommendedPath}`">
+              <router-link :to="`/upgrade/paths#${recommendedPath}`">
                 {{ recommendedPathLabel }}
               </router-link>
             </p>

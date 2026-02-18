@@ -1,7 +1,7 @@
 <template>
   <article class="content-page migration-page">
     <nav class="breadcrumb">
-      <router-link to="/implement/migration">Migration Guide</router-link>
+      <router-link to="/upgrade">Upgrade Guide</router-link>
       <span class="separator">/</span>
       <span class="current">Data Model Migration</span>
     </nav>
@@ -256,11 +256,11 @@
     </section>
 
     <nav class="page-nav">
-      <router-link to="/implement/migration/status-model" class="nav-prev">
+      <router-link to="/upgrade/status-model" class="nav-prev">
         <span class="nav-label">Previous</span>
         <span class="nav-title">Status Model Migration</span>
       </router-link>
-      <router-link to="/implement/migration/governance" class="nav-next">
+      <router-link to="/upgrade/governance" class="nav-next">
         <span class="nav-label">Next</span>
         <span class="nav-title">Governance Migration</span>
       </router-link>

@@ -1,7 +1,7 @@
 <template>
   <article class="content-page migration-page">
     <nav class="breadcrumb">
-      <router-link to="/implement/migration">Migration Guide</router-link>
+      <router-link to="/upgrade">Upgrade Guide</router-link>
       <span class="separator">/</span>
       <span class="current">Conformance Migration</span>
     </nav>
@@ -306,11 +306,11 @@
     </section>
 
     <nav class="page-nav">
-      <router-link to="/implement/migration/terminology" class="nav-prev">
+      <router-link to="/upgrade/terminology" class="nav-prev">
         <span class="nav-label">Previous</span>
         <span class="nav-title">Terminology Mapping</span>
       </router-link>
-      <router-link to="/implement/migration/status-model" class="nav-next">
+      <router-link to="/upgrade/status-model" class="nav-next">
         <span class="nav-label">Next</span>
         <span class="nav-title">Status Model Migration</span>
       </router-link>

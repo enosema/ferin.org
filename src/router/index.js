@@ -124,61 +124,6 @@ export const routes = [
         component: () => import('@/views/implement/RegisterSpecificationView.vue')
       },
       {
-        path: 'migration',
-        name: 'migration',
-        component: () => import('@/views/implement/migration/IndexView.vue')
-      },
-      {
-        path: 'migration/paradigm-shifts',
-        name: 'migration-paradigm-shifts',
-        component: () => import('@/views/implement/migration/ParadigmShiftsView.vue')
-      },
-      {
-        path: 'migration/terminology',
-        name: 'migration-terminology',
-        component: () => import('@/views/implement/migration/TerminologyView.vue')
-      },
-      {
-        path: 'migration/conformance',
-        name: 'migration-conformance',
-        component: () => import('@/views/implement/migration/ConformanceView.vue')
-      },
-      {
-        path: 'migration/status-model',
-        name: 'migration-status-model',
-        component: () => import('@/views/implement/migration/StatusModelView.vue')
-      },
-      {
-        path: 'migration/data-model',
-        name: 'migration-data-model',
-        component: () => import('@/views/implement/migration/DataModelView.vue')
-      },
-      {
-        path: 'migration/governance',
-        name: 'migration-governance',
-        component: () => import('@/views/implement/migration/GovernanceView.vue')
-      },
-      {
-        path: 'migration/paths',
-        name: 'migration-paths',
-        component: () => import('@/views/implement/migration/PathsView.vue')
-      },
-      {
-        path: 'migration/checklist',
-        name: 'migration-checklist',
-        component: () => import('@/views/implement/migration/ChecklistView.vue')
-      },
-      {
-        path: 'migration/faq',
-        name: 'migration-faq',
-        component: () => import('@/views/implement/migration/FaqView.vue')
-      },
-      {
-        path: 'migrate',
-        name: 'migrate',
-        redirect: '/implement/migration'
-      },
-      {
         path: 'technology-choices',
         name: 'technology-choices',
         component: () => import('@/views/implement/TechnologyChoicesView.vue')
@@ -281,6 +226,62 @@ export const routes = [
     path: '/news',
     name: 'news',
     component: () => import('@/views/NewsView.vue')
+  },
+  {
+    path: '/news/:id',
+    name: 'news-detail',
+    component: () => import('@/views/NewsDetailView.vue')
+  },
+  // Upgrade section (Migration Guide)
+  {
+    path: '/upgrade',
+    name: 'upgrade',
+    component: () => import('@/views/upgrade/IndexView.vue')
+  },
+  {
+    path: '/upgrade/paradigm-shifts',
+    name: 'upgrade-paradigm-shifts',
+    component: () => import('@/views/upgrade/ParadigmShiftsView.vue')
+  },
+  {
+    path: '/upgrade/terminology',
+    name: 'upgrade-terminology',
+    component: () => import('@/views/upgrade/TerminologyView.vue')
+  },
+  {
+    path: '/upgrade/conformance',
+    name: 'upgrade-conformance',
+    component: () => import('@/views/upgrade/ConformanceView.vue')
+  },
+  {
+    path: '/upgrade/status-model',
+    name: 'upgrade-status-model',
+    component: () => import('@/views/upgrade/StatusModelView.vue')
+  },
+  {
+    path: '/upgrade/data-model',
+    name: 'upgrade-data-model',
+    component: () => import('@/views/upgrade/DataModelView.vue')
+  },
+  {
+    path: '/upgrade/governance',
+    name: 'upgrade-governance',
+    component: () => import('@/views/upgrade/GovernanceView.vue')
+  },
+  {
+    path: '/upgrade/paths',
+    name: 'upgrade-paths',
+    component: () => import('@/views/upgrade/PathsView.vue')
+  },
+  {
+    path: '/upgrade/checklist',
+    name: 'upgrade-checklist',
+    component: () => import('@/views/upgrade/ChecklistView.vue')
+  },
+  {
+    path: '/upgrade/faq',
+    name: 'upgrade-faq',
+    component: () => import('@/views/upgrade/FaqView.vue')
   },
   // 404 - must be last
   {

@@ -1,7 +1,7 @@
 <template>
   <article class="content-page migration-page">
     <nav class="breadcrumb">
-      <router-link to="/implement/migration">Migration Guide</router-link>
+      <router-link to="/upgrade">Upgrade Guide</router-link>
       <span class="separator">/</span>
       <span class="current">Paradigm Shifts</span>
     </nav>
@@ -332,11 +332,11 @@
     </section>
 
     <nav class="page-nav">
-      <router-link to="/implement/migration" class="nav-prev">
+      <router-link to="/upgrade" class="nav-prev">
         <span class="nav-label">Previous</span>
-        <span class="nav-title">Migration Guide Home</span>
+        <span class="nav-title">Upgrade Guide Home</span>
       </router-link>
-      <router-link to="/implement/migration/terminology" class="nav-next">
+      <router-link to="/upgrade/terminology" class="nav-next">
         <span class="nav-label">Next</span>
         <span class="nav-title">Terminology Mapping</span>
       </router-link>
