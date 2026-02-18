@@ -126,7 +126,47 @@ export const routes = [
       {
         path: 'migration',
         name: 'migration',
-        component: () => import('@/views/implement/MigrationView.vue')
+        component: () => import('@/views/implement/migrate/IndexView.vue')
+      },
+      {
+        path: 'migrate',
+        name: 'migrate',
+        redirect: '/implement/migration'
+      },
+      {
+        path: 'migrate/minimal',
+        name: 'migrate-minimal',
+        component: () => import('@/views/implement/migrate/MinimalView.vue')
+      },
+      {
+        path: 'migrate/register-specification',
+        name: 'migrate-register-specification',
+        component: () => import('@/views/implement/migrate/RegisterSpecificationView.vue')
+      },
+      {
+        path: 'migrate/governance',
+        name: 'migrate-governance',
+        component: () => import('@/views/implement/migrate/GovernanceView.vue')
+      },
+      {
+        path: 'migrate/concepts',
+        name: 'migrate-concepts',
+        component: () => import('@/views/implement/migrate/ConceptsView.vue')
+      },
+      {
+        path: 'migrate/statuses',
+        name: 'migrate-statuses',
+        component: () => import('@/views/implement/migrate/StatusesView.vue')
+      },
+      {
+        path: 'migrate/terminology',
+        name: 'migrate-terminology',
+        component: () => import('@/views/implement/migrate/TerminologyView.vue')
+      },
+      {
+        path: 'migrate/checklist',
+        name: 'migrate-checklist',
+        component: () => import('@/views/implement/migrate/ChecklistView.vue')
       },
       {
         path: 'technology-choices',

@@ -63,8 +63,23 @@ navigation:
           path: /build/actions
         - label: Register Specification
           path: /build/register-specification
-        - label: Migration
-          path: /build/migration
+        - label: Migration Guide
+          path: /implement/migration
+          children:
+            - label: Minimal Migration
+              path: /implement/migrate/minimal
+            - label: Register Specification
+              path: /implement/migrate/register-specification
+            - label: Governance Update
+              path: /implement/migrate/governance
+            - label: Concepts & Relations
+              path: /implement/migrate/concepts
+            - label: Status Mapping
+              path: /implement/migrate/statuses
+            - label: Terminology Changes
+              path: /implement/migrate/terminology
+            - label: Full Checklist
+              path: /implement/migrate/checklist
     - label: Reference
       path: /reference
       children:
