@@ -53,25 +53,25 @@ const sidebarContent = {
       { path: '/learn/principles', label: 'Principles' },
       { path: '/learn/framework', label: 'Framework Overview' },
       { path: '/learn/register-types', label: 'Register Types' },
-      { path: '/learn/composite-registers', label: 'Composite Registers' },
-      { path: '/learn/commitments', label: 'Commitments' }
+      { path: '/learn/commitments', label: 'Commitments' },
+      { path: '/learn/ccr-deep-dive', label: 'CCR Deep Dive' },
+      { path: '/learn/advanced-concepts', label: 'Advanced Concepts' }
     ]
   },
   build: {
     title: 'Build',
     items: [
       { path: '/build/getting-started', label: 'Getting Started' },
-      { path: '/build/governance', label: 'Governance' },
-      { path: '/build/risk-management', label: 'Risk Management' },
       { path: '/build/identifier-design', label: 'Identifier Design' },
       { path: '/build/versioning', label: 'Versioning' },
-      { path: '/build/actions', label: 'Actions Reference' },
+      { path: '/build/actions', label: 'Actions' },
       { path: '/build/register-specification', label: 'Register Specification' },
-      { path: '/build/schema-evolution', label: 'Schema Evolution' },
-      { path: '/build/temporal-data', label: 'Temporal Data' },
-      { path: '/build/semantic-interoperability', label: 'Semantic Interoperability' },
-      { path: '/build/technology-choices', label: 'Technology Choices' },
-      { path: '/build/integration-patterns', label: 'Integration Patterns' }
+      { path: '/build/governance', label: 'Governance' },
+      { path: '/build/api-design', label: 'API Design' },
+      { path: '/build/security', label: 'Security' },
+      { path: '/build/operations', label: 'Operations' },
+      { path: '/build/performance', label: 'Performance' },
+      { path: '/build/destructive-actions', label: 'Destructive Actions' }
     ]
   },
   upgrade: {
@@ -98,7 +98,10 @@ const sidebarContent = {
       { path: '/reference/relations', label: 'Relations' },
       { path: '/reference/anti-patterns', label: 'Anti-patterns' },
       { path: '/reference/faq', label: 'FAQ' },
-      { path: '/reference/samples', label: 'Sample Registers' }
+      { path: '/reference/samples', label: 'Sample Registers' },
+      { path: '/reference/conformance', label: 'Conformance Guide' },
+      { path: '/reference/case-studies', label: 'Case Studies' },
+      { path: '/reference/specification-templates', label: 'Specification Templates' }
     ]
   }
 }
