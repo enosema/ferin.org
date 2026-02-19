@@ -70,6 +70,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import ThemeToggle from '@/components/ui/ThemeToggle.vue'
 
 defineEmits(['open-search'])
 
@@ -114,22 +115,24 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   transition: all var(--transition-normal);
-  background: rgba(255, 255, 255, 0.85);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
-[data-theme="dark"] .header {
-  background: rgba(15, 23, 42, 0.85);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+html[data-theme="dark"] .header {
+  background: rgba(28, 25, 23, 0.95);
+  border-bottom-color: rgba(148, 163, 184, 0.1);
 }
 
 .header-scrolled {
-  background: rgba(255, 255, 255, 0.95) !important;
-  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
 }
 
-[data-theme="dark"] .header-scrolled {
-  background: rgba(30, 41, 59, 0.95) !important;
+html[data-theme="dark"] .header-scrolled {
+  background: rgba(28, 25, 23, 0.98) !important;
 }
 
 .header-container {
@@ -203,18 +206,18 @@ onUnmounted(() => {
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-xs) var(--spacing-sm);
-  background: var(--color-glass-dark);
-  border: 1px solid var(--color-border);
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(148, 163, 184, 0.15);
   border-radius: var(--radius-md);
   color: var(--color-text-light);
   font-size: var(--font-size-sm);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search-trigger:hover {
   background: var(--color-accent);
-  color: var(--color-text-inverse);
+  color: white;
   border-color: var(--color-accent);
 }
 
@@ -225,7 +228,7 @@ onUnmounted(() => {
 .search-trigger kbd {
   padding: 2px 6px;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(148, 163, 184, 0.15);
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   font-size: var(--font-size-xs);
@@ -325,8 +328,8 @@ onUnmounted(() => {
     border-bottom: 1px solid var(--color-border);
   }
 
-  [data-theme="dark"] .nav {
-    background: rgba(15, 23, 42, 0.98);
+  html[data-theme="dark"] .nav {
+    background: rgba(28, 25, 23, 0.98);
   }
 
   .nav-open {

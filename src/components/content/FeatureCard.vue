@@ -68,20 +68,30 @@ const handleClick = () => {
 
 <style scoped>
 .feature-card {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(148, 163, 184, 0.15);
   border-radius: var(--radius-xl);
   padding: var(--spacing-xl);
-  transition: all var(--transition-normal);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
+}
+
+[data-theme="dark"] .feature-card {
+  background: #292524;
+  border-color: #44403c;
 }
 
 .feature-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+  border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .feature-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  background: #3c352f;
 }
 
 .feature-icon {
@@ -90,10 +100,10 @@ const handleClick = () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0e7490 100%);
   border-radius: var(--radius-lg);
   margin-bottom: var(--spacing-lg);
-  color: var(--color-text-inverse);
+  color: white;
 }
 
 .feature-image {
@@ -121,6 +131,11 @@ const handleClick = () => {
   font-size: var(--font-size-base);
   color: var(--color-text-light);
   margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+}
+
+[data-theme="dark"] .feature-description {
+  color: #a8a29e;
 }
 
 .feature-action {
