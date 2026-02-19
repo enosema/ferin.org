@@ -31,6 +31,21 @@
       </nav>
 
       <div class="header-actions">
+        <button
+          class="search-trigger"
+          @click="$emit('open-search')"
+          aria-label="Search documentation"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-label">Search</span>
+          <kbd>/</kbd>
+        </button>
+
+        <ThemeToggle />
+
         <a href="https://enosema.org" target="_blank" rel="noopener" class="enosema-badge">
           <span class="enosema-text">by</span>
           <img src="/enosema-icon.svg" alt="Enosema Foundation" class="enosema-icon" />
@@ -55,6 +70,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+
+defineEmits(['open-search'])
 
 const mobileMenuOpen = ref(false)
 const headerRef = ref(null)
@@ -101,9 +118,18 @@ onUnmounted(() => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+[data-theme="dark"] .header {
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
 .header-scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.95) !important;
   box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .header-scrolled {
+  background: rgba(30, 41, 59, 0.95) !important;
 }
 
 .header-container {
@@ -138,7 +164,7 @@ onUnmounted(() => {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+  gap: var(--spacing-sm);
   flex-shrink: 0;
 }
 
@@ -170,6 +196,39 @@ onUnmounted(() => {
 
 .nav-link.router-link-active::after {
   transform: scaleX(1);
+}
+
+.search-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-glass-dark);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.search-trigger:hover {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border-color: var(--color-accent);
+}
+
+.search-label {
+  display: none;
+}
+
+.search-trigger kbd {
+  padding: 2px 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
 }
 
 .enosema-badge {
@@ -245,6 +304,10 @@ onUnmounted(() => {
     display: block;
   }
 
+  .search-label {
+    display: none;
+  }
+
   .nav {
     position: absolute;
     top: 100%;
@@ -260,6 +323,10 @@ onUnmounted(() => {
     transform: translateY(-10px);
     transition: all var(--transition-normal);
     border-bottom: 1px solid var(--color-border);
+  }
+
+  [data-theme="dark"] .nav {
+    background: rgba(15, 23, 42, 0.98);
   }
 
   .nav-open {

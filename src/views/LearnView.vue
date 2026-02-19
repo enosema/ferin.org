@@ -4,17 +4,29 @@
       <TheBreadcrumbs />
       <div class="content-layout">
         <TheSidebar section="learn" />
-        <main class="content-main">
-          <router-view />
-        </main>
+        <div class="content-wrapper">
+          <TableOfContents contentSelector=".content-page" />
+          <main class="content-main">
+            <router-view />
+          </main>
+          <RelatedPages :currentPath="currentPath" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import TheBreadcrumbs from '@/components/layout/TheBreadcrumbs.vue'
 import TheSidebar from '@/components/layout/TheSidebar.vue'
+import TableOfContents from '@/components/ui/TableOfContents.vue'
+import RelatedPages from '@/components/ui/RelatedPages.vue'
+
+const route = useRoute()
+
+const currentPath = computed(() => route.path)
 </script>
 
 <style scoped>
@@ -34,9 +46,16 @@ import TheSidebar from '@/components/layout/TheSidebar.vue'
   gap: var(--spacing-2xl);
 }
 
-.content-main {
+.content-wrapper {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.content-main {
+  flex: 1;
 }
 
 @media (max-width: 1024px) {
