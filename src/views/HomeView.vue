@@ -11,6 +11,9 @@
         <GradientButton to="/build/getting-started" variant="outline" size="lg">
           Build a Register
         </GradientButton>
+        <GradientButton to="/upgrade" variant="outline" size="lg">
+          Upgrade from 2015
+        </GradientButton>
       </div>
     </HeroSection>
 
@@ -37,49 +40,92 @@
 
     <section class="section audience-section">
       <div class="container">
-        <h2 class="section-title">How can we help you?</h2>
+        <h2 class="section-title">Choose Your Path</h2>
         <p class="section-subtitle">
-          Whether you're evaluating FERIN, building a register, or looking for specific answers,
-          we have content tailored to your needs.
+          Whether you're new to FERIN, building a register, or migrating from the previous edition,
+          we have guidance tailored to your journey.
         </p>
 
         <div class="audience-cards">
           <FeatureCard
-            title="I'm evaluating FERIN"
-            description="Understand what FERIN is, why it exists, and whether it's right for your organization."
-            to="/about/what-is-ferin"
-            link-text="Explore FERIN"
+            title="Learn About FERIN"
+            description="Understand the framework principles, register types, and conceptual model."
+            to="/learn/core-concepts"
+            link-text="Start Learning"
           >
             <template #icon>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                <path d="M12 17h.01"></path>
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
               </svg>
             </template>
           </FeatureCard>
 
           <FeatureCard
-            title="I'm building a register"
-            description="Practical guides for implementing FERIN-compliant registers, from design to deployment."
+            title="Build a Register"
+            description="Implement a new FERIN-compliant register from design to deployment."
             to="/build/getting-started"
             link-text="Start Building"
           >
             <template #icon>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3v18"></path>
                 <rect width="18" height="18" x="3" y="3" rx="2"></rect>
                 <path d="M3 9h18"></path>
-                <path d="M3 15h18"></path>
+                <path d="M9 21V9"></path>
               </svg>
             </template>
           </FeatureCard>
 
           <FeatureCard
-            title="I have a specific question"
-            description="Find answers to common questions or browse our comprehensive reference documentation."
+            title="Upgrade from 2015"
+            description="Migrate your ISO 19135-1:2015 register to the new FERIN framework."
+            to="/upgrade"
+            link-text="View Upgrade Guide"
+          >
+            <template #icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19V5"></path>
+                <path d="m5 12 7-7 7 7"></path>
+              </svg>
+            </template>
+          </FeatureCard>
+
+          <FeatureCard
+            title="Adopt for Existing Data"
+            description="Formalize an existing registry or code list using FERIN patterns."
+            to="/build/register-specification"
+            link-text="Plan Adoption"
+          >
+            <template #icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+                <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
+                <path d="M16 21h5v-5"></path>
+              </svg>
+            </template>
+          </FeatureCard>
+
+          <FeatureCard
+            title="Integrate Systems"
+            description="Connect applications and services to a FERIN register via APIs."
+            to="/build/api-design"
+            link-text="Explore Integration"
+          >
+            <template #icon>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+                <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
+                <line x1="8" x2="16" y1="12" y2="12"></line>
+              </svg>
+            </template>
+          </FeatureCard>
+
+          <FeatureCard
+            title="Find Answers"
+            description="Search documentation, glossary, samples, and reference materials."
             to="/reference/faq"
-            link-text="Find Answers"
+            link-text="Browse Reference"
           >
             <template #icon>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -130,7 +176,7 @@
             <p>When to create a new concept vs. a new version of an existing concept.</p>
           </router-link>
 
-          <router-link to="/reference/commitments" class="featured-item">
+          <router-link to="/learn/commitments" class="featured-item">
             <span class="featured-label">Reference</span>
             <h3>Commitment Levels Explained</h3>
             <p>Understanding access, persistence, and transparency commitments.</p>

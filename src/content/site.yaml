@@ -33,6 +33,8 @@ navigation:
       children:
         - label: What is FERIN?
           path: /about/what-is-ferin
+        - label: Why Registers?
+          path: /about/why-registers
         - label: History
           path: /about/history
         - label: ISO 19135
