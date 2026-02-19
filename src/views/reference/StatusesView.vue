@@ -287,11 +287,11 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/implement/actions">Actions Reference</router-link>
+          <router-link to="/build/actions">Actions Reference</router-link>
           - Operations that change status
         </li>
         <li>
-          <router-link to="/implement/versioning">Versioning</router-link>
+          <router-link to="/build/versioning">Versioning</router-link>
           - Version lifecycle
         </li>
         <li>

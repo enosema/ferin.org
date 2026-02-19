@@ -180,7 +180,16 @@
         <li>Community resources and discussions</li>
         <li>Consulting and implementation support</li>
       </ul>
-      <div class="cta-box secondary">
+      <div class="cta-box enosema-cta">
+        <img
+          src="/enosema-logo.svg"
+          alt="Enosema Foundation"
+          class="enosema-logo"
+        />
+        <p>
+          The Enosema Foundation stewards the FERIN framework and provides
+          resources for the registry community.
+        </p>
         <GradientButton
           href="https://enosema.org"
           variant="secondary"
@@ -287,6 +296,16 @@ blockquote {
 
 .cta-box.secondary {
   background: var(--color-surface);
+}
+
+.cta-box.enosema-cta {
+  text-align: center;
+  padding: var(--spacing-2xl);
+}
+
+.enosema-logo {
+  height: 48px;
+  margin-bottom: var(--spacing-md);
 }
 
 .cta-box h4 {

@@ -171,7 +171,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong><OrganizationLink org-key="iso_tc211" /></strong></td>
+            <td class="org-cell"><OrganizationLink org-key="iso_tc211" /></td>
             <td>
               Technical committee responsible for developing and maintaining
               the standard. Comprises national standards bodies and liaison
@@ -179,28 +179,28 @@
             </td>
           </tr>
           <tr>
-            <td><strong><OrganizationLink org-key="cen_tc287" /></strong></td>
+            <td class="org-cell"><OrganizationLink org-key="cen_tc287" /></td>
             <td>
               European collaboration via the Vienna Agreement, ensuring
               alignment between ISO and European standards.
             </td>
           </tr>
           <tr>
-            <td><strong><OrganizationLink org-key="iho" /></strong></td>
+            <td class="org-cell"><OrganizationLink org-key="iho" /></td>
             <td>
               International Hydrographic Organization references FERIN concepts
               in the S-100 framework for maritime data.
             </td>
           </tr>
           <tr>
-            <td><strong><OrganizationLink org-key="ogc" /></strong></td>
+            <td class="org-cell"><OrganizationLink org-key="ogc" /></td>
             <td>
               Open Geospatial Consortium has long-standing collaboration with
               ISO/TC 211 on geographic standards.
             </td>
           </tr>
           <tr>
-            <td><strong><OrganizationLink org-key="enosema" :show-icon="true" /></strong></td>
+            <td class="org-cell"><OrganizationLink org-key="enosema" :show-icon="true" /></td>
             <td>
               Contributor to concept relations development and site publisher.
             </td>
@@ -516,6 +516,11 @@ import TeamMemberBadge from '@/components/ui/TeamMemberBadge.vue'
 
 .org-table a:hover {
   text-decoration: underline;
+}
+
+.org-cell {
+  font-weight: var(--font-weight-semibold);
+  white-space: nowrap;
 }
 
 .comparison-grid {

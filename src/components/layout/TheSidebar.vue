@@ -46,32 +46,32 @@ const sidebarContent = {
       { path: '/about/iso-19135', label: 'Relationship to ISO 19135' }
     ]
   },
-  understand: {
-    title: 'Understand',
+  learn: {
+    title: 'Learn',
     items: [
-      { path: '/understand/core-concepts', label: 'Core Concepts' },
-      { path: '/understand/principles', label: 'Principles' },
-      { path: '/understand/framework', label: 'Framework Overview' },
-      { path: '/understand/register-types', label: 'Register Types' },
-      { path: '/understand/composite-registers', label: 'Composite Registers' },
-      { path: '/understand/commitments', label: 'Commitments' }
+      { path: '/learn/core-concepts', label: 'Core Concepts' },
+      { path: '/learn/principles', label: 'Principles' },
+      { path: '/learn/framework', label: 'Framework Overview' },
+      { path: '/learn/register-types', label: 'Register Types' },
+      { path: '/learn/composite-registers', label: 'Composite Registers' },
+      { path: '/learn/commitments', label: 'Commitments' }
     ]
   },
-  implement: {
-    title: 'Implement',
+  build: {
+    title: 'Build',
     items: [
-      { path: '/implement/getting-started', label: 'Getting Started' },
-      { path: '/implement/governance', label: 'Governance' },
-      { path: '/implement/risk-management', label: 'Risk Management' },
-      { path: '/implement/identifier-design', label: 'Identifier Design' },
-      { path: '/implement/versioning', label: 'Versioning' },
-      { path: '/implement/actions', label: 'Actions Reference' },
-      { path: '/implement/register-specification', label: 'Register Specification' },
-      { path: '/implement/schema-evolution', label: 'Schema Evolution' },
-      { path: '/implement/temporal-data', label: 'Temporal Data' },
-      { path: '/implement/semantic-interoperability', label: 'Semantic Interoperability' },
-      { path: '/implement/technology-choices', label: 'Technology Choices' },
-      { path: '/implement/integration-patterns', label: 'Integration Patterns' }
+      { path: '/build/getting-started', label: 'Getting Started' },
+      { path: '/build/governance', label: 'Governance' },
+      { path: '/build/risk-management', label: 'Risk Management' },
+      { path: '/build/identifier-design', label: 'Identifier Design' },
+      { path: '/build/versioning', label: 'Versioning' },
+      { path: '/build/actions', label: 'Actions Reference' },
+      { path: '/build/register-specification', label: 'Register Specification' },
+      { path: '/build/schema-evolution', label: 'Schema Evolution' },
+      { path: '/build/temporal-data', label: 'Temporal Data' },
+      { path: '/build/semantic-interoperability', label: 'Semantic Interoperability' },
+      { path: '/build/technology-choices', label: 'Technology Choices' },
+      { path: '/build/integration-patterns', label: 'Integration Patterns' }
     ]
   },
   upgrade: {
@@ -89,12 +89,6 @@ const sidebarContent = {
       { path: '/upgrade/faq', label: 'FAQ & Pitfalls' }
     ]
   },
-  conform: {
-    title: 'Conform',
-    items: [
-      { path: '/conform/samples', label: 'Sample Registers' }
-    ]
-  },
   reference: {
     title: 'Reference',
     items: [
@@ -103,7 +97,8 @@ const sidebarContent = {
       { path: '/reference/statuses', label: 'Statuses' },
       { path: '/reference/relations', label: 'Relations' },
       { path: '/reference/anti-patterns', label: 'Anti-patterns' },
-      { path: '/reference/faq', label: 'FAQ' }
+      { path: '/reference/faq', label: 'FAQ' },
+      { path: '/reference/samples', label: 'Sample Registers' }
     ]
   }
 }

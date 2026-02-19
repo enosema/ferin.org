@@ -246,7 +246,7 @@
           <span class="link-type">Background</span>
         </li>
         <li>
-          <router-link to="/understand/core-concepts">
+          <router-link to="/learn/core-concepts">
             Core Concepts
           </router-link>
           <span class="link-type">Learn FERIN</span>
@@ -315,6 +315,17 @@ const recommendedPathLabel = computed(() => {
   margin: 0 auto;
 }
 
+.migration-guide .content-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.migration-guide .content-section h2 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-accent);
+}
+
 .page-header {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
@@ -358,12 +369,16 @@ const recommendedPathLabel = computed(() => {
 /* Guide Navigation */
 .guide-nav {
   margin-bottom: var(--spacing-2xl);
+  padding-bottom: var(--spacing-2xl);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .guide-nav h2 {
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-lg);
   text-align: center;
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--color-accent);
 }
 
 .nav-grid {

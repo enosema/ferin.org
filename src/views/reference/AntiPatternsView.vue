@@ -264,7 +264,7 @@
             Match role separation to your register's risk level. For high-risk
             registers, ensure Control Body independence. For low-risk registers,
             combined roles are acceptable with documentation.
-            <router-link to="/understand/risk-management">See Risk Management</router-link>
+            <router-link to="/learn/risk-management">See Risk Management</router-link>
             for guidance on assessing your register's risk level.
           </p>
         </div>
@@ -357,15 +357,15 @@
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
-          <router-link to="/implement/getting-started">Getting Started</router-link>
+          <router-link to="/build/getting-started">Getting Started</router-link>
           - Implementation guide
         </li>
         <li>
-          <router-link to="/implement/identifier-design">Identifier Design</router-link>
+          <router-link to="/build/identifier-design">Identifier Design</router-link>
           - Identifier anti-patterns
         </li>
         <li>
-          <router-link to="/understand/governance">Governance</router-link>
+          <router-link to="/learn/governance">Governance</router-link>
           - Governance anti-patterns
         </li>
       </ul>

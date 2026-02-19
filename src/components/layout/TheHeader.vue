@@ -13,11 +13,11 @@
         <router-link to="/about" class="nav-link" @click="closeMobileMenu">
           About
         </router-link>
-        <router-link to="/understand" class="nav-link" @click="closeMobileMenu">
-          Understand
+        <router-link to="/learn" class="nav-link" @click="closeMobileMenu">
+          Learn
         </router-link>
-        <router-link to="/implement" class="nav-link" @click="closeMobileMenu">
-          Implement
+        <router-link to="/build" class="nav-link" @click="closeMobileMenu">
+          Build
         </router-link>
         <router-link to="/upgrade" class="nav-link" @click="closeMobileMenu">
           Upgrade

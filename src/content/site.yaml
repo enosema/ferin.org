@@ -37,34 +37,48 @@ navigation:
           path: /about/history
         - label: ISO 19135
           path: /about/iso-19135
-    - label: Understand
-      path: /understand
+    - label: Learn
+      path: /learn
       children:
         - label: Core Concepts
-          path: /understand/core-concepts
+          path: /learn/core-concepts
         - label: Principles
-          path: /understand/principles
+          path: /learn/principles
         - label: Framework
-          path: /understand/framework
+          path: /learn/framework
         - label: Register Types
-          path: /understand/register-types
+          path: /learn/register-types
         - label: Commitments
-          path: /understand/commitments
-    - label: Implement
-      path: /implement
+          path: /learn/commitments
+        - label: CCR Deep Dive
+          path: /learn/ccr-deep-dive
+        - label: Advanced Concepts
+          path: /learn/advanced-concepts
+    - label: Build
+      path: /build
       children:
         - label: Getting Started
-          path: /implement/getting-started
+          path: /build/getting-started
         - label: Identifier Design
-          path: /implement/identifier-design
+          path: /build/identifier-design
         - label: Versioning
-          path: /implement/versioning
+          path: /build/versioning
         - label: Actions
-          path: /implement/actions
+          path: /build/actions
         - label: Register Specification
-          path: /implement/register-specification
+          path: /build/register-specification
         - label: Governance
-          path: /implement/governance
+          path: /build/governance
+        - label: API Design
+          path: /build/api-design
+        - label: Security
+          path: /build/security
+        - label: Operations
+          path: /build/operations
+        - label: Performance
+          path: /build/performance
+        - label: Destructive Actions
+          path: /build/destructive-actions
     - label: Upgrade
       path: /upgrade
       children:
@@ -103,6 +117,14 @@ navigation:
           path: /reference/anti-patterns
         - label: FAQ
           path: /reference/faq
+        - label: Sample Registers
+          path: /reference/samples
+        - label: Conformance Guide
+          path: /reference/conformance
+        - label: Case Studies
+          path: /reference/case-studies
+        - label: Specification Templates
+          path: /reference/specification-templates
     - label: News
       path: /news
 

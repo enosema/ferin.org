@@ -113,12 +113,6 @@
     attribute manager, RegisterManager
     attribute controlBody, ControlBody { cardinality 0..1 }
     attribute operationalStatus, OperationalStatus
-
-    xml {
-      root "register"
-      map_element "title" { attribute title }
-      map_element "description" { attribute description }
-    }
   }
 
   class Concept {
@@ -128,12 +122,6 @@
     attribute status, Status
     attribute dateAdded, DateTime
     attribute dateModified, DateTime
-
-    xml {
-      root "concept"
-      map_attribute "id" { attribute identifier }
-      map_element "definition" { attribute currentDefinition }
-    }
   }
 
   class ConceptVersion {
@@ -153,13 +141,6 @@
     attribute content, Content
     attribute dateAdded, DateTime
     attribute dateModified, DateTime
-
-    xml {
-      root "item"
-      map_attribute "id" { attribute identifier }
-      map_attribute "functionalId" { attribute functionalId }
-      map_element "content" { attribute content }
-    }
   }
 
   class Status {
@@ -444,102 +425,6 @@
     </section>
 
     <section class="content-section">
-      <h2>Database Mapping Guidance</h2>
-      <p>
-        How to map the conceptual model to different database technologies:
-      </p>
-
-      <h3>Relational Database</h3>
-      <div class="mapping-example">
-        <pre><code>-- Tables
-CREATE TABLE registers (
-  id UUID PRIMARY KEY,
-  title VARCHAR(255),
-  description TEXT
-);
-
-CREATE TABLE concepts (
-  id UUID PRIMARY KEY,
-  register_id UUID REFERENCES registers(id),
-  current_definition TEXT,
-  valid BOOLEAN DEFAULT true,
-  published BOOLEAN DEFAULT true
-);
-
-CREATE TABLE concept_versions (
-  id UUID PRIMARY KEY,
-  concept_id UUID REFERENCES concepts(id),
-  definition TEXT,
-  created_at TIMESTAMP,
-  created_by VARCHAR(255)
-);
-
-CREATE TABLE register_items (
-  id UUID PRIMARY KEY,
-  concept_id UUID REFERENCES concepts(id),
-  functional_id VARCHAR(100) UNIQUE,
-  content JSONB,
-  valid BOOLEAN DEFAULT true,
-  published BOOLEAN DEFAULT true
-);
-
-CREATE TABLE relations (
-  id UUID PRIMARY KEY,
-  from_id UUID,
-  to_id UUID,
-  relation_type VARCHAR(50)
-);</code></pre>
-      </div>
-
-      <h3>Document Database</h3>
-      <div class="mapping-example">
-        <pre><code>// Concept document
-{
-  "_id": "uuid-here",
-  "type": "concept",
-  "registerId": "register-uuid",
-  "currentDefinition": "...",
-  "versions": [
-    {
-      "definition": "...",
-      "createdAt": "2024-01-15",
-      "createdBy": "user@example.com"
-    }
-  ],
-  "status": {
-    "valid": true,
-    "published": true
-  },
-  "relations": [
-    { "type": "hasConcept", "to": "parent-concept-uuid" }
-  ]
-}</code></pre>
-      </div>
-
-      <h3>Graph Database</h3>
-      <div class="mapping-example">
-        <pre><code>// Nodes
-(:Concept {
-  id: "uuid",
-  currentDefinition: "...",
-  valid: true,
-  published: true
-})
-
-(:RegisterItem {
-  id: "uuid",
-  functionalId: "CODE",
-  content: {...}
-})
-
-// Relationships
-(:Concept)-[:HAS_CONCEPT]->(:Concept)
-(:Concept)-[:SUPERSEDES]->(:Concept)
-(:RegisterItem)-[:REALIZES]->(:Concept)</code></pre>
-      </div>
-    </section>
-
-    <section class="content-section">
       <h2>Related Topics</h2>
       <ul class="next-steps">
         <li>
@@ -551,7 +436,7 @@ CREATE TABLE relations (
           - Detailed relation specifications
         </li>
         <li>
-          <router-link to="/understand/core-concepts">Core Concepts</router-link>
+          <router-link to="/learn/core-concepts">Core Concepts</router-link>
           - Conceptual foundations
         </li>
       </ul>
@@ -639,25 +524,6 @@ CREATE TABLE relations (
 .transitions-table,
 .relations-table {
   margin: var(--spacing-md) 0;
-}
-
-.mapping-example {
-  background: var(--color-primary-dark);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  overflow-x: auto;
-  margin: var(--spacing-md) 0;
-}
-
-.mapping-example pre {
-  background: none;
-  margin: 0;
-  padding: 0;
-}
-
-.mapping-example code {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-inverse);
 }
 
 .lml-definition {

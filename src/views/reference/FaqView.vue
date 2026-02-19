@@ -17,7 +17,7 @@
             a new version. If the change is just clarification or correction
             that doesn't change the meaning, it's non-substantive.
           </p>
-          <router-link to="/implement/versioning#substantive-vs-non-substantive">
+          <router-link to="/build/versioning#substantive-vs-non-substantive">
             See the decision framework →
           </router-link>
         </div>
@@ -30,7 +30,7 @@
             For high-risk authoritative registers, role separation (especially between
             Manager and Control Body) is important for governance integrity.
           </p>
-          <router-link to="/understand/risk-management">
+          <router-link to="/learn/risk-management">
             See Risk Management for guidance →
           </router-link>
         </div>
@@ -43,7 +43,7 @@
             migration period, or creating new requirements that apply only to
             new content.
           </p>
-          <router-link to="/understand/principles">
+          <router-link to="/learn/principles">
             See the Evolution Support principle →
           </router-link>
         </div>
@@ -68,7 +68,7 @@
             valid/invalid status, and a simple register specification. Add
             governance and concepts as your needs grow.
           </p>
-          <router-link to="/understand/register-types">
+          <router-link to="/learn/register-types">
             See Register Types →
           </router-link>
         </div>
@@ -81,7 +81,7 @@
             review. Document the emergency nature in change metadata. Don't
             skip documentation even for emergencies.
           </p>
-          <router-link to="/implement/actions">
+          <router-link to="/build/actions">
             See the Actions Reference →
           </router-link>
         </div>
@@ -93,7 +93,7 @@
             create a new version that restores previous content using the
             supersede action. This preserves history and shows what happened.
           </p>
-          <router-link to="/implement/actions">
+          <router-link to="/build/actions">
             See Actions Reference →
           </router-link>
         </div>
@@ -105,7 +105,7 @@
             dependency in your register. Consider subscribing to notifications
             from the external register to track changes.
           </p>
-          <router-link to="/implement/identifier-design">
+          <router-link to="/build/identifier-design">
             See Identifier Design →
           </router-link>
         </div>
@@ -118,7 +118,7 @@
             best for academic/published content. URNs for long-term
             standards-based references.
           </p>
-          <router-link to="/implement/identifier-design">
+          <router-link to="/build/identifier-design">
             See identifier scheme comparison →
           </router-link>
         </div>
@@ -131,7 +131,7 @@
             register. For simple code lists, the content plane alone may
             suffice.
           </p>
-          <router-link to="/understand/core-concepts">
+          <router-link to="/learn/core-concepts">
             See Core Concepts →
           </router-link>
         </div>
@@ -143,7 +143,7 @@
             required action is supported, status model is correct, and
             commitments are met. Document evidence for each capability.
           </p>
-          <router-link to="/understand/register-types">
+          <router-link to="/learn/register-types">
             See Register Types and conformance →
           </router-link>
         </div>
@@ -168,7 +168,7 @@
             CCR needs comprehensive commitments. Don't under-document
             governance or commitments.
           </p>
-          <router-link to="/implement/register-specification">
+          <router-link to="/build/register-specification">
             See Register Specification template →
           </router-link>
         </div>

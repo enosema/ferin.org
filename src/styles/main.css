@@ -287,3 +287,70 @@ hr {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-text);
 }
+
+/* Content Page Layout */
+.content-page {
+  padding: var(--spacing-lg);
+}
+
+.page-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.page-header h1 {
+  margin-bottom: var(--spacing-md);
+}
+
+.page-header .page-lead {
+  margin-bottom: 0;
+}
+
+.content-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.content-section h2 {
+  margin-bottom: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.content-section h3 {
+  margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .content-page {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .page-header {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .page-header .page-lead {
+    font-size: var(--font-size-base);
+  }
+
+  .content-section {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .content-section h2 {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+
+  .content-section h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+  }
+}
