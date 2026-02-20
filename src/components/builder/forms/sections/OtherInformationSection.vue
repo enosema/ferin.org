@@ -19,14 +19,6 @@ function handleContactUpdate(field, value) {
 
 <template>
   <div class="section-form">
-    <BuilderInput
-      :model-value="specification.otherInformation?.operator"
-      label="Operator"
-      placeholder="e.g., RUM Committee"
-      hint="Organization that operates the register"
-      @update:model-value="handleUpdate('operator', $event)"
-    />
-
     <!-- Contact Information -->
     <div class="subsection">
       <h3 class="subsection-title">Contact Information</h3>
@@ -63,15 +55,6 @@ function handleContactUpdate(field, value) {
         @update:model-value="handleContactUpdate('address', $event)"
       />
     </div>
-
-    <BuilderInput
-      :model-value="specification.otherInformation?.accessLocation"
-      label="Access Location (URL)"
-      type="url"
-      placeholder="https://www.example.com/register"
-      hint="URL where the register can be accessed"
-      @update:model-value="handleUpdate('accessLocation', $event)"
-    />
 
     <BuilderTextarea
       :model-value="specification.otherInformation?.additionalInformation"

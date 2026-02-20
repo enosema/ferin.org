@@ -24,30 +24,38 @@ function generateId() {
 
 // === Entity Management ===
 function addEntity() {
-  const current = [...entities.value]
-  current.push({
+  // Get current entities from the specification
+  const currentEntities = specification.rolesAndResponsibilities?.entities || []
+  const newEntities = [...currentEntities, {
     id: generateId(),
     name: '',
     type: 'organization',
     email: ''
-  })
-  updateField('rolesAndResponsibilities', 'entities', current)
+  }]
+  updateField('rolesAndResponsibilities', 'entities', newEntities)
 }
 
 function updateEntity(index, field, value) {
-  const current = [...entities.value]
-  current[index] = { ...current[index], [field]: value }
-  updateField('rolesAndResponsibilities', 'entities', current)
+  const currentEntities = specification.rolesAndResponsibilities?.entities || []
+  const newEntities = currentEntities.map((entity, i) => {
+    if (i === index) {
+      return { ...entity, [field]: value }
+    }
+    return entity
+  })
+  updateField('rolesAndResponsibilities', 'entities', newEntities)
 }
 
 function removeEntity(entityId) {
   // Remove entity
-  const currentEntities = entities.value.filter(e => e.id !== entityId)
-  updateField('rolesAndResponsibilities', 'entities', currentEntities)
+  const currentEntities = specification.rolesAndResponsibilities?.entities || []
+  const newEntities = currentEntities.filter(e => e.id !== entityId)
+  updateField('rolesAndResponsibilities', 'entities', newEntities)
 
   // Remove all assignments for this entity
-  const currentAssignments = roleAssignments.value.filter(a => a.entityId !== entityId)
-  updateField('rolesAndResponsibilities', 'roleAssignments', currentAssignments)
+  const currentAssignments = specification.rolesAndResponsibilities?.roleAssignments || []
+  const newAssignments = currentAssignments.filter(a => a.entityId !== entityId)
+  updateField('rolesAndResponsibilities', 'roleAssignments', newAssignments)
 }
 
 // === Role Assignment ===

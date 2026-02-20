@@ -58,8 +58,11 @@ function removeLanguage(index) {
   <div class="section-form">
     <!-- Target Audience -->
     <div class="field-wrapper">
-      <label class="field-label">Target Audience</label>
-      <p class="field-hint">Categories of intended users</p>
+      <label class="field-label">
+        Target Audience
+        <span class="required-marker">*</span>
+      </label>
+      <p class="field-hint">Categories of intended users. The target audience determines the appropriate access level and accessibility requirements below.</p>
 
       <div class="items-list">
         <div
@@ -168,6 +171,11 @@ function removeLanguage(index) {
   letter-spacing: 0.05em;
   color: var(--color-text-light);
   margin-bottom: var(--spacing-xs);
+}
+
+.required-marker {
+  color: var(--color-error);
+  margin-left: 2px;
 }
 
 .field-hint {

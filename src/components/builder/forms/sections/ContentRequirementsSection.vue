@@ -24,126 +24,188 @@ function handleUpdate(field, value) {
 
 // === Repositories ===
 function addRepository() {
-  const current = specification.contentRequirements?.repositories || []
-  handleUpdate('repositories', [...current, {
+  const currentRepos = specification.contentRequirements?.repositories || []
+  const newRepos = [...currentRepos, {
     name: '',
     type: 'proposal-inputs',
     description: '',
     accessLevel: 'private'
-  }])
+  }]
+  handleUpdate('repositories', newRepos)
 }
 
 function updateRepository(index, field, value) {
-  const current = [...(specification.contentRequirements?.repositories || [])]
-  current[index] = { ...current[index], [field]: value }
-  handleUpdate('repositories', current)
+  const currentRepos = specification.contentRequirements?.repositories || []
+  const newRepos = currentRepos.map((repo, i) => {
+    if (i === index) {
+      return { ...repo, [field]: value }
+    }
+    return repo
+  })
+  handleUpdate('repositories', newRepos)
 }
 
 function removeRepository(index) {
-  const current = [...(specification.contentRequirements?.repositories || [])]
-  current.splice(index, 1)
-  handleUpdate('repositories', current)
+  const currentRepos = specification.contentRequirements?.repositories || []
+  const newRepos = currentRepos.filter((_, i) => i !== index)
+  handleUpdate('repositories', newRepos)
 }
 
 // === Concepts ===
 function addConcept() {
-  const current = specification.contentRequirements?.concepts || []
-  handleUpdate('concepts', [...current, {
+  const currentConcepts = specification.contentRequirements?.concepts || []
+  const newConcepts = [...currentConcepts, {
     name: '',
     identifier: '',
     description: '',
     attributes: []
-  }])
+  }]
+  handleUpdate('concepts', newConcepts)
 }
 
 function updateConcept(index, field, value) {
-  const current = [...(specification.contentRequirements?.concepts || [])]
-  current[index] = { ...current[index], [field]: value }
-  handleUpdate('concepts', current)
+  const currentConcepts = specification.contentRequirements?.concepts || []
+  const newConcepts = currentConcepts.map((concept, i) => {
+    if (i === index) {
+      return { ...concept, [field]: value }
+    }
+    return concept
+  })
+  handleUpdate('concepts', newConcepts)
 }
 
 function removeConcept(index) {
-  const current = [...(specification.contentRequirements?.concepts || [])]
-  current.splice(index, 1)
-  handleUpdate('concepts', current)
+  const currentConcepts = specification.contentRequirements?.concepts || []
+  const newConcepts = currentConcepts.filter((_, i) => i !== index)
+  handleUpdate('concepts', newConcepts)
 }
 
 function addConceptAttribute(conceptIndex) {
-  const concepts = [...(specification.contentRequirements?.concepts || [])]
-  const attributes = [...(concepts[conceptIndex].attributes || [])]
-  attributes.push({ name: '', type: 'string', description: '', required: false })
-  concepts[conceptIndex] = { ...concepts[conceptIndex], attributes }
-  handleUpdate('concepts', concepts)
+  const currentConcepts = specification.contentRequirements?.concepts || []
+  const concept = currentConcepts[conceptIndex]
+  if (!concept) return
+
+  const currentAttributes = concept.attributes || []
+  const newAttributes = [...currentAttributes, { name: '', type: 'string', description: '', required: false }]
+
+  const newConcepts = currentConcepts.map((c, i) => {
+    if (i === conceptIndex) {
+      return { ...c, attributes: newAttributes }
+    }
+    return c
+  })
+  handleUpdate('concepts', newConcepts)
 }
 
 function updateConceptAttribute(conceptIndex, attrIndex, field, value) {
-  const concepts = [...(specification.contentRequirements?.concepts || [])]
-  const attributes = [...(concepts[conceptIndex].attributes || [])]
-  attributes[attrIndex] = { ...attributes[attrIndex], [field]: value }
-  concepts[conceptIndex] = { ...concepts[conceptIndex], attributes }
-  handleUpdate('concepts', concepts)
+  const currentConcepts = specification.contentRequirements?.concepts || []
+  const concept = currentConcepts[conceptIndex]
+  if (!concept) return
+
+  const currentAttributes = concept.attributes || []
+  const newAttributes = currentAttributes.map((attr, i) => {
+    if (i === attrIndex) {
+      return { ...attr, [field]: value }
+    }
+    return attr
+  })
+
+  const newConcepts = currentConcepts.map((c, i) => {
+    if (i === conceptIndex) {
+      return { ...c, attributes: newAttributes }
+    }
+    return c
+  })
+  handleUpdate('concepts', newConcepts)
 }
 
 function removeConceptAttribute(conceptIndex, attrIndex) {
-  const concepts = [...(specification.contentRequirements?.concepts || [])]
-  const attributes = [...(concepts[conceptIndex].attributes || [])]
-  attributes.splice(attrIndex, 1)
-  concepts[conceptIndex] = { ...concepts[conceptIndex], attributes }
-  handleUpdate('concepts', concepts)
+  const currentConcepts = specification.contentRequirements?.concepts || []
+  const concept = currentConcepts[conceptIndex]
+  if (!concept) return
+
+  const currentAttributes = concept.attributes || []
+  const newAttributes = currentAttributes.filter((_, i) => i !== attrIndex)
+
+  const newConcepts = currentConcepts.map((c, i) => {
+    if (i === conceptIndex) {
+      return { ...c, attributes: newAttributes }
+    }
+    return c
+  })
+  handleUpdate('concepts', newConcepts)
 }
 
 // === Statuses ===
 function addStatus(type) {
-  const current = specification.contentRequirements?.statuses?.[type] || []
-  handleUpdate(`statuses.${type}`, [...current, { name: '', description: '' }])
+  const currentStatuses = specification.contentRequirements?.statuses?.[type] || []
+  const newStatuses = [...currentStatuses, { name: '', description: '' }]
+  handleUpdate(`statuses.${type}`, newStatuses)
 }
 
 function updateStatus(type, index, field, value) {
-  const current = [...(specification.contentRequirements?.statuses?.[type] || [])]
-  current[index] = { ...current[index], [field]: value }
-  handleUpdate(`statuses.${type}`, current)
+  const currentStatuses = specification.contentRequirements?.statuses?.[type] || []
+  const newStatuses = currentStatuses.map((status, i) => {
+    if (i === index) {
+      return { ...status, [field]: value }
+    }
+    return status
+  })
+  handleUpdate(`statuses.${type}`, newStatuses)
 }
 
 function removeStatus(type, index) {
-  const current = [...(specification.contentRequirements?.statuses?.[type] || [])]
-  current.splice(index, 1)
-  handleUpdate(`statuses.${type}`, current)
+  const currentStatuses = specification.contentRequirements?.statuses?.[type] || []
+  const newStatuses = currentStatuses.filter((_, i) => i !== index)
+  handleUpdate(`statuses.${type}`, newStatuses)
 }
 
 // === Actions ===
 function addAction() {
-  const current = specification.contentRequirements?.actions || []
-  handleUpdate('actions', [...current, { name: '', description: '' }])
+  const currentActions = specification.contentRequirements?.actions || []
+  const newActions = [...currentActions, { name: '', description: '' }]
+  handleUpdate('actions', newActions)
 }
 
 function updateAction(index, field, value) {
-  const current = [...(specification.contentRequirements?.actions || [])]
-  current[index] = { ...current[index], [field]: value }
-  handleUpdate('actions', current)
+  const currentActions = specification.contentRequirements?.actions || []
+  const newActions = currentActions.map((action, i) => {
+    if (i === index) {
+      return { ...action, [field]: value }
+    }
+    return action
+  })
+  handleUpdate('actions', newActions)
 }
 
 function removeAction(index) {
-  const current = [...(specification.contentRequirements?.actions || [])]
-  current.splice(index, 1)
-  handleUpdate('actions', current)
+  const currentActions = specification.contentRequirements?.actions || []
+  const newActions = currentActions.filter((_, i) => i !== index)
+  handleUpdate('actions', newActions)
 }
 
 // === Relations ===
 function addRelation() {
-  const current = specification.contentRequirements?.relations || []
-  handleUpdate('relations', [...current, { name: '', description: '', sourceType: '', targetType: '' }])
+  const currentRelations = specification.contentRequirements?.relations || []
+  const newRelations = [...currentRelations, { name: '', description: '', sourceType: '', targetType: '' }]
+  handleUpdate('relations', newRelations)
 }
 
 function updateRelation(index, field, value) {
-  const current = [...(specification.contentRequirements?.relations || [])]
-  current[index] = { ...current[index], [field]: value }
-  handleUpdate('relations', current)
+  const currentRelations = specification.contentRequirements?.relations || []
+  const newRelations = currentRelations.map((relation, i) => {
+    if (i === index) {
+      return { ...relation, [field]: value }
+    }
+    return relation
+  })
+  handleUpdate('relations', newRelations)
 }
 
 function removeRelation(index) {
-  const current = [...(specification.contentRequirements?.relations || [])]
-  current.splice(index, 1)
-  handleUpdate('relations', current)
+  const currentRelations = specification.contentRequirements?.relations || []
+  const newRelations = currentRelations.filter((_, i) => i !== index)
+  handleUpdate('relations', newRelations)
 }
 
 const repositoryTypes = [
