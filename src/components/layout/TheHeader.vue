@@ -6,7 +6,7 @@
   <header class="header glass" ref="headerRef">
     <div class="header-container">
       <router-link to="/" class="logo">
-        <img src="@/assets/images/ferin-logo.svg" alt="FERIN" class="logo-image" />
+        <img :src="logoSrc" alt="FERIN" class="logo-image" />
       </router-link>
 
       <nav class="nav" :class="{ 'nav-open': mobileMenuOpen }">
@@ -69,13 +69,22 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import ThemeToggle from '@/components/ui/ThemeToggle.vue'
+import logoLight from '@/assets/images/ferin-logo.svg'
+import logoDark from '@/assets/images/ferin-logo-dark.svg'
 
 defineEmits(['open-search'])
 
 const mobileMenuOpen = ref(false)
 const headerRef = ref(null)
+const isDark = ref(false)
+
+const logoSrc = computed(() => isDark.value ? logoDark : logoLight)
+
+const updateTheme = () => {
+  isDark.value = document.documentElement.getAttribute('data-theme') === 'dark'
+}
 
 const toggleMobileMenu = () => {
   mobileMenuOpen.value = !mobileMenuOpen.value
@@ -97,6 +106,17 @@ const handleScroll = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+  updateTheme()
+
+  // Watch for theme changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        updateTheme()
+      }
+    })
+  })
+  observer.observe(document.documentElement, { attributes: true })
 })
 
 onUnmounted(() => {
@@ -122,8 +142,8 @@ onUnmounted(() => {
 }
 
 html[data-theme="dark"] .header {
-  background: rgba(28, 25, 23, 0.95);
-  border-bottom-color: rgba(148, 163, 184, 0.1);
+  background: rgba(2, 6, 23, 0.95);
+  border-bottom-color: rgba(30, 41, 59, 0.8);
 }
 
 .header-scrolled {
@@ -132,7 +152,8 @@ html[data-theme="dark"] .header {
 }
 
 html[data-theme="dark"] .header-scrolled {
-  background: rgba(28, 25, 23, 0.98) !important;
+  background: rgba(2, 6, 23, 0.98) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(30, 41, 59, 0.5);
 }
 
 .header-container {
@@ -329,7 +350,8 @@ html[data-theme="dark"] .header-scrolled {
   }
 
   html[data-theme="dark"] .nav {
-    background: rgba(28, 25, 23, 0.98);
+    background: rgba(2, 6, 23, 0.98);
+    border-bottom-color: rgba(30, 41, 59, 0.8);
   }
 
   .nav-open {

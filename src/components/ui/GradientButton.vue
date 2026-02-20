@@ -109,9 +109,20 @@ const tag = computed(() => {
   border: 2px solid var(--color-accent);
 }
 
+html[data-theme="dark"] .gradient-button-outline {
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 .gradient-button-outline:hover {
   background: var(--color-accent);
   color: var(--color-text-inverse);
+}
+
+html[data-theme="dark"] .gradient-button-outline:hover {
+  background: var(--color-accent);
+  color: #020617;
 }
 
 /* Sizes */

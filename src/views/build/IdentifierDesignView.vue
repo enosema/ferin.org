@@ -538,10 +538,16 @@ Reuse: Never; retired codes marked unavailable</code></pre>
 }
 
 .example code {
-  background: none;
-  padding: 0;
+  background: rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-xs) var(--spacing-sm);
   display: block;
   margin-top: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+}
+
+[data-theme="dark"] .example code {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .usage-table {
@@ -570,6 +576,13 @@ Reuse: Never; retired codes marked unavailable</code></pre>
   display: block;
   margin-bottom: var(--spacing-xs);
   font-size: var(--font-size-xs);
+  background: rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="dark"] .pattern code {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .pattern p {
@@ -603,7 +616,13 @@ Reuse: Never; retired codes marked unavailable</code></pre>
 }
 
 .anti-pattern code {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="dark"] .anti-pattern code {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .policy-example {
@@ -730,6 +749,13 @@ Reuse: Never; retired codes marked unavailable</code></pre>
   font-size: var(--font-size-sm);
   margin-bottom: var(--spacing-sm);
   word-break: break-all;
+  background: rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="dark"] .hierarchy-example code {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .breakdown {
@@ -745,6 +771,11 @@ Reuse: Never; retired codes marked unavailable</code></pre>
   background: rgba(13, 148, 136, 0.1);
   padding: 2px 6px;
   border-radius: var(--radius-sm);
+}
+
+[data-theme="dark"] .breakdown .part {
+  background: rgba(34, 211, 238, 0.15);
+  color: var(--color-accent);
 }
 
 .warning-box {

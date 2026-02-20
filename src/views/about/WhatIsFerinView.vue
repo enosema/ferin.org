@@ -4,7 +4,7 @@
       <h1>What is FERIN?</h1>
       <p class="page-lead">
         <strong>FERIN</strong> (<strong>F</strong>ramework for <strong>E</strong>xtensible
-        <strong>R</strong>egistration of <strong>I</strong>nformation) is a standardized framework
+        <strong>R</strong>egistration of <strong>IN</strong>formation) is a standardized framework
         for managing information in registers that serve both human and machine consumers.
       </p>
       <p class="acronym-note">

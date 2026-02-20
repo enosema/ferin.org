@@ -6,7 +6,7 @@
           <img src="@/assets/images/ferin-logo-white.svg" alt="FERIN" class="footer-logo-img" />
           <p class="footer-description">
             <strong>F</strong>ramework for <strong>E</strong>xtensible
-            <strong>R</strong>egistration of <strong>I</strong>nformation
+            <strong>R</strong>egistration of <strong>IN</strong>formation
           </p>
           <div class="footer-enosema">
             <span class="enosema-label">A project of</span>
@@ -72,6 +72,15 @@
   margin-top: auto;
 }
 
+html[data-theme="dark"] .footer {
+  background: linear-gradient(
+    180deg,
+    #020617 0%,
+    #0f172a 100%
+  );
+  color: var(--color-text);
+}
+
 .footer-container {
   max-width: var(--content-max-width);
   margin: 0 auto;
@@ -104,8 +113,16 @@
   line-height: 1.6;
 }
 
+html[data-theme="dark"] .footer-description {
+  color: var(--color-text-light);
+}
+
 .footer-description strong {
   color: var(--color-accent-light);
+}
+
+html[data-theme="dark"] .footer-description strong {
+  color: var(--color-accent);
 }
 
 .footer-enosema {
@@ -122,6 +139,10 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.5);
+}
+
+html[data-theme="dark"] .enosema-label {
+  color: var(--color-text-light);
 }
 
 .enosema-full-link {
@@ -155,6 +176,10 @@
   margin-bottom: var(--spacing-md);
 }
 
+html[data-theme="dark"] .footer-section h4 {
+  color: var(--color-text-light);
+}
+
 .footer-section a {
   display: block;
   color: rgba(255, 255, 255, 0.8);
@@ -164,8 +189,16 @@
   transition: color var(--transition-fast);
 }
 
+html[data-theme="dark"] .footer-section a {
+  color: var(--color-text);
+}
+
 .footer-section a:hover {
   color: var(--color-accent-light);
+}
+
+html[data-theme="dark"] .footer-section a:hover {
+  color: var(--color-accent);
 }
 
 .enosema-link {
@@ -198,11 +231,20 @@
   margin: 0;
 }
 
+html[data-theme="dark"] .copyright {
+  color: var(--color-text-light);
+}
+
 .publisher {
   font-size: var(--font-size-xs);
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
   padding-top: var(--spacing-sm);
+}
+
+html[data-theme="dark"] .publisher {
+  color: var(--color-text-light);
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {

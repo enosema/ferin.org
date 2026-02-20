@@ -174,7 +174,7 @@
           <h4>ISO 31000</h4>
           <p>
             <strong>Risk Management — Guidelines</strong><br>
-            The international standard for risk management principles and
+            The International Standard for risk management principles and
             processes. Provides a framework applicable to any organization.
           </p>
         </div>

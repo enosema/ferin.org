@@ -21,7 +21,7 @@
       </nav>
 
       <div class="content-layout">
-        <TheSidebar section="learn" />
+        <TheSidebar section="upgrade" />
         <div class="content-wrapper">
           <main class="content-main">
             <router-view />
@@ -48,18 +48,21 @@ const mobileNavOpen = ref(false)
 const currentPath = computed(() => route.path)
 
 const sectionItems = [
-  { path: '/learn/core-concepts', label: 'Core Concepts' },
-  { path: '/learn/principles', label: 'Principles' },
-  { path: '/learn/framework', label: 'Framework Overview' },
-  { path: '/learn/register-types', label: 'Register Types' },
-  { path: '/learn/commitments', label: 'Commitments' },
-  { path: '/learn/ccr-deep-dive', label: 'CCR Deep Dive' },
-  { path: '/learn/advanced-concepts', label: 'Advanced Concepts' }
+  { path: '/upgrade', label: 'Overview' },
+  { path: '/upgrade/paradigm-shifts', label: 'Paradigm Shifts' },
+  { path: '/upgrade/terminology', label: 'Terminology' },
+  { path: '/upgrade/conformance', label: 'Conformance' },
+  { path: '/upgrade/status-model', label: 'Status Model' },
+  { path: '/upgrade/data-model', label: 'Data Model' },
+  { path: '/upgrade/governance', label: 'Governance' },
+  { path: '/upgrade/paths', label: 'Migration Paths' },
+  { path: '/upgrade/checklist', label: 'Checklist' },
+  { path: '/upgrade/faq', label: 'FAQ & Pitfalls' }
 ]
 
 const currentSectionTitle = computed(() => {
   const item = sectionItems.find(i => i.path === route.path)
-  return item ? item.label : 'Learn'
+  return item ? item.label : 'Upgrade'
 })
 </script>
 

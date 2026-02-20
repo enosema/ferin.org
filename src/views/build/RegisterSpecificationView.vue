@@ -405,14 +405,22 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+  min-width: 0;
 }
 
 .checkboxes label {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--spacing-sm);
   font-weight: var(--font-weight-normal);
   cursor: not-allowed;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.checkboxes label input[type="checkbox"] {
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .commitments-table table {

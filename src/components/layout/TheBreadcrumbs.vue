@@ -23,32 +23,70 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const routeLabels = {
+  // Main sections
   'about': 'About',
   'learn': 'Learn',
   'build': 'Build',
+  'upgrade': 'Upgrade',
   'reference': 'Reference',
+  'news': 'News',
+
+  // About pages
   'what-is-ferin': 'What is FERIN?',
+  'why-registers': 'Why Registers?',
   'history': 'History',
   'iso-19135': 'Relationship to ISO 19135',
+
+  // Learn pages
   'core-concepts': 'Core Concepts',
   'principles': 'Principles',
   'framework': 'Framework Overview',
   'register-types': 'Register Types',
-  'governance': 'Governance',
+  'composite-registers': 'Composite Registers',
+  'commitments': 'Commitments',
+  'ccr-deep-dive': 'CCR Deep Dive',
+  'advanced-concepts': 'Advanced Concepts',
+
+  // Build pages
   'getting-started': 'Getting Started',
   'identifier-design': 'Identifier Design',
   'versioning': 'Versioning',
-  'actions': 'Actions Reference',
+  'actions': 'Actions',
   'register-specification': 'Register Specification',
+  'governance': 'Governance',
+  'technology-choices': 'Technology Choices',
+  'integration-patterns': 'Integration Patterns',
+  'risk-management': 'Risk Management',
+  'schema-evolution': 'Schema Evolution',
+  'temporal-data': 'Temporal Data',
+  'semantic-interoperability': 'Semantic Interoperability',
+  'api-design': 'API Design',
+  'security': 'Security',
+  'operations': 'Operations',
+  'performance': 'Performance',
+  'destructive-actions': 'Destructive Actions',
   'migration': 'Migration',
+
+  // Upgrade pages
+  'paradigm-shifts': 'Paradigm Shifts',
+  'terminology': 'Terminology',
+  'conformance': 'Conformance',
+  'status-model': 'Status Model',
+  'data-model': 'Data Model',
+  'paths': 'Migration Paths',
+  'checklist': 'Checklist',
+
+  // Reference pages
   'glossary': 'Glossary',
   'conceptual-model': 'Conceptual Model',
-  'commitments': 'Commitments',
   'statuses': 'Statuses',
   'relations': 'Relations',
   'anti-patterns': 'Anti-patterns',
   'faq': 'FAQ',
-  'samples': 'Samples'
+  'samples': 'Samples',
+  'case-studies': 'Case Studies',
+  'specification-templates': 'Specification Templates',
+  'conformance': 'Conformance Guide'
 }
 
 const crumbs = computed(() => {

@@ -312,7 +312,6 @@ const recommendedPathLabel = computed(() => {
 <style scoped>
 .migration-guide {
   max-width: 1000px;
-  margin: 0 auto;
 }
 
 .migration-guide .content-section {
@@ -383,8 +382,9 @@ const recommendedPathLabel = computed(() => {
 
 .nav-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-md);
+  min-width: 0;
 }
 
 .nav-card {
@@ -397,6 +397,7 @@ const recommendedPathLabel = computed(() => {
   border-radius: var(--radius-lg);
   text-decoration: none;
   transition: all var(--transition-fast);
+  min-width: 0;
 }
 
 .nav-card:hover {
@@ -420,6 +421,7 @@ const recommendedPathLabel = computed(() => {
 
 .nav-content {
   flex: 1;
+  min-width: 0;
 }
 
 .nav-content h3 {
@@ -466,9 +468,10 @@ const recommendedPathLabel = computed(() => {
 /* Assessment */
 .assessment-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-lg);
   margin-top: var(--spacing-lg);
+  min-width: 0;
 }
 
 .assessment-card {
@@ -565,9 +568,10 @@ const recommendedPathLabel = computed(() => {
 /* Changes Grid */
 .changes-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-lg);
   margin-top: var(--spacing-lg);
+  min-width: 0;
 }
 
 .change-card {
@@ -630,9 +634,10 @@ const recommendedPathLabel = computed(() => {
 /* Timeline */
 .timeline-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: var(--spacing-md);
   margin-top: var(--spacing-lg);
+  min-width: 0;
 }
 
 .timeline-item {
@@ -641,6 +646,7 @@ const recommendedPathLabel = computed(() => {
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
   text-align: center;
+  min-width: 0;
 }
 
 .timeline-phase {
@@ -717,33 +723,7 @@ const recommendedPathLabel = computed(() => {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .nav-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .timeline-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
-  .nav-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .assessment-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .changes-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline-grid {
-    grid-template-columns: 1fr;
-  }
-
   .related-links {
     grid-template-columns: 1fr;
   }

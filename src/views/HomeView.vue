@@ -1,9 +1,12 @@
 <template>
   <div class="home-view">
     <HeroSection>
-      <h1>FERIN</h1>
-      <p class="hero-tagline">The International Standard for Information Registration</p>
-      <p class="hero-description">Practical guidance for implementing ISO 19135:2026</p>
+      <p class="hero-eyebrow">Implementation guide for ISO 19135:2026</p>
+      <h1 class="hero-title">Manage authoritative information with <span class="gradient-text">FERIN</span></h1>
+      <p class="hero-description">
+        Build authoritative registers with persistent identification, controlled evolution, and complete change history
+        according to the International Standard for Information Registration
+      </p>
       <div class="hero-actions">
         <GradientButton to="/learn/core-concepts" size="lg">
           Start Learning
@@ -17,21 +20,46 @@
       </div>
     </HeroSection>
 
-    <section class="section acronym-section">
+    <section class="section acronym-section animate-on-scroll">
       <div class="container">
         <div class="acronym-explanation">
-          <img src="@/assets/images/ferin-logo.svg" alt="FERIN Logo" class="acronym-logo" />
+          <div class="acronym-visual">
+            <div class="acronym-letters">
+              <span class="letter" data-letter="F">F</span>
+              <span class="letter" data-letter="E">E</span>
+              <span class="letter" data-letter="R">R</span>
+              <span class="letter" data-letter="IN">IN</span>
+            </div>
+          </div>
           <div class="acronym-content">
-            <h2>What does FERIN mean?</h2>
-            <p class="acronym-full">
-              <strong>F</strong>ramework for <strong>E</strong>xtensible
-              <strong>R</strong>egistration of <strong>I</strong>nformation
-            </p>
-            <p>
-              FERIN is a standardized framework for managing information in registers
-              that serves both human and machine consumers. It provides persistent
-              identification, controlled evolution, and complete change history for
-              any domain—not just geographic information.
+            <h2>What is FERIN?</h2>
+            <div class="acronym-breakdown">
+              <div class="breakdown-item">
+                <span class="breakdown-letter">F</span>
+                <span class="breakdown-word">ramework</span>
+              </div>
+              <span class="breakdown-connector">for</span>
+              <div class="breakdown-item">
+                <span class="breakdown-letter">E</span>
+                <span class="breakdown-word">xtensible</span>
+              </div>
+              <div class="breakdown-item">
+                <span class="breakdown-letter">R</span>
+                <span class="breakdown-word">egistration</span>
+              </div>
+              <span class="breakdown-connector">of</span>
+              <div class="breakdown-item">
+                <span class="breakdown-letter">IN</span>
+                <span class="breakdown-word">formation</span>
+              </div>
+            </div>
+            <p class="acronym-description">
+              A standardized framework for managing information in registers
+              that serves both human and machine consumers. FERIN provides
+              persistent identification, controlled evolution, and complete
+              change history for any domain, and is standardized in ISO
+              19135:2026, the International Standard for Information
+              Registration.
             </p>
           </div>
         </div>
@@ -40,98 +68,25 @@
 
     <section class="section audience-section">
       <div class="container">
-        <h2 class="section-title">Choose Your Path</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title animate-on-scroll">Choose Your Path</h2>
+        <p class="section-subtitle animate-on-scroll">
           Whether you're new to FERIN, building a register, or migrating from the previous edition,
           we have guidance tailored to your journey.
         </p>
 
         <div class="audience-cards">
           <FeatureCard
-            title="Learn About FERIN"
-            description="Understand the framework principles, register types, and conceptual model."
-            to="/learn/core-concepts"
-            link-text="Start Learning"
+            v-for="(card, index) in pathCards"
+            :key="card.title"
+            :title="card.title"
+            :description="card.description"
+            :to="card.to"
+            :link-text="card.linkText"
+            class="animate-on-scroll"
+            :style="{ animationDelay: `${index * 0.1}s` }"
           >
             <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-              </svg>
-            </template>
-          </FeatureCard>
-
-          <FeatureCard
-            title="Build a Register"
-            description="Implement a new FERIN-compliant register from design to deployment."
-            to="/build/getting-started"
-            link-text="Start Building"
-          >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="18" x="3" y="3" rx="2"></rect>
-                <path d="M3 9h18"></path>
-                <path d="M9 21V9"></path>
-              </svg>
-            </template>
-          </FeatureCard>
-
-          <FeatureCard
-            title="Upgrade from 2015"
-            description="Migrate your ISO 19135-1:2015 register to the new FERIN framework."
-            to="/upgrade"
-            link-text="View Upgrade Guide"
-          >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 19V5"></path>
-                <path d="m5 12 7-7 7 7"></path>
-              </svg>
-            </template>
-          </FeatureCard>
-
-          <FeatureCard
-            title="Adopt for Existing Data"
-            description="Formalize an existing registry or code list using FERIN patterns."
-            to="/build/register-specification"
-            link-text="Plan Adoption"
-          >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-                <path d="M3 3v5h5"></path>
-                <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"></path>
-                <path d="M16 21h5v-5"></path>
-              </svg>
-            </template>
-          </FeatureCard>
-
-          <FeatureCard
-            title="Integrate Systems"
-            description="Connect applications and services to a FERIN register via APIs."
-            to="/build/api-design"
-            link-text="Explore Integration"
-          >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
-                <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
-                <line x1="8" x2="16" y1="12" y2="12"></line>
-              </svg>
-            </template>
-          </FeatureCard>
-
-          <FeatureCard
-            title="Find Answers"
-            description="Search documentation, glossary, samples, and reference materials."
-            to="/reference/faq"
-            link-text="Browse Reference"
-          >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <path d="m21 21-4.3-4.3"></path>
-              </svg>
+              <component :is="card.icon" />
             </template>
           </FeatureCard>
         </div>
@@ -140,46 +95,22 @@
 
     <section class="section featured-section">
       <div class="container">
-        <h2 class="section-title">Key Implementation Topics</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title animate-on-scroll">Key Implementation Topics</h2>
+        <p class="section-subtitle animate-on-scroll">
           Essential guidance for building FERIN-compliant registers.
         </p>
 
         <div class="featured-grid">
-          <router-link to="/build/versioning#substantive-vs-non-substantive" class="featured-item">
-            <span class="featured-label">Decision Framework</span>
-            <h3>Substantive vs Non-Substantive Changes</h3>
-            <p>How to decide whether a change requires a new version or can be applied to the current one.</p>
-          </router-link>
-
-          <router-link to="/build/identifier-design" class="featured-item">
-            <span class="featured-label">Implementation Guide</span>
-            <h3>Designing Persistent Identifiers</h3>
-            <p>Choosing and implementing identifier schemes that remain stable over time.</p>
-          </router-link>
-
-          <router-link to="/build/risk-management" class="featured-item">
-            <span class="featured-label">Best Practices</span>
-            <h3>Risk-Based Governance</h3>
-            <p>Match your governance rigor to your register's risk level, from personal registers to public registries.</p>
-          </router-link>
-
-          <router-link to="/upgrade" class="featured-item">
-            <span class="featured-label">Migration Guide</span>
-            <h3>Upgrade from 2015 Edition</h3>
-            <p>Migrate your existing ISO 19135-1:2015 register to the new FERIN framework.</p>
-          </router-link>
-
-          <router-link to="/learn/core-concepts#granularity" class="featured-item">
-            <span class="featured-label">Conceptual Guide</span>
-            <h3>Concept Granularity</h3>
-            <p>When to create a new concept vs. a new version of an existing concept.</p>
-          </router-link>
-
-          <router-link to="/learn/commitments" class="featured-item">
-            <span class="featured-label">Reference</span>
-            <h3>Commitment Levels Explained</h3>
-            <p>Understanding access, persistence, and transparency commitments.</p>
+          <router-link
+            v-for="(item, index) in featuredItems"
+            :key="item.to"
+            :to="item.to"
+            class="featured-item animate-on-scroll"
+            :style="{ animationDelay: `${index * 0.08}s` }"
+          >
+            <span class="featured-label">{{ item.label }}</span>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
           </router-link>
         </div>
       </div>
@@ -187,8 +118,8 @@
 
     <section class="section news-section">
       <div class="container">
-        <h2 class="section-title">Latest News</h2>
-        <p class="section-subtitle">
+        <h2 class="section-title animate-on-scroll">Latest News</h2>
+        <p class="section-subtitle animate-on-scroll">
           Stay updated with the latest from the FERIN community.
         </p>
 
@@ -197,7 +128,7 @@
             v-for="item in latestNews"
             :key="item.id"
             :to="`/news/${item.id}`"
-            class="news-card"
+            class="news-card animate-on-scroll"
             :class="{ featured: item.featured }"
           >
             <div class="news-date">
@@ -214,7 +145,7 @@
           </router-link>
         </div>
 
-        <div class="news-cta">
+        <div class="news-cta animate-on-scroll">
           <router-link to="/news" class="news-link">
             View all announcements
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -226,7 +157,7 @@
       </div>
     </section>
 
-    <section class="section trust-section">
+    <section class="section trust-section animate-on-scroll">
       <div class="container">
         <div class="trust-content">
           <div class="trust-badges">
@@ -255,15 +186,129 @@
 </template>
 
 <script setup>
+import { onMounted, h } from 'vue'
 import HeroSection from '@/components/content/HeroSection.vue'
 import GradientButton from '@/components/ui/GradientButton.vue'
 import FeatureCard from '@/components/content/FeatureCard.vue'
 import { getLatestNews, formatNewsDate } from '@/data/news.js'
 
 const latestNews = getLatestNews(2)
+
+// Icon components
+const LearnIcon = () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, [
+  h('path', { d: 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z' }),
+  h('path', { d: 'M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z' })
+])
+
+const BuildIcon = () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, [
+  h('rect', { width: 18, height: 18, x: 3, y: 3, rx: 2 }),
+  h('path', { d: 'M3 9h18' }),
+  h('path', { d: 'M9 21V9' })
+])
+
+const UpgradeIcon = () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, [
+  h('path', { d: 'M12 19V5' }),
+  h('path', { d: 'm5 12 7-7 7 7' })
+])
+
+const AdoptIcon = () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, [
+  h('path', { d: 'M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8' }),
+  h('path', { d: 'M3 3v5h5' }),
+  h('path', { d: 'M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16' }),
+  h('path', { d: 'M16 21h5v-5' })
+])
+
+const IntegrateIcon = () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, [
+  h('path', { d: 'M9 17H7A5 5 0 0 1 7 7h2' }),
+  h('path', { d: 'M15 7h2a5 5 0 1 1 0 10h-2' }),
+  h('line', { x1: 8, x2: 16, y1: 12, y2: 12 })
+])
+
+const SearchIcon = () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 24, height: 24, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, [
+  h('circle', { cx: 11, cy: 11, r: 8 }),
+  h('path', { d: 'm21 21-4.3-4.3' })
+])
+
+const pathCards = [
+  { title: 'Learn About FERIN', description: 'Understand the framework principles, register types, and conceptual model.', to: '/learn/core-concepts', linkText: 'Start Learning', icon: LearnIcon },
+  { title: 'Build a Register', description: 'Implement a new FERIN-compliant register from design to deployment.', to: '/build/getting-started', linkText: 'Start Building', icon: BuildIcon },
+  { title: 'Upgrade from 2015', description: 'Migrate your ISO 19135-1:2015 register to the new FERIN framework.', to: '/upgrade', linkText: 'View Upgrade Guide', icon: UpgradeIcon },
+  { title: 'Adopt for Existing Data', description: 'Formalize an existing registry or code list using FERIN patterns.', to: '/build/register-specification', linkText: 'Plan Adoption', icon: AdoptIcon },
+  { title: 'Integrate Systems', description: 'Connect applications and services to a FERIN register via APIs.', to: '/build/api-design', linkText: 'Explore Integration', icon: IntegrateIcon },
+  { title: 'Find Answers', description: 'Search documentation, glossary, samples, and reference materials.', to: '/reference/faq', linkText: 'Browse Reference', icon: SearchIcon }
+]
+
+const featuredItems = [
+  { label: 'Decision Framework', title: 'Substantive vs Non-Substantive Changes', description: 'How to decide whether a change requires a new version or can be applied to the current one.', to: '/build/versioning#substantive-vs-non-substantive' },
+  { label: 'Implementation Guide', title: 'Designing Persistent Identifiers', description: 'Choosing and implementing identifier schemes that remain stable over time.', to: '/build/identifier-design' },
+  { label: 'Best Practices', title: 'Risk-Based Governance', description: 'Match your governance rigor to your register\'s risk level.', to: '/build/risk-management' },
+  { label: 'Migration Guide', title: 'Upgrade from 2015 Edition', description: 'Migrate your existing ISO 19135-1:2015 register to the new FERIN framework.', to: '/upgrade' },
+  { label: 'Conceptual Guide', title: 'Concept Granularity', description: 'When to create a new concept vs. a new version of an existing concept.', to: '/learn/core-concepts#granularity' },
+  { label: 'Reference', title: 'Commitment Levels Explained', description: 'Understanding access, persistence, and transparency commitments.', to: '/learn/commitments' }
+]
+
+// Scroll animation observer
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible')
+        }
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  )
+
+  document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+    observer.observe(el)
+  })
+})
 </script>
 
 <style scoped>
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes letterPop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section {
   padding: var(--spacing-3xl) var(--spacing-lg);
 }
@@ -273,54 +318,159 @@ const latestNews = getLatestNews(2)
   margin: 0 auto;
 }
 
+/* Hero customizations */
+.hero-eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #22d3ee 0%, #5eead4 50%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* Acronym Section */
 .acronym-section {
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .acronym-section {
+  background: #0f172a;
+  border-bottom-color: #1e293b;
 }
 
 .acronym-explanation {
   display: flex;
   align-items: center;
-  gap: var(--spacing-2xl);
+  gap: var(--spacing-3xl);
 }
 
-.acronym-logo {
-  width: 200px;
-  height: auto;
+.acronym-visual {
   flex-shrink: 0;
+}
+
+.acronym-letters {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0891b2 100%);
+  color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.3);
+  animation: letterPop 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.3s; }
+.letter:nth-child(4) { animation-delay: 0.4s; }
+.letter:nth-child(5) { animation-delay: 0.5s; }
+
+.letter:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.4);
+  transition: all 0.3s ease;
+}
+
+html[data-theme="dark"] .letter {
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.2);
 }
 
 .acronym-content h2 {
   font-size: var(--font-size-2xl);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
   color: var(--color-primary);
 }
 
-.acronym-full {
+.acronym-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--spacing-xs);
   font-size: var(--font-size-xl);
-  color: var(--color-text);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.8;
 }
 
-.acronym-full strong {
+.breakdown-item {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.breakdown-letter {
   color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.1em;
 }
 
-.acronym-content p:last-child {
+.breakdown-word {
+  color: var(--color-text);
+}
+
+.breakdown-connector {
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.acronym-description {
   color: var(--color-text-light);
   margin: 0;
+  line-height: 1.7;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .acronym-explanation {
     flex-direction: column;
     text-align: center;
   }
 
-  .acronym-logo {
-    width: 160px;
+  .acronym-breakdown {
+    justify-content: center;
+  }
+
+  .letter {
+    width: 52px;
+    height: 52px;
+    font-size: var(--font-size-2xl);
+  }
+}
+
+@media (max-width: 640px) {
+  .acronym-breakdown {
+    font-size: var(--font-size-lg);
+  }
+
+  .letter {
+    width: 44px;
+    height: 44px;
+    font-size: var(--font-size-xl);
   }
 }
 
@@ -362,6 +512,10 @@ const latestNews = getLatestNews(2)
   background: linear-gradient(180deg, var(--color-background) 0%, rgba(13, 148, 136, 0.05) 100%);
 }
 
+html[data-theme="dark"] .featured-section {
+  background: linear-gradient(180deg, #020617 0%, rgba(34, 211, 238, 0.03) 100%);
+}
+
 .featured-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -377,10 +531,20 @@ const latestNews = getLatestNews(2)
   transition: all var(--transition-normal);
 }
 
+html[data-theme="dark"] .featured-item {
+  background: #0f172a;
+  border-color: #1e293b;
+}
+
 .featured-item:hover {
   border-color: var(--color-accent);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+}
+
+html[data-theme="dark"] .featured-item:hover {
+  background: #1e293b;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--color-accent);
 }
 
 .featured-label {
@@ -423,6 +587,11 @@ const latestNews = getLatestNews(2)
   border-top: 1px solid var(--color-border);
 }
 
+html[data-theme="dark"] .news-section {
+  background: #0f172a;
+  border-top-color: #1e293b;
+}
+
 .news-preview {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -443,15 +612,29 @@ const latestNews = getLatestNews(2)
   transition: all var(--transition-normal);
 }
 
+html[data-theme="dark"] .news-card {
+  background: #020617;
+  border-color: #1e293b;
+}
+
 .news-card:hover {
   border-color: var(--color-accent);
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
 }
 
+html[data-theme="dark"] .news-card:hover {
+  background: #0f172a;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--color-accent);
+}
+
 .news-card.featured {
   border-color: var(--color-accent);
   background: linear-gradient(135deg, rgba(13, 148, 136, 0.03) 0%, var(--color-background) 100%);
+}
+
+html[data-theme="dark"] .news-card.featured {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.05) 0%, #020617 100%);
 }
 
 .news-date {
@@ -567,6 +750,11 @@ const latestNews = getLatestNews(2)
   border-top: 1px solid var(--color-border);
 }
 
+html[data-theme="dark"] .trust-section {
+  background: #020617;
+  border-top-color: #1e293b;
+}
+
 .trust-content {
   text-align: center;
 }
@@ -595,15 +783,6 @@ const latestNews = getLatestNews(2)
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-primary);
-}
-
-.badge-link {
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-.badge-link:hover {
-  color: var(--color-accent);
 }
 
 .trust-notice {

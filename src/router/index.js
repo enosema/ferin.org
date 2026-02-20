@@ -198,53 +198,59 @@ export const routes = [
   // Upgrade section (Migration Guide)
   {
     path: '/upgrade',
-    name: 'upgrade',
-    component: () => import('@/views/upgrade/IndexView.vue')
-  },
-  {
-    path: '/upgrade/paradigm-shifts',
-    name: 'upgrade-paradigm-shifts',
-    component: () => import('@/views/upgrade/ParadigmShiftsView.vue')
-  },
-  {
-    path: '/upgrade/terminology',
-    name: 'upgrade-terminology',
-    component: () => import('@/views/upgrade/TerminologyView.vue')
-  },
-  {
-    path: '/upgrade/conformance',
-    name: 'upgrade-conformance',
-    component: () => import('@/views/upgrade/ConformanceView.vue')
-  },
-  {
-    path: '/upgrade/status-model',
-    name: 'upgrade-status-model',
-    component: () => import('@/views/upgrade/StatusModelView.vue')
-  },
-  {
-    path: '/upgrade/data-model',
-    name: 'upgrade-data-model',
-    component: () => import('@/views/upgrade/DataModelView.vue')
-  },
-  {
-    path: '/upgrade/governance',
-    name: 'upgrade-governance',
-    component: () => import('@/views/upgrade/GovernanceView.vue')
-  },
-  {
-    path: '/upgrade/paths',
-    name: 'upgrade-paths',
-    component: () => import('@/views/upgrade/PathsView.vue')
-  },
-  {
-    path: '/upgrade/checklist',
-    name: 'upgrade-checklist',
-    component: () => import('@/views/upgrade/ChecklistView.vue')
-  },
-  {
-    path: '/upgrade/faq',
-    name: 'upgrade-faq',
-    component: () => import('@/views/upgrade/FaqView.vue')
+    component: () => import('@/views/UpgradeView.vue'),
+    children: [
+      {
+        path: '',
+        name: 'upgrade',
+        component: () => import('@/views/upgrade/IndexView.vue')
+      },
+      {
+        path: 'paradigm-shifts',
+        name: 'upgrade-paradigm-shifts',
+        component: () => import('@/views/upgrade/ParadigmShiftsView.vue')
+      },
+      {
+        path: 'terminology',
+        name: 'upgrade-terminology',
+        component: () => import('@/views/upgrade/TerminologyView.vue')
+      },
+      {
+        path: 'conformance',
+        name: 'upgrade-conformance',
+        component: () => import('@/views/upgrade/ConformanceView.vue')
+      },
+      {
+        path: 'status-model',
+        name: 'upgrade-status-model',
+        component: () => import('@/views/upgrade/StatusModelView.vue')
+      },
+      {
+        path: 'data-model',
+        name: 'upgrade-data-model',
+        component: () => import('@/views/upgrade/DataModelView.vue')
+      },
+      {
+        path: 'governance',
+        name: 'upgrade-governance',
+        component: () => import('@/views/upgrade/GovernanceView.vue')
+      },
+      {
+        path: 'paths',
+        name: 'upgrade-paths',
+        component: () => import('@/views/upgrade/PathsView.vue')
+      },
+      {
+        path: 'checklist',
+        name: 'upgrade-checklist',
+        component: () => import('@/views/upgrade/ChecklistView.vue')
+      },
+      {
+        path: 'faq',
+        name: 'upgrade-faq',
+        component: () => import('@/views/upgrade/FaqView.vue')
+      }
+    ]
   },
   // Reference section (includes former Conform/Samples)
   {

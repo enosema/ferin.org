@@ -78,9 +78,9 @@ const handleClick = () => {
   cursor: default;
 }
 
-[data-theme="dark"] .feature-card {
-  background: #292524;
-  border-color: #44403c;
+html[data-theme="dark"] .feature-card {
+  background: #0f172a;
+  border-color: #1e293b;
 }
 
 .feature-card:hover {
@@ -89,9 +89,9 @@ const handleClick = () => {
   border-color: var(--color-accent);
 }
 
-[data-theme="dark"] .feature-card:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  background: #3c352f;
+html[data-theme="dark"] .feature-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--color-accent);
+  background: #1e293b;
 }
 
 .feature-icon {
@@ -134,8 +134,8 @@ const handleClick = () => {
   line-height: 1.6;
 }
 
-[data-theme="dark"] .feature-description {
-  color: #a8a29e;
+html[data-theme="dark"] .feature-description {
+  color: #94a3b8;
 }
 
 .feature-action {

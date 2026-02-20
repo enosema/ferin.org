@@ -723,6 +723,8 @@ components:
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .auth-pattern h4 {
@@ -739,6 +741,9 @@ components:
   padding: var(--spacing-sm);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-sm);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
 }
 
 .auth-pattern code {

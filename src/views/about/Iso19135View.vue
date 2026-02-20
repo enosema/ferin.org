@@ -11,8 +11,8 @@
     <section class="content-section">
       <h2>About ISO 19135:2026</h2>
       <p>
-        ISO 19135:2026 is the third edition of the international standard for
-        item registration. It defines the FERIN framework as:
+        ISO 19135:2026 is the third edition of the International Standard for
+        Information Registration. It defines the FERIN framework as:
       </p>
       <blockquote>
         A framework for managing information in registers that serves both
@@ -213,7 +213,7 @@
       </p>
       <p>
         FERIN stands for <strong>F</strong>ramework for <strong>E</strong>xtensible
-        <strong>R</strong>egistration of <strong>I</strong>nformation. The name and
+        <strong>R</strong>egistration of <strong>IN</strong>formation. The name and
         framework are made available for broad adoption through the Enosema Foundation.
       </p>
     </section>
