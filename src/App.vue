@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <!-- Print-only header elements -->
-    <div class="print-header-left">FERIN</div>
+    <div class="print-header-left">FERIN: Standard for Information Registration</div>
     <div class="print-header-right">{{ pageTitle }}</div>
     <div class="print-footer-left">ferin.org</div>
     <div class="print-footer-right"></div>
