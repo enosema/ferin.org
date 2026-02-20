@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite-ssg build",
+    "build": "vite-ssg build && cp dist/index.html dist/404.html",
     "preview": "vite preview",
     "ssg": "vite-ssg build",
     "deploy": "npm run build && gh-pages -d dist",
