@@ -495,76 +495,51 @@ pre code {
    ========================================================================== */
 
 @media print {
-  /* Page Setup - A4 with minimal margins */
+  /* Page Setup - A4 with space for fixed header/footer */
   @page {
     size: A4;
-    margin: 12mm 15mm 18mm 15mm; /* Top, Right, Bottom, Left */
-
-    @top-left {
-      content: element(print-header-left);
-    }
-
-    @top-right {
-      content: element(print-header-right);
-    }
-
-    @bottom-left {
-      content: element(print-footer-left);
-    }
-
-    @bottom-right {
-      content: element(print-footer-right);
-    }
+    margin: 0;
   }
 
-  /* First page - smaller top margin */
-  @page :first {
-    margin-top: 10mm;
-    @top-left { content: none; }
-    @top-right { content: none; }
+  body {
+    padding: 15mm 15mm 20mm 15mm;
   }
 
-  /* Page counters */
-  .print-footer-right::after {
-    content: counter(page);
-  }
-
-  .print-footer-left::after {
-    content: "Page " counter(page) " of " counter(pages);
-  }
-
-  /* Print header elements - positioned to margin boxes */
+  /* Print header - fixed at top of every page */
   .print-header-left,
   .print-header-right,
   .print-footer-left,
   .print-footer-right {
-    position: running(print-header-left); /* All use same technique */
+    display: block !important;
+    position: fixed;
     font-size: 9pt;
-    color: #666 !important;
-    height: 0;
-    overflow: hidden;
+    color: #333 !important;
+    left: 15mm;
+    right: 15mm;
   }
 
   .print-header-left {
-    position: running(print-header-left);
+    top: 5mm;
     font-weight: 600;
-    color: #333 !important;
   }
 
   .print-header-right {
-    position: running(print-header-right);
-    font-weight: 500;
-    color: #333 !important;
+    top: 5mm;
     text-align: right;
+    font-weight: 500;
   }
 
   .print-footer-left {
-    position: running(print-footer-left);
+    bottom: 5mm;
+    font-size: 8pt;
+    color: #666 !important;
   }
 
   .print-footer-right {
-    position: running(print-footer-right);
+    bottom: 5mm;
     text-align: right;
+    font-size: 8pt;
+    color: #666 !important;
   }
 
   /* Reset all backgrounds and colors */
