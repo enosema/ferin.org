@@ -326,6 +326,20 @@ export const routes = [
     name: 'news-detail',
     component: () => import('@/views/NewsDetailView.vue')
   },
+  // Builder section (Register Specification Builder)
+  // Note: These routes are excluded from SSG (see vite.config.js)
+  {
+    path: '/builder',
+    name: 'builder',
+    component: () => import('@/views/builder/BuilderIndexView.vue'),
+    meta: { noSSG: true }
+  },
+  {
+    path: '/builder/new',
+    name: 'builder-new',
+    component: () => import('@/views/builder/BuilderView.vue'),
+    meta: { noSSG: true }
+  },
   // Legacy redirects for old URLs
   {
     path: '/understand',

@@ -8,6 +8,7 @@ import { ViteSSG } from 'vite-ssg'
 import App from './App.vue'
 import { routes } from './router'
 import './styles/main.css'
+import './styles/builder.css'
 
 // Import composables for SSG preload
 import { preloadContent } from './composables/useContent.js'

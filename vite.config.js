@@ -36,6 +36,11 @@ export default defineConfig({
             continue
           }
 
+          // Skip routes marked as noSSG (e.g., builder app)
+          if (route.meta?.noSSG) {
+            continue
+          }
+
           const fullPath = route.path.startsWith('/')
             ? route.path
             : parentPath

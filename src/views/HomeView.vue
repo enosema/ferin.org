@@ -8,6 +8,12 @@
         according to the International Standard for Information Registration
       </p>
       <div class="hero-actions">
+        <GradientButton to="/builder" variant="primary" size="lg" class="builder-cta">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+          Build Your Specification
+        </GradientButton>
         <GradientButton to="/learn/core-concepts" size="lg">
           Start Learning
         </GradientButton>
@@ -61,6 +67,82 @@
               19135:2026, the International Standard for Information
               Registration.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Builder Tool Highlight Section -->
+    <section class="section builder-section animate-on-scroll">
+      <div class="container">
+        <div class="builder-highlight">
+          <div class="builder-info">
+            <span class="builder-badge">NEW TOOL</span>
+            <h2>Register Specification Builder</h2>
+            <p class="builder-description">
+              Create ISO 19135 compliant register specifications with our interactive builder.
+              Design your register's governance, content requirements, and conventions step by step —
+              then export to Metanorma AsciiDoc or Markdown format.
+            </p>
+            <ul class="builder-features">
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Step-by-step guided workflow
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                All 11 ISO 19135 specification sections
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Save & resume your work anytime
+              </li>
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Export to Metanorma-ready formats
+              </li>
+            </ul>
+            <router-link to="/builder" class="builder-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+              </svg>
+              Launch the Builder
+            </router-link>
+          </div>
+          <div class="builder-preview">
+            <div class="preview-card">
+              <div class="preview-header">
+                <span class="preview-dot"></span>
+                <span class="preview-dot"></span>
+                <span class="preview-dot"></span>
+              </div>
+              <div class="preview-content">
+                <div class="preview-nav">
+                  <div class="nav-item active"></div>
+                  <div class="nav-item"></div>
+                  <div class="nav-item"></div>
+                  <div class="nav-item"></div>
+                </div>
+                <div class="preview-form">
+                  <div class="form-line long"></div>
+                  <div class="form-line"></div>
+                  <div class="form-line medium"></div>
+                  <div class="form-line long"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -471,6 +553,238 @@ html[data-theme="dark"] .letter {
     width: 44px;
     height: 44px;
     font-size: var(--font-size-xl);
+  }
+}
+
+/* Builder Highlight Section */
+.builder-section {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+html[data-theme="dark"] .builder-section {
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.05) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border-top-color: #1e293b;
+  border-bottom-color: #1e293b;
+}
+
+.builder-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2xl);
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.builder-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.builder-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-accent), #3b82f6);
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-md);
+}
+
+.builder-info h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.builder-description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-light);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
+}
+
+.builder-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-xl);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+}
+
+.builder-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.builder-features svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.builder-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #0891b2 100%);
+  color: white;
+  text-decoration: none;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 20px rgba(34, 211, 238, 0.3);
+}
+
+.builder-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(34, 211, 238, 0.4);
+}
+
+.builder-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Builder Preview Card */
+.builder-preview {
+  flex: 0 0 380px;
+  min-width: 300px;
+}
+
+.preview-card {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+html[data-theme="dark"] .preview-card {
+  background: #0f172a;
+  border-color: #1e293b;
+}
+
+.preview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--color-glass);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.preview-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+}
+
+.preview-dot:nth-child(1) { background: #ef4444; }
+.preview-dot:nth-child(2) { background: #f59e0b; }
+.preview-dot:nth-child(3) { background: #22c55e; }
+
+.preview-content {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  min-height: 200px;
+}
+
+.preview-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.nav-item {
+  height: 32px;
+  background: var(--color-glass);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.nav-item.active {
+  background: rgba(34, 211, 238, 0.2);
+  border-left: 3px solid var(--color-accent);
+}
+
+.preview-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+}
+
+.form-line {
+  height: 16px;
+  background: var(--color-glass);
+  border-radius: var(--radius-sm);
+  width: 60%;
+}
+
+.form-line.long { width: 100%; }
+.form-line.medium { width: 80%; }
+
+@media (max-width: 900px) {
+  .builder-highlight {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .builder-info {
+    flex: none;
+    width: 100%;
+  }
+
+  .builder-features {
+    justify-content: center;
+  }
+
+  .builder-features li {
+    justify-content: center;
+  }
+
+  .builder-preview {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .builder-features {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .builder-features li {
+    justify-content: flex-start;
+  }
+
+  .builder-section {
+    padding: var(--spacing-2xl) var(--spacing-md);
   }
 }
 

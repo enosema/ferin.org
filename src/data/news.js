@@ -3,6 +3,138 @@
 
 export const newsItems = [
   {
+    id: 'register-specification-builder-released',
+    date: '2026-02-20',
+    tag: 'Tool',
+    title: 'Introducing the Register Specification Builder: Create ISO 19135 Compliant Specifications with Ease',
+    summary: 'We are excited to announce the release of the Register Specification Builder—an interactive, browser-based tool that guides you through creating complete ISO 19135 compliant register specifications.',
+    featured: true,
+    content: `
+      <p>We are excited to announce the release of the <a href="/builder">Register Specification Builder</a>—an
+      interactive, browser-based tool that guides you through creating complete ISO 19135 compliant
+      register specifications. This tool represents a significant step forward in making the FERIN
+      framework more accessible to organizations of all sizes.</p>
+
+      <h3>The Challenge We Address</h3>
+      <p>
+        Creating a register specification that complies with ISO 19135:2026 can be daunting. The standard
+        defines numerous requirements across multiple sections—scope, conventions, roles, governance
+        processes, content requirements, and more. Organizations often struggle with:
+      </p>
+      <ul>
+        <li><strong>Understanding what to document:</strong> The standard specifies what must be included, but not always how to structure it</li>
+        <li><strong>Ensuring completeness:</strong> Missing sections can lead to non-conformance</li>
+        <li><strong>Getting started:</strong> A blank document provides no guidance on best practices</li>
+        <li><strong>Maintaining consistency:</strong> Keeping terminology and structure consistent throughout the document</li>
+      </ul>
+
+      <h3>Introducing the Builder</h3>
+      <p>
+        The Register Specification Builder addresses these challenges with a guided, step-by-step
+        approach that ensures you cover all required elements while providing helpful defaults and
+        examples along the way.
+      </p>
+
+      <h3>Key Features</h3>
+
+      <h4>Guided Workflow</h4>
+      <p>
+        The builder organizes your specification into 11 logical sections, each with clear guidance
+        on what information is needed. A visual progress indicator shows your completion status,
+        helping you track what's done and what remains.
+      </p>
+
+      <h4>Complete ISO 19135 Coverage</h4>
+      <p>The builder captures all required specification elements:</p>
+      <ul>
+        <li><strong>Document Metadata:</strong> Title, identifier, version, and status</li>
+        <li><strong>Scope:</strong> Purpose, content boundaries, and target users</li>
+        <li><strong>Normative References:</strong> Required standards and documents</li>
+        <li><strong>Terms and Definitions:</strong> Custom terminology for your register</li>
+        <li><strong>Conventions:</strong> Identifier schemes and versioning approaches</li>
+        <li><strong>Audience and Accessibility:</strong> Who uses your register and how</li>
+        <li><strong>Roles and Responsibilities:</strong> The six ISO 19135 roles configured for your context</li>
+        <li><strong>Governance Processes:</strong> Proposal, approval, appeal, and content management workflows</li>
+        <li><strong>Content Requirements:</strong> Concepts, statuses, relations, and actions</li>
+        <li><strong>Other Information:</strong> Contact details and access locations</li>
+        <li><strong>Bibliography:</strong> Informative references for additional context</li>
+      </ul>
+
+      <h4>Save and Resume</h4>
+      <p>
+        Work at your own pace. The builder saves your specification as a JSON file that you can
+        load and continue editing at any time. No server required—everything stays in your browser,
+        ensuring your data remains private and under your control.
+      </p>
+
+      <h4>Export to Standard Formats</h4>
+      <p>
+        When you're ready to publish or share your specification, export it to:
+      </p>
+      <ul>
+        <li><strong>Metanorma AsciiDoc:</strong> Ready for processing into published documents</li>
+        <li><strong>Markdown:</strong> Universal format for documentation systems</li>
+        <li><strong>JSON:</strong> Machine-readable format for integration with other tools</li>
+      </ul>
+
+      <h4>Built-in Guidance</h4>
+      <p>
+        Each section includes helpful hints and example content to guide your decisions. The builder
+        understands the ISO 19135 requirements and helps you create specifications that will pass
+        conformance review.
+      </p>
+
+      <h3>Privacy and Security</h3>
+      <p>
+        The Register Specification Builder runs entirely in your browser. Your specification data
+        never leaves your computer unless you explicitly download or export it. This approach ensures:
+      </p>
+      <ul>
+        <li>No server to hack—your data stays with you</li>
+        <li>No accounts or authentication required</li>
+        <li>Works offline once loaded</li>
+        <li>Full control over your sensitive register planning information</li>
+      </ul>
+
+      <h3>Who Should Use the Builder</h3>
+      <p>The builder is designed for anyone creating or maintaining a register specification:</p>
+      <ul>
+        <li><strong>Register owners</strong> documenting their governance approach</li>
+        <li><strong>Standards bodies</strong> creating reference register specifications</li>
+        <li><strong>Government agencies</strong> establishing authoritative data registries</li>
+        <li><strong>Organizations</strong> formalizing existing code lists and reference data</li>
+        <li><strong>Consultants</strong> helping clients implement FERIN-compliant registers</li>
+      </ul>
+
+      <h3>Getting Started</h3>
+      <p>
+        The builder is available now at <a href="/builder">ferin.org/builder</a>. No registration
+        required—simply open the tool and start creating your specification. Begin with the sample
+        specification based on the RUM (Register of Units of Measure) example from the ISO standard,
+        or start fresh with sensible defaults.
+      </p>
+
+      <h3>Future Development</h3>
+      <p>
+        This initial release focuses on the core specification creation workflow. We're actively
+        developing additional capabilities based on community feedback, including:
+      </p>
+      <ul>
+        <li>Conformance checking against ISO 19135 requirements</li>
+        <li>More export formats and templates</li>
+        <li>Collaboration features for team review</li>
+        <li>Integration with register management systems</li>
+      </ul>
+
+      <h3>Try It Today</h3>
+      <p>
+        Visit the <a href="/builder">Register Specification Builder</a> and start creating your
+        ISO 19135 compliant specification. We welcome your feedback to help us improve this tool
+        for the FERIN community.
+      </p>
+    `
+  },
+  {
     id: 'migration-guide-published',
     date: '2026-02-18',
     tag: 'Guide',
